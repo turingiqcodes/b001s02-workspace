@@ -1,0 +1,11 @@
+def mul(n):
+    for i in range(1,50,1):
+        print(n)
+        if n%3==0:
+            print("Fizz")
+        if n%5==0:
+            print("Buzz")
+        if n%3==0 and n%5==0:
+            print("FizzBuzz")
+
+mul(50)
