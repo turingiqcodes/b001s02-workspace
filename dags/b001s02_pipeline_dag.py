@@ -22,9 +22,11 @@ from airflow.providers.standard.operators.python import PythonOperator
 from airflow.sdk import DAG, BaseHook
 
 CONN_ID = "pubs_b001s02"
-CSV_PATH = "/home/training/pipeline-data/raw/new_authors.csv"
-PUBLIC_SQL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                               "sql", "insert_into_public.sql")
+DAG_DIR = os.path.dirname(os.path.abspath(__file__))
+# Shipped alongside the DAG: the host's /home/training/pipeline-data is not
+# mounted into the Airflow container, but the dags folder is.
+CSV_PATH = os.path.join(DAG_DIR, "data", "new_authors.csv")
+PUBLIC_SQL_PATH = os.path.join(DAG_DIR, "sql", "insert_into_public.sql")
 COLUMNS = ["au_id", "au_lname", "au_fname", "phone", "address",
            "city", "state", "zip", "contract"]
 
