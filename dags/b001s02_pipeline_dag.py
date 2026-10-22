@@ -5,8 +5,10 @@ start -> insert_into_stage -> insert_into_public -> end
 
 1. insert_into_stage:  s3://.../raw/new_authors.csv -> stage.authors
                        (upsert on au_id)
-2. insert_into_public: stage.authors    -> public.authors (new au_ids only),
-                       by running sql/insert_into_public.sql
+2. insert_into_public: stage.authors    -> public.authors (new au_ids only)
+
+Everything lives in this one file because submit_dag.sh deploys a single
+file to Airflow; a separate sql/ file would not reach the server.
 
 DB credentials come from the Airflow Connection "pubs_b001s02"
 (Admin -> Connections in the Airflow UI), never from this file.
@@ -17,7 +19,6 @@ Both tasks are idempotent, so the DAG can be re-run safely.
 import csv
 import io
 import logging
-import os
 from datetime import datetime
 
 import psycopg2
@@ -31,8 +32,13 @@ AWS_CONN_ID = "aws_default"
 S3_BUCKET = "turingiq-training-pipeline-data-b001s02"
 S3_KEY = "raw/new_authors.csv"
 CSV_PATH = f"s3://{S3_BUCKET}/{S3_KEY}"  # used in log messages
-DAG_DIR = os.path.dirname(os.path.abspath(__file__))
-PUBLIC_SQL_PATH = os.path.join(DAG_DIR, "sql", "insert_into_public.sql")
+# Only au_ids not already in public are inserted, so re-runs are safe.
+PUBLIC_SQL = """
+INSERT INTO public.authors (au_id, au_lname, au_fname, phone, address, city, state, zip, contract)
+SELECT au_id, au_lname, au_fname, phone, address, city, state, zip, contract
+FROM stage.authors
+ON CONFLICT (au_id) DO NOTHING
+"""
 COLUMNS = ["au_id", "au_lname", "au_fname", "phone", "address",
            "city", "state", "zip", "contract"]
 
@@ -67,11 +73,9 @@ def stage_authors(conn, rows):
     return len(rows)
 
 
-def publish_authors(conn, sql_path=PUBLIC_SQL_PATH):
-    with open(sql_path) as f:
-        sql = f.read()
+def publish_authors(conn):
     with conn.cursor() as cur:
-        cur.execute(sql)
+        cur.execute(PUBLIC_SQL)
         return cur.rowcount
 
 
@@ -88,7 +92,7 @@ def insert_into_stage():
 
 
 def insert_into_public():
-    log.info("insert_into_public: running %s", PUBLIC_SQL_PATH)
+    log.info("insert_into_public: stage.authors -> public.authors")
     with get_db_connection() as conn:
         log.info("Connected via Airflow connection '%s'", CONN_ID)
         n = publish_authors(conn)
