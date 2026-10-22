@@ -4,13 +4,16 @@ Week 6/7 pipeline lab - load new authors into pubs_b001s02.
 start -> insert_into_stage -> insert_into_public -> end
 
 1. insert_into_stage:  new_authors.csv  -> stage.authors  (upsert on au_id)
-2. insert_into_public: stage.authors    -> public.authors (new au_ids only)
+2. insert_into_public: stage.authors    -> public.authors (new au_ids only),
+                       by running sql/insert_into_public.sql
 
 DB credentials come from the Airflow Connection "pubs_b001s02"
 (Admin -> Connections in the Airflow UI), never from this file.
 Both tasks are idempotent, so the DAG can be re-run safely.
 """
 import csv
+import logging
+import os
 from datetime import datetime
 
 import psycopg2
@@ -20,8 +23,12 @@ from airflow.sdk import DAG, BaseHook
 
 CONN_ID = "pubs_b001s02"
 CSV_PATH = "/home/training/pipeline-data/raw/new_authors.csv"
+PUBLIC_SQL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                               "sql", "insert_into_public.sql")
 COLUMNS = ["au_id", "au_lname", "au_fname", "phone", "address",
            "city", "state", "zip", "contract"]
+
+log = logging.getLogger(__name__)  # Airflow writes this to each task's log
 
 
 def get_db_connection():
@@ -52,28 +59,34 @@ def stage_authors(conn, rows):
     return len(rows)
 
 
-def publish_authors(conn):
-    cols = ", ".join(COLUMNS)
+def publish_authors(conn, sql_path=PUBLIC_SQL_PATH):
+    with open(sql_path) as f:
+        sql = f.read()
     with conn.cursor() as cur:
-        cur.execute(
-            f"INSERT INTO public.authors ({cols}) "
-            f"SELECT {cols} FROM stage.authors "
-            f"ON CONFLICT (au_id) DO NOTHING"
-        )
+        cur.execute(sql)
         return cur.rowcount
 
 
 def insert_into_stage():
+    log.info("insert_into_stage: reading %s", CSV_PATH)
     rows = read_authors_csv()
+    log.info("Read %d rows from CSV", len(rows))
+    if not rows:
+        log.warning("CSV has no data rows; nothing to stage")
     with get_db_connection() as conn:  # commits on success, rolls back on error
+        log.info("Connected via Airflow connection '%s'", CONN_ID)
         n = stage_authors(conn, rows)
-    print(f"Upserted {n} rows from {CSV_PATH} into stage.authors")
+    log.info("Upserted %d rows from %s into stage.authors", n, CSV_PATH)
 
 
 def insert_into_public():
+    log.info("insert_into_public: running %s", PUBLIC_SQL_PATH)
     with get_db_connection() as conn:
+        log.info("Connected via Airflow connection '%s'", CONN_ID)
         n = publish_authors(conn)
-    print(f"Inserted {n} new rows from stage.authors into public.authors")
+    log.info("Inserted %d new rows into public.authors", n)
+    if n == 0:
+        log.info("No new au_ids in stage.authors (already published)")
 
 
 with DAG(
