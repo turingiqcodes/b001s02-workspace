@@ -3,29 +3,35 @@ Week 6/7 pipeline lab - load new authors into pubs_b001s02.
 
 start -> insert_into_stage -> insert_into_public -> end
 
-1. insert_into_stage:  new_authors.csv  -> stage.authors  (upsert on au_id)
+1. insert_into_stage:  s3://.../raw/new_authors.csv -> stage.authors
+                       (upsert on au_id)
 2. insert_into_public: stage.authors    -> public.authors (new au_ids only),
                        by running sql/insert_into_public.sql
 
 DB credentials come from the Airflow Connection "pubs_b001s02"
 (Admin -> Connections in the Airflow UI), never from this file.
+S3 access uses the "aws_default" connection; if it is not defined, boto3
+falls back to the instance role / environment credentials.
 Both tasks are idempotent, so the DAG can be re-run safely.
 """
 import csv
+import io
 import logging
 import os
 from datetime import datetime
 
 import psycopg2
+from airflow.providers.amazon.aws.hooks.s3 import S3Hook
 from airflow.providers.standard.operators.empty import EmptyOperator
 from airflow.providers.standard.operators.python import PythonOperator
 from airflow.sdk import DAG, BaseHook
 
 CONN_ID = "pubs_b001s02"
+AWS_CONN_ID = "aws_default"
+S3_BUCKET = "turingiq-training-pipeline-data-b001s02"
+S3_KEY = "raw/new_authors.csv"
+CSV_PATH = f"s3://{S3_BUCKET}/{S3_KEY}"  # used in log messages
 DAG_DIR = os.path.dirname(os.path.abspath(__file__))
-# Shipped alongside the DAG: the host's /home/training/pipeline-data is not
-# mounted into the Airflow container, but the dags folder is.
-CSV_PATH = os.path.join(DAG_DIR, "data", "new_authors.csv")
 PUBLIC_SQL_PATH = os.path.join(DAG_DIR, "sql", "insert_into_public.sql")
 COLUMNS = ["au_id", "au_lname", "au_fname", "phone", "address",
            "city", "state", "zip", "contract"]
@@ -39,13 +45,13 @@ def get_db_connection():
                             user=c.login, password=c.password)
 
 
-def read_authors_csv(path=CSV_PATH):
-    with open(path, newline="") as f:
-        reader = csv.DictReader(f)
-        missing = set(COLUMNS) - set(reader.fieldnames or [])
-        if missing:
-            raise ValueError(f"{path} is missing columns: {sorted(missing)}")
-        return [tuple(row[col] for col in COLUMNS) for row in reader]
+def read_authors_csv(bucket=S3_BUCKET, key=S3_KEY):
+    body = S3Hook(aws_conn_id=AWS_CONN_ID).read_key(key=key, bucket_name=bucket)
+    reader = csv.DictReader(io.StringIO(body, newline=""))
+    missing = set(COLUMNS) - set(reader.fieldnames or [])
+    if missing:
+        raise ValueError(f"s3://{bucket}/{key} is missing columns: {sorted(missing)}")
+    return [tuple(row[col] for col in COLUMNS) for row in reader]
 
 
 def stage_authors(conn, rows):
