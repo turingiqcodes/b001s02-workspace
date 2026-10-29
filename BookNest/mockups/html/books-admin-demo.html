@@ -1,0 +1,2016 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BookNest Admin Demo</title>
+<style>
+  :root { --bg: #e9e3da; --bar: #2f241d; --bar-ink: #f6efe4; --muted: #c9b8a6; --accent: #d4843f; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); font-family: "Segoe UI", Helvetica, Arial, sans-serif; }
+  header {
+    position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px;
+    padding: 10px 16px; background: var(--bar); color: var(--bar-ink); font-size: 14px;
+  }
+  header strong { font-size: 15px; }
+  header .role { color: var(--muted); }
+  header .spacer { flex: 1; }
+  select, button { font: inherit; border-radius: 6px; border: 1px solid #5b4a3e; background: #3f3128; color: var(--bar-ink); padding: 5px 10px; }
+  button { cursor: pointer; }
+  button:disabled { opacity: 0.4; cursor: default; }
+  label { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); cursor: pointer; }
+  label input { accent-color: var(--accent); }
+  main { max-width: 1440px; margin: 16px auto; padding: 0 16px; }
+  .screen svg { display: block; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgb(0 0 0 / 0.15); background: #f6efe4; }
+  .screen a { cursor: pointer; }
+  .show-links .screen a { outline: none; }
+  .hotspot { fill: rgb(212 132 63 / 0.16); stroke: #d4843f; stroke-width: 2; stroke-dasharray: 6 4; pointer-events: none; }
+  .hint { max-width: 1440px; margin: 0 auto 24px; padding: 0 16px; color: #6b5f57; font-size: 13px; }
+</style>
+</head>
+<body>
+<header>
+  <strong>BookNest</strong><span class="role">Admin view · static demo, no database</span>
+  <span class="spacer"></span>
+  <label for="hotspots"><input type="checkbox" id="hotspots" checked> Show clickable areas</label>
+  <button id="prev" type="button" aria-label="Previous screen">←</button>
+  <select id="jump" aria-label="Go to screen">
+      <option value="login">Admin login</option>
+      <option value="home">Home</option>
+      <option value="books">Books</option>
+      <option value="authors">Authors</option>
+      <option value="add-author">Authors › Add author</option>
+      <option value="author-detail">Authors › Johnson White</option>
+      <option value="sales">Sales</option>
+      <option value="stores">Stores</option>
+      <option value="discounts">Discounts</option>
+      <option value="employees">Employees</option>
+      <option value="publishers">Publishers</option>
+      <option value="account">My Account</option>
+  </select>
+  <button id="next" type="button" aria-label="Next screen">→</button>
+</header>
+<main>
+<section class="screen" id="login" data-label="Admin login" hidden>
+<svg role="img" aria-label="Admin login screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Admin Login</title>
+  <defs>
+    <linearGradient id="login-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6efe4"/>
+      <stop offset="1" stop-color="#ead9c0"/>
+    </linearGradient>
+    <linearGradient id="login-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="login-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+    <filter id="login-shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#3b2418" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1200" height="760" fill="url(#login-bg)"/>
+  <circle cx="1120" cy="80" r="140" fill="#e2c9a6" opacity="0.5"/>
+  <circle cx="80" cy="700" r="110" fill="#e2c9a6" opacity="0.5"/>
+
+  <!-- Card -->
+  <g filter="url(#login-shadow)">
+    <rect x="120" y="90" width="960" height="580" rx="24" fill="#ffffff"/>
+  </g>
+
+  <!-- Left illustration panel -->
+  <clipPath id="login-leftClip">
+    <rect x="120" y="90" width="440" height="580" rx="24"/>
+  </clipPath>
+  <g clip-path="url(#login-leftClip)">
+    <rect x="120" y="90" width="460" height="580" fill="url(#login-panel)"/>
+
+    <!-- Bookshelf -->
+    <g transform="translate(180,300)">
+      <rect x="0" y="150" width="320" height="14" rx="3" fill="#a87447"/>
+      <rect x="10"  y="40"  width="34" height="110" rx="3" fill="#d4843f"/>
+      <rect x="10"  y="60"  width="34" height="6" fill="#f6efe4" opacity="0.7"/>
+      <rect x="48"  y="20"  width="28" height="130" rx="3" fill="#7fa58b"/>
+      <rect x="48"  y="40"  width="28" height="5" fill="#f6efe4" opacity="0.7"/>
+      <rect x="80"  y="55"  width="40" height="95" rx="3" fill="#e9c46a"/>
+      <rect x="80"  y="75"  width="40" height="6" fill="#5b3a29" opacity="0.4"/>
+      <rect x="124" y="30"  width="26" height="120" rx="3" fill="#c0504d"/>
+      <rect x="154" y="45"  width="32" height="105" rx="3" fill="#4f7ca8"/>
+      <rect x="154" y="65"  width="32" height="5" fill="#f6efe4" opacity="0.7"/>
+      <g transform="rotate(14 205 150)">
+        <rect x="192" y="40" width="30" height="110" rx="3" fill="#f2e3c9"/>
+      </g>
+      <rect x="240" y="60"  width="36" height="90" rx="3" fill="#9b6fb0"/>
+      <rect x="280" y="35"  width="30" height="115" rx="3" fill="#d4843f"/>
+      <rect x="280" y="55"  width="30" height="5" fill="#f6efe4" opacity="0.7"/>
+    </g>
+
+    <!-- Open book logo -->
+    <g transform="translate(340,190)" fill="none" stroke="#f6efe4" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+      <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+      <line x1="0" y1="10" x2="0" y2="60"/>
+    </g>
+
+    <text x="340" y="290" fill="#f6efe4" font-size="30" font-weight="700" text-anchor="middle">BookNest</text>
+    <text x="340" y="520" fill="#f6efe4" font-size="18" text-anchor="middle" opacity="0.9">“A reader lives a thousand lives</text>
+    <text x="340" y="546" fill="#f6efe4" font-size="18" text-anchor="middle" opacity="0.9">before he dies.”</text>
+    <text x="340" y="578" fill="#e2c9a6" font-size="14" text-anchor="middle">— George R.R. Martin</text>
+  </g>
+
+  <!-- Right form -->
+  <g transform="translate(640,170)">
+    <!-- Which login this is -->
+    <rect x="0" y="-46" width="128" height="24" rx="12" fill="#5b3a29"/>
+    <text x="64" y="-29" fill="#ffffff" font-size="11" font-weight="700" letter-spacing="1" text-anchor="middle">ADMIN SIGN IN</text>
+    <text x="0" y="20" fill="#3b2418" font-size="32" font-weight="700">Welcome back</text>
+    <text x="0" y="52" fill="#8a7466" font-size="16">Sign in to manage BookNest</text>
+
+    <!-- Username -->
+    <text x="0" y="104" fill="#5b3a29" font-size="14" font-weight="600">Username</text>
+    <rect x="0" y="116" width="380" height="50" rx="10" fill="#faf6f0" stroke="#e0d2c0" stroke-width="1.5"/>
+    <g transform="translate(16,133)" fill="none" stroke="#a88d78" stroke-width="2">
+      <circle cx="11" cy="4" r="5"/>
+      <path d="M1 18 a10 8 0 0 1 20 0"/>
+    </g>
+    <text x="52" y="147" fill="#b3a194" font-size="15">Admin username</text>
+
+    <!-- Password -->
+    <text x="0" y="200" fill="#5b3a29" font-size="14" font-weight="600">Password</text>
+    <rect x="0" y="212" width="380" height="50" rx="10" fill="#ffffff" stroke="#b5652b" stroke-width="2"/>
+    <g transform="translate(18,226)" fill="none" stroke="#a88d78" stroke-width="2">
+      <rect x="0" y="9" width="18" height="14" rx="3"/>
+      <path d="M4 9 V5 a5 5 0 0 1 10 0 V9"/>
+    </g>
+    <text x="52" y="244" fill="#3b2418" font-size="20" letter-spacing="3">••••••••</text>
+    <g transform="translate(342,229)" fill="none" stroke="#a88d78" stroke-width="2">
+      <path d="M0 8 C5 0 17 0 22 8 C17 16 5 16 0 8 Z"/>
+      <circle cx="11" cy="8" r="3"/>
+    </g>
+
+    <!-- Remember / forgot -->
+    <rect x="0" y="284" width="18" height="18" rx="4" fill="#b5652b"/>
+    <path d="M4 293 L8 297 L14 289" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="28" y="298" fill="#5b3a29" font-size="14">Remember me</text>
+    <text x="380" y="298" fill="#b5652b" font-size="14" font-weight="600" text-anchor="end">Forgot password?</text>
+
+    <!-- Sign in button -->
+    <a href="#home">
+      <rect x="0" y="326" width="380" height="52" rx="10" fill="url(#login-btn)"/>
+      <text x="190" y="358" fill="#ffffff" font-size="17" font-weight="700" text-anchor="middle">Sign in</text>
+    </a>
+
+    <!-- Who this login is for -->
+    <text x="190" y="416" fill="#8a7466" font-size="14" text-anchor="middle">Admin accounts manage books, authors and all data.</text>
+    <a href="../svg/books-login-author.svg"><text x="190" y="448" fill="#b5652b" font-size="14" font-weight="600" text-anchor="middle">Author? Use the author login →</text></a>
+  </g>
+</svg>
+</section>
+<section class="screen" id="home" data-label="Home" hidden>
+<svg role="img" aria-label="Home screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Home (Admin)</title>
+  <defs>
+    <linearGradient id="home-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="home-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#home-panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="#home">
+    <rect x="20" y="150" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="160" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="171" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#ffffff" font-size="15" font-weight="700">Home</text>
+  </a>
+  <a href="#books">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="#authors">
+    <circle cx="48" cy="275" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#e2c9a6" font-size="15" font-weight="500">Authors</text>
+  </a>
+  <a href="#sales">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="#stores">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="#discounts">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="#employees">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="#publishers">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="#account">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="#login"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Good evening, New Moon Books</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">Admin overview · everything below is visible to the admin only</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== Stat tiles ===== -->
+  <rect x="272" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">BOOKS</text>
+  <text x="296" y="192" fill="#3b2418" font-size="26" font-weight="700">18</text>
+  <text x="296" y="212" fill="#8a7466" font-size="12">Titles in the catalog</text>
+  <rect x="562" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="586" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">AUTHORS</text>
+  <text x="586" y="192" fill="#3b2418" font-size="26" font-weight="700">23</text>
+  <text x="586" y="212" fill="#8a7466" font-size="12">6 with BookNest accounts</text>
+  <rect x="852" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="876" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">COPIES SOLD</text>
+  <text x="876" y="192" fill="#3b2418" font-size="26" font-weight="700">493</text>
+  <text x="876" y="212" fill="#8a7466" font-size="12">16 orders · 6 stores</text>
+  <rect x="1142" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="1166" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">REVENUE</text>
+  <text x="1166" y="192" fill="#3b2418" font-size="26" font-weight="700">$6,676.90</text>
+  <text x="1166" y="212" fill="#8a7466" font-size="12">Quantity × list price</text>
+
+  <!-- ===== Copies sold by publisher ===== -->
+  <rect x="272" y="248" width="556" height="296" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="284" fill="#3b2418" font-size="18" font-weight="700">Copies sold by publisher</text>
+  <text x="296" y="327" fill="#3b2418" font-size="13">New Moon Books</text>
+  <path d="M488 316 H724 a4 4 0 0 1 4 4 V326 a4 4 0 0 1 -4 4 H488 Z" fill="#b5652b"><title>New Moon Books: 208 copies · $1,961.85</title></path>
+  <text x="736" y="327" fill="#5b3a29" font-size="12" font-weight="600">208</text>
+  <text x="296" y="367" fill="#3b2418" font-size="13">Binnet &amp; Hardley</text>
+  <path d="M488 356 H657 a4 4 0 0 1 4 4 V366 a4 4 0 0 1 -4 4 H488 Z" fill="#b5652b"><title>Binnet &amp; Hardley: 150 copies · $2,128.10</title></path>
+  <text x="669" y="367" fill="#5b3a29" font-size="12" font-weight="600">150</text>
+  <text x="296" y="407" fill="#3b2418" font-size="13">Algodata Infosystems</text>
+  <path d="M488 396 H640 a4 4 0 0 1 4 4 V406 a4 4 0 0 1 -4 4 H488 Z" fill="#b5652b"><title>Algodata Infosystems: 135 copies · $2,586.95</title></path>
+  <text x="652" y="407" fill="#5b3a29" font-size="12" font-weight="600">135</text>
+  <text x="296" y="452" fill="#a88d78" font-size="12">Other publishers have no sales yet</text>
+
+  <!-- ===== Top titles ===== -->
+  <rect x="852" y="248" width="556" height="296" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="876" y="284" fill="#3b2418" font-size="18" font-weight="700">Top books by copies sold</text>
+  <text x="876" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">BOOK</text>
+  <text x="1180" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">PUBLISHER</text>
+  <text x="1384" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">SOLD</text>
+  <line x1="876" y1="324" x2="1384" y2="324" stroke="#efe6da"/>
+  <text x="876" y="350" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Is Anger the Enemy?</text>
+  <text x="1180" y="350" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1384" y="350" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">108</text>
+  <line x1="876" y1="366" x2="1384" y2="366" stroke="#efe6da"/>
+  <text x="876" y="392" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Secrets of Silicon Valley</text>
+  <text x="1180" y="392" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1384" y="392" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">50</text>
+  <line x1="876" y1="408" x2="1384" y2="408" stroke="#efe6da"/>
+  <text x="876" y="434" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">The Gourmet Microwave</text>
+  <text x="1180" y="434" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="434" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">40</text>
+  <line x1="876" y1="450" x2="1384" y2="450" stroke="#efe6da"/>
+  <text x="876" y="476" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Onions, Leeks, and Garlic</text>
+  <text x="1180" y="476" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="476" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">40</text>
+  <line x1="876" y1="492" x2="1384" y2="492" stroke="#efe6da"/>
+  <text x="876" y="518" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">You Can Combat Computer Stress!</text>
+  <text x="1180" y="518" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1384" y="518" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">35</text>
+
+  <!-- ===== Admin shortcuts ===== -->
+  <rect x="272" y="568" width="1136" height="248" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="604" fill="#3b2418" font-size="18" font-weight="700">Admin tools</text>
+  <text x="296" y="626" fill="#8a7466" font-size="13">Only the admin sees these tabs. Authors only see My Books and My Account.</text>
+  <a href="#books">
+    <rect x="296" y="660" width="144" height="120" rx="12" fill="#fbf7f1" stroke="#e0d2c0"/>
+    <text x="312" y="700" fill="#3b2418" font-size="16" font-weight="700">Books</text>
+    <text x="312" y="722" fill="#8a7466" font-size="12">See and delete</text>
+    <text x="312" y="760" fill="#b5652b" font-size="13" font-weight="700">Open →</text>
+  </a>
+  <a href="#authors">
+    <rect x="452" y="660" width="144" height="120" rx="12" fill="#fbf7f1" stroke="#e0d2c0"/>
+    <text x="468" y="700" fill="#3b2418" font-size="16" font-weight="700">Authors</text>
+    <text x="468" y="722" fill="#8a7466" font-size="12">Create accounts</text>
+    <text x="468" y="760" fill="#b5652b" font-size="13" font-weight="700">Open →</text>
+  </a>
+  <a href="#sales">
+    <rect x="608" y="660" width="144" height="120" rx="12" fill="#fbf7f1" stroke="#e0d2c0"/>
+    <text x="624" y="700" fill="#3b2418" font-size="16" font-weight="700">Sales</text>
+    <text x="624" y="722" fill="#8a7466" font-size="12">21 order lines</text>
+    <text x="624" y="760" fill="#b5652b" font-size="13" font-weight="700">Open →</text>
+  </a>
+  <a href="#stores">
+    <rect x="764" y="660" width="144" height="120" rx="12" fill="#fbf7f1" stroke="#e0d2c0"/>
+    <text x="780" y="700" fill="#3b2418" font-size="16" font-weight="700">Stores</text>
+    <text x="780" y="722" fill="#8a7466" font-size="12">6 stores</text>
+    <text x="780" y="760" fill="#b5652b" font-size="13" font-weight="700">Open →</text>
+  </a>
+  <a href="#discounts">
+    <rect x="920" y="660" width="144" height="120" rx="12" fill="#fbf7f1" stroke="#e0d2c0"/>
+    <text x="936" y="700" fill="#3b2418" font-size="16" font-weight="700">Discounts</text>
+    <text x="936" y="722" fill="#8a7466" font-size="12">3 discount types</text>
+    <text x="936" y="760" fill="#b5652b" font-size="13" font-weight="700">Open →</text>
+  </a>
+  <a href="#employees">
+    <rect x="1076" y="660" width="144" height="120" rx="12" fill="#fbf7f1" stroke="#e0d2c0"/>
+    <text x="1092" y="700" fill="#3b2418" font-size="16" font-weight="700">Employees</text>
+    <text x="1092" y="722" fill="#8a7466" font-size="12">43 employees</text>
+    <text x="1092" y="760" fill="#b5652b" font-size="13" font-weight="700">Open →</text>
+  </a>
+  <a href="#publishers">
+    <rect x="1232" y="660" width="144" height="120" rx="12" fill="#fbf7f1" stroke="#e0d2c0"/>
+    <text x="1248" y="700" fill="#3b2418" font-size="16" font-weight="700">Publishers</text>
+    <text x="1248" y="722" fill="#8a7466" font-size="12">8 publishers</text>
+    <text x="1248" y="760" fill="#b5652b" font-size="13" font-weight="700">Open →</text>
+  </a>
+</svg>
+</section>
+<section class="screen" id="books" data-label="Books" hidden>
+<svg role="img" aria-label="Books screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Books (Admin)</title>
+  <defs>
+    <linearGradient id="books-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="books-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#books-panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="#home">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="#books">
+    <rect x="20" y="202" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="212" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="223" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#ffffff" font-size="15" font-weight="700">Books</text>
+  </a>
+  <a href="#authors">
+    <circle cx="48" cy="275" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#e2c9a6" font-size="15" font-weight="500">Authors</text>
+  </a>
+  <a href="#sales">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="#stores">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="#discounts">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="#employees">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="#publishers">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="#account">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="#login"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Books</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">18 titles · the admin can see and delete any book</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== Books table ===== -->
+  <rect x="272" y="128" width="1136" height="688" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">ID</text>
+  <text x="380" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">TITLE</text>
+  <text x="720" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">TYPE</text>
+  <text x="840" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">PUBLISHER</text>
+  <text x="1100" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">PRICE</text>
+  <text x="1180" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">SOLD</text>
+  <text x="1384" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end"></text>
+  <line x1="296" y1="172" x2="1384" y2="172" stroke="#efe6da"/>
+  <text x="296" y="194" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">BU1032</text>
+  <text x="380" y="194" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">The Busy Executive's Database Guide</text>
+  <text x="720" y="194" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">business</text>
+  <text x="840" y="194" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1100" y="194" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$19.99</text>
+  <text x="1180" y="194" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">15</text>
+  <rect x="1320" y="176" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="193" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="206" x2="1384" y2="206" stroke="#efe6da"/>
+  <text x="296" y="228" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">BU1111</text>
+  <text x="380" y="228" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Cooking with Computers</text>
+  <text x="720" y="228" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">business</text>
+  <text x="840" y="228" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1100" y="228" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$11.95</text>
+  <text x="1180" y="228" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">25</text>
+  <rect x="1320" y="210" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="227" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="240" x2="1384" y2="240" stroke="#efe6da"/>
+  <text x="296" y="262" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">BU2075</text>
+  <text x="380" y="262" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">You Can Combat Computer Stress!</text>
+  <text x="720" y="262" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">business</text>
+  <text x="840" y="262" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1100" y="262" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$2.99</text>
+  <text x="1180" y="262" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">35</text>
+  <rect x="1320" y="244" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="261" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="274" x2="1384" y2="274" stroke="#efe6da"/>
+  <text x="296" y="296" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">BU7832</text>
+  <text x="380" y="296" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Straight Talk About Computers</text>
+  <text x="720" y="296" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">business</text>
+  <text x="840" y="296" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1100" y="296" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$19.99</text>
+  <text x="1180" y="296" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">15</text>
+  <rect x="1320" y="278" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="295" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="308" x2="1384" y2="308" stroke="#efe6da"/>
+  <text x="296" y="330" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">MC2222</text>
+  <text x="380" y="330" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Silicon Valley Gastronomic Treats</text>
+  <text x="720" y="330" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">mod_cook</text>
+  <text x="840" y="330" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1100" y="330" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$19.99</text>
+  <text x="1180" y="330" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">10</text>
+  <rect x="1320" y="312" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="329" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="342" x2="1384" y2="342" stroke="#efe6da"/>
+  <text x="296" y="364" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">MC3021</text>
+  <text x="380" y="364" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">The Gourmet Microwave</text>
+  <text x="720" y="364" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">mod_cook</text>
+  <text x="840" y="364" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1100" y="364" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$2.99</text>
+  <text x="1180" y="364" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">40</text>
+  <rect x="1320" y="346" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="363" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="376" x2="1384" y2="376" stroke="#efe6da"/>
+  <text x="296" y="398" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">MC3026</text>
+  <text x="380" y="398" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">The Psychology of Computer Cooking</text>
+  <text x="720" y="398" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">UNDECIDED</text>
+  <text x="840" y="398" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1100" y="398" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <text x="1180" y="398" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">0</text>
+  <rect x="1320" y="380" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="397" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="410" x2="1384" y2="410" stroke="#efe6da"/>
+  <text x="296" y="432" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PC1035</text>
+  <text x="380" y="432" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">But Is It User Friendly?</text>
+  <text x="720" y="432" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">popular_comp</text>
+  <text x="840" y="432" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1100" y="432" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$22.95</text>
+  <text x="1180" y="432" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">30</text>
+  <rect x="1320" y="414" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="431" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="444" x2="1384" y2="444" stroke="#efe6da"/>
+  <text x="296" y="466" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PC8888</text>
+  <text x="380" y="466" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Secrets of Silicon Valley</text>
+  <text x="720" y="466" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">popular_comp</text>
+  <text x="840" y="466" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1100" y="466" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$20.00</text>
+  <text x="1180" y="466" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">50</text>
+  <rect x="1320" y="448" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="465" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="478" x2="1384" y2="478" stroke="#efe6da"/>
+  <text x="296" y="500" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PC9999</text>
+  <text x="380" y="500" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Net Etiquette</text>
+  <text x="720" y="500" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">popular_comp</text>
+  <text x="840" y="500" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1100" y="500" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <text x="1180" y="500" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">0</text>
+  <rect x="1320" y="482" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="499" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="512" x2="1384" y2="512" stroke="#efe6da"/>
+  <text x="296" y="534" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PS1372</text>
+  <text x="380" y="534" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Computer Phobic and Non-Phobic Individu…</text>
+  <text x="720" y="534" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">psychology</text>
+  <text x="840" y="534" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1100" y="534" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$21.59</text>
+  <text x="1180" y="534" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">20</text>
+  <rect x="1320" y="516" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="533" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="546" x2="1384" y2="546" stroke="#efe6da"/>
+  <text x="296" y="568" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PS2091</text>
+  <text x="380" y="568" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Is Anger the Enemy?</text>
+  <text x="720" y="568" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">psychology</text>
+  <text x="840" y="568" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1100" y="568" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$10.95</text>
+  <text x="1180" y="568" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">108</text>
+  <rect x="1320" y="550" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="567" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="580" x2="1384" y2="580" stroke="#efe6da"/>
+  <text x="296" y="602" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PS2106</text>
+  <text x="380" y="602" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Life Without Fear</text>
+  <text x="720" y="602" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">psychology</text>
+  <text x="840" y="602" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1100" y="602" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$7.00</text>
+  <text x="1180" y="602" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">25</text>
+  <rect x="1320" y="584" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="601" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="614" x2="1384" y2="614" stroke="#efe6da"/>
+  <text x="296" y="636" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PS3333</text>
+  <text x="380" y="636" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Prolonged Data Deprivation</text>
+  <text x="720" y="636" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">psychology</text>
+  <text x="840" y="636" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1100" y="636" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$19.99</text>
+  <text x="1180" y="636" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">15</text>
+  <rect x="1320" y="618" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="635" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="648" x2="1384" y2="648" stroke="#efe6da"/>
+  <text x="296" y="670" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PS7777</text>
+  <text x="380" y="670" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Emotional Security: A New Algorithm</text>
+  <text x="720" y="670" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">psychology</text>
+  <text x="840" y="670" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1100" y="670" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$7.99</text>
+  <text x="1180" y="670" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">25</text>
+  <rect x="1320" y="652" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="669" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="682" x2="1384" y2="682" stroke="#efe6da"/>
+  <text x="296" y="704" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">TC3218</text>
+  <text x="380" y="704" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Onions, Leeks, and Garlic</text>
+  <text x="720" y="704" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">trad_cook</text>
+  <text x="840" y="704" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1100" y="704" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$20.95</text>
+  <text x="1180" y="704" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">40</text>
+  <rect x="1320" y="686" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="703" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="716" x2="1384" y2="716" stroke="#efe6da"/>
+  <text x="296" y="738" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">TC4203</text>
+  <text x="380" y="738" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Fifty Years in Buckingham Palace Kitche…</text>
+  <text x="720" y="738" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">trad_cook</text>
+  <text x="840" y="738" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1100" y="738" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$11.95</text>
+  <text x="1180" y="738" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">20</text>
+  <rect x="1320" y="720" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="737" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="750" x2="1384" y2="750" stroke="#efe6da"/>
+  <text x="296" y="772" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">TC7777</text>
+  <text x="380" y="772" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Sushi, Anyone?</text>
+  <text x="720" y="772" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">trad_cook</text>
+  <text x="840" y="772" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1100" y="772" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$14.99</text>
+  <text x="1180" y="772" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">20</text>
+  <rect x="1320" y="754" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="771" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <text x="296" y="808" fill="#8a7466" font-size="12">Deleting a book removes it from the catalog. Authors can't delete books.</text>
+</svg>
+</section>
+<section class="screen" id="authors" data-label="Authors" hidden>
+<svg role="img" aria-label="Authors screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Authors (Admin)</title>
+  <defs>
+    <linearGradient id="authors-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="authors-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#authors-panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="#home">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="#books">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="#authors">
+    <rect x="20" y="254" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="264" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="275" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#ffffff" font-size="15" font-weight="700">Authors</text>
+  </a>
+  <a href="#sales">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="#stores">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="#discounts">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="#employees">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="#publishers">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="#account">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="#login"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Authors</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">7 accounts · 1 admin (publisher), 6 authors · only the admin can create accounts</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+  <a href="#add-author">
+  <rect x="1236" y="120" width="172" height="40" rx="10" fill="url(#authors-btn)"/>
+  <text x="1322" y="145" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">+ Add author</text>
+  </a>
+
+  <!-- ===== Accounts table ===== -->
+  <rect x="272" y="176" width="1136" height="496" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="208" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">NAME</text>
+  <text x="560" y="208" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">USERNAME</text>
+  <text x="720" y="208" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">EMAIL</text>
+  <text x="960" y="208" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">ROLE</text>
+  <text x="1090" y="208" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">BOOKS</text>
+  <text x="1130" y="208" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">JOINED</text>
+  <text x="1384" y="208" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end"></text>
+  <line x1="296" y1="220" x2="1384" y2="220" stroke="#efe6da"/>
+  <circle cx="314" cy="250" r="17" fill="#5b3a29"/>
+  <text x="314" y="255" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">N</text>
+  <text x="342" y="255" fill="#3b2418" font-size="14" font-weight="600">New Moon Books<tspan fill="#8a7466" font-weight="400"> (you)</tspan></text>
+  <text x="560" y="255" fill="#5b3a29" font-size="13">@newmoon</text>
+  <text x="720" y="255" fill="#5b3a29" font-size="13">admin@newmoonbooks.com</text>
+  <rect x="960" y="237" width="70" height="26" rx="13" fill="#5b3a29"/>
+  <text x="995" y="255" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle">Admin</text>
+  <text x="1090" y="255" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">—</text>
+  <text x="1130" y="255" fill="#8a7466" font-size="13">Jan 2, 2026</text>
+  <a href="#account"><text x="1384" y="255" fill="#b5652b" font-size="13" font-weight="700" text-anchor="end">View →</text></a>
+  <line x1="296" y1="280" x2="1384" y2="280" stroke="#efe6da"/>
+  <circle cx="314" cy="310" r="17" fill="#4a6b4f"/>
+  <text x="314" y="315" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">G</text>
+  <text x="342" y="315" fill="#3b2418" font-size="14" font-weight="600">Marjorie Green</text>
+  <text x="560" y="315" fill="#5b3a29" font-size="13">@mgreen</text>
+  <text x="720" y="315" fill="#5b3a29" font-size="13">marjorie@booknest.app</text>
+  <rect x="960" y="297" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="992" y="315" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1090" y="315" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">2</text>
+  <text x="1130" y="315" fill="#8a7466" font-size="13">Sep 3, 2026</text>
+  <text x="1384" y="315" fill="#b5652b" font-size="13" font-weight="700" text-anchor="end">View →</text>
+  <line x1="296" y1="340" x2="1384" y2="340" stroke="#efe6da"/>
+  <circle cx="314" cy="370" r="17" fill="#6b8fb5"/>
+  <text x="314" y="375" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">J</text>
+  <text x="342" y="375" fill="#3b2418" font-size="14" font-weight="600">Johnson White</text>
+  <text x="560" y="375" fill="#5b3a29" font-size="13">@jwhite</text>
+  <text x="720" y="375" fill="#5b3a29" font-size="13">johnson@booknest.app</text>
+  <rect x="960" y="357" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="992" y="375" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1090" y="375" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">1</text>
+  <text x="1130" y="375" fill="#8a7466" font-size="13">Sep 12, 2026</text>
+  <a href="#author-detail"><text x="1384" y="375" fill="#b5652b" font-size="13" font-weight="700" text-anchor="end">View →</text></a>
+  <line x1="296" y1="400" x2="1384" y2="400" stroke="#efe6da"/>
+  <circle cx="314" cy="430" r="17" fill="#b5736b"/>
+  <text x="314" y="435" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">C</text>
+  <text x="342" y="435" fill="#3b2418" font-size="14" font-weight="600">Cheryl Carson</text>
+  <text x="560" y="435" fill="#5b3a29" font-size="13">@ccarson</text>
+  <text x="720" y="435" fill="#5b3a29" font-size="13">cheryl@booknest.app</text>
+  <rect x="960" y="417" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="992" y="435" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1090" y="435" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">1</text>
+  <text x="1130" y="435" fill="#8a7466" font-size="13">Sep 14, 2026</text>
+  <text x="1384" y="435" fill="#b5652b" font-size="13" font-weight="700" text-anchor="end">View →</text>
+  <line x1="296" y1="460" x2="1384" y2="460" stroke="#efe6da"/>
+  <circle cx="314" cy="490" r="17" fill="#d4843f"/>
+  <text x="314" y="495" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">M</text>
+  <text x="342" y="495" fill="#3b2418" font-size="14" font-weight="600">Michael O'Leary</text>
+  <text x="560" y="495" fill="#5b3a29" font-size="13">@moleary</text>
+  <text x="720" y="495" fill="#5b3a29" font-size="13">michael@booknest.app</text>
+  <rect x="960" y="477" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="992" y="495" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1090" y="495" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">2</text>
+  <text x="1130" y="495" fill="#8a7466" font-size="13">Sep 18, 2026</text>
+  <text x="1384" y="495" fill="#b5652b" font-size="13" font-weight="700" text-anchor="end">View →</text>
+  <line x1="296" y1="520" x2="1384" y2="520" stroke="#efe6da"/>
+  <circle cx="314" cy="550" r="17" fill="#7a9e7e"/>
+  <text x="314" y="555" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">C</text>
+  <text x="342" y="555" fill="#3b2418" font-size="14" font-weight="600">Charlene Locksley</text>
+  <text x="560" y="555" fill="#5b3a29" font-size="13">@clocksley</text>
+  <text x="720" y="555" fill="#5b3a29" font-size="13">charlene@booknest.app</text>
+  <rect x="960" y="537" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="992" y="555" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1090" y="555" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">2</text>
+  <text x="1130" y="555" fill="#8a7466" font-size="13">Sep 20, 2026</text>
+  <text x="1384" y="555" fill="#b5652b" font-size="13" font-weight="700" text-anchor="end">View →</text>
+  <line x1="296" y1="580" x2="1384" y2="580" stroke="#efe6da"/>
+  <circle cx="314" cy="610" r="17" fill="#8f7aa8"/>
+  <text x="314" y="615" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">A</text>
+  <text x="342" y="615" fill="#3b2418" font-size="14" font-weight="600">Albert Ringer</text>
+  <text x="560" y="615" fill="#5b3a29" font-size="13">@aringer</text>
+  <text x="720" y="615" fill="#5b3a29" font-size="13">albert@booknest.app</text>
+  <rect x="960" y="597" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="992" y="615" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1090" y="615" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">2</text>
+  <text x="1130" y="615" fill="#8a7466" font-size="13">Sep 25, 2026</text>
+  <text x="1384" y="615" fill="#b5652b" font-size="13" font-weight="700" text-anchor="end">View →</text>
+  <rect x="272" y="696" width="1136" height="82" rx="16" fill="#fdf1e4" stroke="#e9c9a3"/>
+  <text x="296" y="728" fill="#3b2418" font-size="14" font-weight="700">Admin only</text>
+  <text x="296" y="750" fill="#8a5a2b" font-size="13">Authors can't sign up. The admin creates each author account and gives the author their login details.</text>
+  <text x="296" y="768" fill="#8a5a2b" font-size="13">Authors only see My Books (the books they published) and My Account.</text>
+</svg>
+</section>
+<section class="screen" id="add-author" data-label="Authors › Add author" hidden>
+<svg role="img" aria-label="Authors › Add author screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Add Author (Admin)</title>
+  <defs>
+    <linearGradient id="add-author-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="add-author-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#add-author-panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="#home">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="#books">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="#authors">
+    <rect x="20" y="254" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="264" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="275" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#ffffff" font-size="15" font-weight="700">Authors</text>
+  </a>
+  <a href="#sales">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="#stores">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="#discounts">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="#employees">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="#publishers">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="#account">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="#login"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <a href="#authors"><text x="272" y="40" fill="#b5652b" font-size="13" font-weight="600">← Authors</text></a>
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Add author</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">Create an author account · only the admin can do this</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== New author form ===== -->
+  <rect x="272" y="128" width="740" height="600" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="164" fill="#3b2418" font-size="18" font-weight="700">Author details</text>
+  <text x="296" y="186" fill="#8a7466" font-size="13">Give these login details to the author. They can't sign up or change them.</text>
+  <text x="296" y="224" fill="#8a7466" font-size="13" font-weight="600">Display name</text>
+  <rect x="296" y="234" width="334" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="310" y="259" fill="#3b2418" font-size="14">Heather McBadden</text>
+  <text x="654" y="224" fill="#8a7466" font-size="13" font-weight="600">Email</text>
+  <rect x="654" y="234" width="334" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="668" y="259" fill="#3b2418" font-size="14">heather@booknest.app</text>
+  <text x="296" y="304" fill="#8a7466" font-size="13" font-weight="600">Location (optional)</text>
+  <rect x="296" y="314" width="334" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="310" y="339" fill="#3b2418" font-size="14">Vacaville, CA</text>
+  <text x="654" y="304" fill="#8a7466" font-size="13" font-weight="600">Account type</text>
+  <rect x="654" y="314" width="334" height="40" rx="10" fill="#f3ede4" stroke="#e0d2c0"/>
+  <rect x="668" y="321" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="700" y="339" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="744" y="339" fill="#5b3a29" font-size="13">Author · 2 tabs only</text>
+  <line x1="296" y1="384" x2="988" y2="384" stroke="#efe6da"/>
+  <text x="296" y="418" fill="#3b2418" font-size="16" font-weight="700">Login details</text>
+  <text x="296" y="440" fill="#8a7466" font-size="13">The author signs in only with this username and password.</text>
+  <text x="296" y="472" fill="#8a7466" font-size="13" font-weight="600">Username</text>
+  <rect x="296" y="482" width="334" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="310" y="507" fill="#3b2418" font-size="14">@hmcbadden</text>
+  <text x="654" y="472" fill="#8a7466" font-size="13" font-weight="600">Password</text>
+  <rect x="654" y="482" width="334" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="668" y="507" fill="#3b2418" font-size="14">Hm#4821-books</text>
+  <text x="654" y="544" fill="#b5652b" font-size="12" font-weight="600">↻ Generate a new password</text>
+  <line x1="296" y1="576" x2="988" y2="576" stroke="#efe6da"/>
+  <a href="#authors">
+  <rect x="712" y="664" width="110" height="40" rx="10" fill="#ffffff" stroke="#b5652b"/>
+  <text x="767" y="689" fill="#b5652b" font-size="13" font-weight="700" text-anchor="middle">Cancel</text>
+  </a>
+  <a href="#authors">
+  <rect x="834" y="664" width="154" height="40" rx="10" fill="url(#add-author-btn)"/>
+  <text x="911" y="689" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">Create account</text>
+  </a>
+  <text x="296" y="612" fill="#8a7466" font-size="12">Share the username and password with the author yourself, e.g. in person or by phone.</text>
+
+  <!-- ===== What happens next ===== -->
+  <rect x="1036" y="128" width="372" height="300" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="1060" y="164" fill="#3b2418" font-size="18" font-weight="700">What happens next</text>
+  <circle cx="1074" cy="204" r="14" fill="#efe6da"/>
+  <text x="1074" y="209" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">1</text>
+  <text x="1100" y="204" fill="#3b2418" font-size="14" font-weight="600">Account is created</text>
+  <text x="1100" y="224" fill="#8a7466" font-size="12">Heather appears under Authors</text>
+  <circle cx="1074" cy="276" r="14" fill="#efe6da"/>
+  <text x="1074" y="281" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">2</text>
+  <text x="1100" y="276" fill="#3b2418" font-size="14" font-weight="600">You share the login details</text>
+  <text x="1100" y="296" fill="#8a7466" font-size="12">Username and password from this form</text>
+  <circle cx="1074" cy="348" r="14" fill="#efe6da"/>
+  <text x="1074" y="353" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">3</text>
+  <text x="1100" y="348" fill="#3b2418" font-size="14" font-weight="600">Heather signs in</text>
+  <text x="1100" y="368" fill="#8a7466" font-size="12">Sees only My Books and My Account</text>
+  <rect x="1036" y="452" width="372" height="100" rx="16" fill="#fdf1e4" stroke="#e9c9a3"/>
+  <text x="1060" y="484" fill="#3b2418" font-size="14" font-weight="700">Admin only</text>
+  <text x="1060" y="506" fill="#8a5a2b" font-size="13">Authors never see this page,</text>
+  <text x="1060" y="524" fill="#8a5a2b" font-size="13">the Authors tab or + Add author.</text>
+</svg>
+</section>
+<section class="screen" id="author-detail" data-label="Authors › Johnson White" hidden>
+<svg role="img" aria-label="Authors › Johnson White screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Johnson White (Admin view)</title>
+  <defs>
+    <linearGradient id="author-detail-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="author-detail-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#author-detail-panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="#home">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="#books">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="#authors">
+    <rect x="20" y="254" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="264" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="275" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#ffffff" font-size="15" font-weight="700">Authors</text>
+  </a>
+  <a href="#sales">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="#stores">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="#discounts">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="#employees">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="#publishers">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="#account">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="#login"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <a href="#authors"><text x="272" y="40" fill="#b5652b" font-size="13" font-weight="600">← Authors</text></a>
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Johnson White</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">@jwhite · User (author) · joined Sep 12, 2026</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+  <rect x="272" y="120" width="1136" height="48" rx="16" fill="#fdf1e4" stroke="#e9c9a3"/>
+  <text x="296" y="152" fill="#3b2418" font-size="14" font-weight="700"></text>
+  <text x="296" y="150" fill="#8a5a2b" font-size="13"><tspan font-weight="700">Admin view · </tspan>You're viewing an author's account. Changes are saved to Johnson's account.</text>
+
+  <!-- ===== Profile and login ===== -->
+  <rect x="272" y="188" width="740" height="368" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="224" fill="#3b2418" font-size="18" font-weight="700">Profile and login details</text>
+  <text x="296" y="246" fill="#8a7466" font-size="13">Only the admin can change these</text>
+  <rect x="860" y="208" width="128" height="40" rx="10" fill="url(#author-detail-btn)"/>
+  <text x="924" y="233" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">Save changes</text>
+  <circle cx="340" cy="324" r="44" fill="#6b8fb5"/>
+  <text x="340" y="336" fill="#ffffff" font-size="32" font-weight="700" text-anchor="middle">J</text>
+  <text x="420" y="276" fill="#8a7466" font-size="13" font-weight="600">Display name</text>
+  <rect x="420" y="286" width="270" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="434" y="311" fill="#3b2418" font-size="14">Johnson White</text>
+  <text x="710" y="276" fill="#8a7466" font-size="13" font-weight="600">Email</text>
+  <rect x="710" y="286" width="278" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="724" y="311" fill="#3b2418" font-size="14">johnson@booknest.app</text>
+  <text x="420" y="356" fill="#8a7466" font-size="13" font-weight="600">Username</text>
+  <rect x="420" y="366" width="270" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="434" y="391" fill="#3b2418" font-size="14">@jwhite</text>
+  <text x="710" y="356" fill="#8a7466" font-size="13" font-weight="600">Location</text>
+  <rect x="710" y="366" width="278" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="724" y="391" fill="#3b2418" font-size="14">Menlo Park, CA</text>
+  <line x1="296" y1="436" x2="988" y2="436" stroke="#efe6da"/>
+  <text x="296" y="472" fill="#3b2418" font-size="14" font-weight="600">Password</text>
+  <text x="296" y="492" fill="#8a7466" font-size="12">Set a new password, then give it to Johnson yourself</text>
+  <rect x="836" y="456" width="152" height="40" rx="10" fill="#ffffff" stroke="#b5652b"/>
+  <text x="912" y="481" fill="#b5652b" font-size="13" font-weight="700" text-anchor="middle">Set new password</text>
+
+  <!-- ===== Books ===== -->
+  <rect x="1036" y="188" width="372" height="368" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="1060" y="224" fill="#3b2418" font-size="18" font-weight="700">Books published</text>
+  <text x="1060" y="246" fill="#8a7466" font-size="13">1 book · 15 copies sold</text>
+  <text x="1060" y="296" fill="#3b2418" font-size="14" font-weight="600">Prolonged Data Deprivation</text>
+  <text x="1060" y="316" fill="#8a7466" font-size="12">PS3333 · New Moon Books · $19.99</text>
+  <text x="1384" y="296" fill="#3b2418" font-size="14" font-weight="700" text-anchor="end">15 sold</text>
+  <line x1="1060" y1="452" x2="1384" y2="452" stroke="#efe6da"/>
+  <text x="1060" y="484" fill="#8a7466" font-size="13">Account type</text>
+  <rect x="1320" y="467" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="1352" y="485" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1060" y="520" fill="#8a7466" font-size="13">Status</text>
+  <text x="1384" y="520" fill="#5e8c4a" font-size="13" font-weight="600" text-anchor="end">● Active</text>
+
+  <!-- ===== Danger zone ===== -->
+  <rect x="272" y="580" width="1136" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="616" fill="#3b2418" font-size="18" font-weight="700">Delete this author account</text>
+  <text x="296" y="644" fill="#8a7466" font-size="13">Removes Johnson's login. Their books stay in the catalog.</text>
+  <rect x="1236" y="608" width="148" height="40" rx="10" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1310" y="633" fill="#c0504d" font-size="13" font-weight="700" text-anchor="middle">Delete account</text>
+</svg>
+</section>
+<section class="screen" id="sales" data-label="Sales" hidden>
+<svg role="img" aria-label="Sales screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Sales (Admin)</title>
+  <defs>
+    <linearGradient id="sales-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="sales-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#sales-panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="#home">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="#books">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="#authors">
+    <circle cx="48" cy="275" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#e2c9a6" font-size="15" font-weight="500">Authors</text>
+  </a>
+  <a href="#sales">
+    <rect x="20" y="306" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="316" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="327" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#ffffff" font-size="15" font-weight="700">Sales</text>
+  </a>
+  <a href="#stores">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="#discounts">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="#employees">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="#publishers">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="#account">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="#login"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Sales</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">21 order lines from pubs.sales · admin only</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== Stat tiles ===== -->
+  <rect x="272" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ORDERS</text>
+  <text x="296" y="192" fill="#3b2418" font-size="26" font-weight="700">16</text>
+  <text x="296" y="212" fill="#8a7466" font-size="12">21 order lines</text>
+  <rect x="562" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="586" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">COPIES SOLD</text>
+  <text x="586" y="192" fill="#3b2418" font-size="26" font-weight="700">493</text>
+  <text x="586" y="212" fill="#8a7466" font-size="12">All titles</text>
+  <rect x="852" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="876" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">REVENUE</text>
+  <text x="876" y="192" fill="#3b2418" font-size="26" font-weight="700">$6,676.90</text>
+  <text x="876" y="212" fill="#8a7466" font-size="12">Quantity × list price</text>
+  <rect x="1142" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="1166" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">STORES</text>
+  <text x="1166" y="192" fill="#3b2418" font-size="26" font-weight="700">6</text>
+  <text x="1166" y="212" fill="#8a7466" font-size="12">With at least one order</text>
+
+  <!-- ===== Orders table ===== -->
+  <rect x="272" y="248" width="1136" height="568" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="278" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">ORDER</text>
+  <text x="400" y="278" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">DATE</text>
+  <text x="510" y="278" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">STORE</text>
+  <text x="790" y="278" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">BOOK</text>
+  <text x="1120" y="278" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">QTY</text>
+  <text x="1150" y="278" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">TERMS</text>
+  <text x="1384" y="278" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">AMOUNT</text>
+  <line x1="296" y1="290" x2="1384" y2="290" stroke="#efe6da"/>
+  <text x="296" y="312" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">N914014</text>
+  <text x="400" y="312" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 14, 1994</text>
+  <text x="510" y="312" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Doc-U-Mat: Quality Laundry and Bo…</text>
+  <text x="790" y="312" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">The Gourmet Microwave</text>
+  <text x="1120" y="312" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">25</text>
+  <text x="1150" y="312" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 30</text>
+  <text x="1384" y="312" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$74.75</text>
+  <line x1="296" y1="324" x2="1384" y2="324" stroke="#efe6da"/>
+  <text x="296" y="346" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">N914008</text>
+  <text x="400" y="346" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 14, 1994</text>
+  <text x="510" y="346" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Doc-U-Mat: Quality Laundry and Bo…</text>
+  <text x="790" y="346" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Is Anger the Enemy?</text>
+  <text x="1120" y="346" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">20</text>
+  <text x="1150" y="346" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 30</text>
+  <text x="1384" y="346" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$219.00</text>
+  <line x1="296" y1="358" x2="1384" y2="358" stroke="#efe6da"/>
+  <text x="296" y="380" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">D4482</text>
+  <text x="400" y="380" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 14, 1994</text>
+  <text x="510" y="380" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">News &amp; Brews</text>
+  <text x="790" y="380" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Is Anger the Enemy?</text>
+  <text x="1120" y="380" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">10</text>
+  <text x="1150" y="380" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="380" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$109.50</text>
+  <line x1="296" y1="392" x2="1384" y2="392" stroke="#efe6da"/>
+  <text x="296" y="414" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">6871</text>
+  <text x="400" y="414" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 14, 1994</text>
+  <text x="510" y="414" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Eric the Read Books</text>
+  <text x="790" y="414" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">The Busy Executive's Database Guide</text>
+  <text x="1120" y="414" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">5</text>
+  <text x="1150" y="414" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="414" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$99.95</text>
+  <line x1="296" y1="426" x2="1384" y2="426" stroke="#efe6da"/>
+  <text x="296" y="448" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">423LL930</text>
+  <text x="400" y="448" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 14, 1994</text>
+  <text x="510" y="448" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Bookbeat</text>
+  <text x="790" y="448" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">The Busy Executive's Database Guide</text>
+  <text x="1120" y="448" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">10</text>
+  <text x="1150" y="448" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">ON invoice</text>
+  <text x="1384" y="448" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$199.90</text>
+  <line x1="296" y1="460" x2="1384" y2="460" stroke="#efe6da"/>
+  <text x="296" y="482" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">423LL922</text>
+  <text x="400" y="482" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 14, 1994</text>
+  <text x="510" y="482" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Bookbeat</text>
+  <text x="790" y="482" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">The Gourmet Microwave</text>
+  <text x="1120" y="482" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">15</text>
+  <text x="1150" y="482" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">ON invoice</text>
+  <text x="1384" y="482" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$44.85</text>
+  <line x1="296" y1="494" x2="1384" y2="494" stroke="#efe6da"/>
+  <text x="296" y="516" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">QA7442.3</text>
+  <text x="400" y="516" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 13, 1994</text>
+  <text x="510" y="516" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Barnum's</text>
+  <text x="790" y="516" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Is Anger the Enemy?</text>
+  <text x="1120" y="516" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">75</text>
+  <text x="1150" y="516" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">ON invoice</text>
+  <text x="1384" y="516" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$821.25</text>
+  <line x1="296" y1="528" x2="1384" y2="528" stroke="#efe6da"/>
+  <text x="296" y="550" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">722a</text>
+  <text x="400" y="550" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 13, 1994</text>
+  <text x="510" y="550" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Eric the Read Books</text>
+  <text x="790" y="550" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Is Anger the Enemy?</text>
+  <text x="1120" y="550" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">3</text>
+  <text x="1150" y="550" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="550" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$32.85</text>
+  <line x1="296" y1="562" x2="1384" y2="562" stroke="#efe6da"/>
+  <text x="296" y="584" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">TQ456</text>
+  <text x="400" y="584" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Dec 12, 1993</text>
+  <text x="510" y="584" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Fricative Bookshop</text>
+  <text x="790" y="584" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Silicon Valley Gastronomic Treats</text>
+  <text x="1120" y="584" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">10</text>
+  <text x="1150" y="584" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="584" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$199.90</text>
+  <line x1="296" y1="596" x2="1384" y2="596" stroke="#efe6da"/>
+  <text x="296" y="618" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">QQ2299</text>
+  <text x="400" y="618" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Oct 28, 1993</text>
+  <text x="510" y="618" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Fricative Bookshop</text>
+  <text x="790" y="618" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Straight Talk About Computers</text>
+  <text x="1120" y="618" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">15</text>
+  <text x="1150" y="618" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="618" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$299.85</text>
+  <line x1="296" y1="630" x2="1384" y2="630" stroke="#efe6da"/>
+  <text x="296" y="652" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">P3087a</text>
+  <text x="400" y="652" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">May 29, 1993</text>
+  <text x="510" y="652" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Doc-U-Mat: Quality Laundry and Bo…</text>
+  <text x="790" y="652" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Computer Phobic and Non-Phobic Indi…</text>
+  <text x="1120" y="652" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">20</text>
+  <text x="1150" y="652" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="652" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$431.80</text>
+  <line x1="296" y1="664" x2="1384" y2="664" stroke="#efe6da"/>
+  <text x="296" y="686" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">P3087a</text>
+  <text x="400" y="686" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">May 29, 1993</text>
+  <text x="510" y="686" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Doc-U-Mat: Quality Laundry and Bo…</text>
+  <text x="790" y="686" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Life Without Fear</text>
+  <text x="1120" y="686" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">25</text>
+  <text x="1150" y="686" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="686" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$175.00</text>
+  <line x1="296" y1="698" x2="1384" y2="698" stroke="#efe6da"/>
+  <text x="296" y="720" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">P3087a</text>
+  <text x="400" y="720" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">May 29, 1993</text>
+  <text x="510" y="720" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Doc-U-Mat: Quality Laundry and Bo…</text>
+  <text x="790" y="720" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Prolonged Data Deprivation</text>
+  <text x="1120" y="720" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">15</text>
+  <text x="1150" y="720" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="720" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$299.85</text>
+  <line x1="296" y1="732" x2="1384" y2="732" stroke="#efe6da"/>
+  <text x="296" y="754" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">P3087a</text>
+  <text x="400" y="754" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">May 29, 1993</text>
+  <text x="510" y="754" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Doc-U-Mat: Quality Laundry and Bo…</text>
+  <text x="790" y="754" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Emotional Security: A New Algorithm</text>
+  <text x="1120" y="754" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">25</text>
+  <text x="1150" y="754" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="754" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$199.75</text>
+  <text x="296" y="788" fill="#8a7466" font-size="12">Showing the 14 newest of 21 order lines</text>
+</svg>
+</section>
+<section class="screen" id="stores" data-label="Stores" hidden>
+<svg role="img" aria-label="Stores screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Stores (Admin)</title>
+  <defs>
+    <linearGradient id="stores-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="stores-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#stores-panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="#home">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="#books">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="#authors">
+    <circle cx="48" cy="275" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#e2c9a6" font-size="15" font-weight="500">Authors</text>
+  </a>
+  <a href="#sales">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="#stores">
+    <rect x="20" y="358" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="368" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="379" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#ffffff" font-size="15" font-weight="700">Stores</text>
+  </a>
+  <a href="#discounts">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="#employees">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="#publishers">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="#account">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="#login"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Stores</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">6 stores from pubs.stores · admin only</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== Stat tiles ===== -->
+  <rect x="272" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">STORES</text>
+  <text x="296" y="192" fill="#3b2418" font-size="26" font-weight="700">6</text>
+  <text x="296" y="212" fill="#8a7466" font-size="12">In 3 states</text>
+  <rect x="562" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="586" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ORDERS</text>
+  <text x="586" y="192" fill="#3b2418" font-size="26" font-weight="700">16</text>
+  <text x="586" y="212" fill="#8a7466" font-size="12">Across all stores</text>
+  <rect x="852" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="876" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">COPIES SOLD</text>
+  <text x="876" y="192" fill="#3b2418" font-size="26" font-weight="700">493</text>
+  <text x="876" y="212" fill="#8a7466" font-size="12">Across all stores</text>
+  <rect x="1142" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="1166" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">TOP STORE</text>
+  <text x="1166" y="192" fill="#3b2418" font-size="26" font-weight="700">130 copies</text>
+  <text x="1166" y="212" fill="#8a7466" font-size="12">Doc-U-Mat: Quality Laundry and Bo…</text>
+
+  <!-- ===== Stores table ===== -->
+  <rect x="272" y="248" width="1136" height="412" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="284" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">ID</text>
+  <text x="360" y="284" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">STORE</text>
+  <text x="660" y="284" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">ADDRESS</text>
+  <text x="820" y="284" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">CITY</text>
+  <text x="1060" y="284" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">ORDERS</text>
+  <text x="1140" y="284" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">SOLD</text>
+  <text x="1270" y="284" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">REVENUE</text>
+  <text x="1384" y="284" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">DISCOUNT</text>
+  <line x1="296" y1="296" x2="1384" y2="296" stroke="#efe6da"/>
+  <text x="296" y="329" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">6380</text>
+  <text x="360" y="329" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Eric the Read Books</text>
+  <text x="660" y="329" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">788 Catamaugus Ave.</text>
+  <text x="820" y="329" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Seattle, WA 98056</text>
+  <text x="1060" y="329" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">2</text>
+  <text x="1140" y="329" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">8</text>
+  <text x="1270" y="329" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$132.80</text>
+  <text x="1384" y="329" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <line x1="296" y1="352" x2="1384" y2="352" stroke="#efe6da"/>
+  <text x="296" y="385" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">7066</text>
+  <text x="360" y="385" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Barnum's</text>
+  <text x="660" y="385" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">567 Pasadena Ave.</text>
+  <text x="820" y="385" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Tustin, CA 92789</text>
+  <text x="1060" y="385" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">2</text>
+  <text x="1140" y="385" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">125</text>
+  <text x="1270" y="385" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$1,821.25</text>
+  <text x="1384" y="385" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <line x1="296" y1="408" x2="1384" y2="408" stroke="#efe6da"/>
+  <text x="296" y="441" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">7067</text>
+  <text x="360" y="441" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">News &amp; Brews</text>
+  <text x="660" y="441" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">577 First St.</text>
+  <text x="820" y="441" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Los Gatos, CA 96745</text>
+  <text x="1060" y="441" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">2</text>
+  <text x="1140" y="441" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">90</text>
+  <text x="1270" y="441" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$1,486.30</text>
+  <text x="1384" y="441" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <line x1="296" y1="464" x2="1384" y2="464" stroke="#efe6da"/>
+  <text x="296" y="497" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">7131</text>
+  <text x="360" y="497" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Doc-U-Mat: Quality Laundry and Books</text>
+  <text x="660" y="497" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">24-A Avogadro Way</text>
+  <text x="820" y="497" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Remulade, WA 98014</text>
+  <text x="1060" y="497" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">3</text>
+  <text x="1140" y="497" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">130</text>
+  <text x="1270" y="497" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$1,400.15</text>
+  <text x="1384" y="497" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <line x1="296" y1="520" x2="1384" y2="520" stroke="#efe6da"/>
+  <text x="296" y="553" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">7896</text>
+  <text x="360" y="553" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Fricative Bookshop</text>
+  <text x="660" y="553" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">89 Madison St.</text>
+  <text x="820" y="553" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Fremont, CA 90019</text>
+  <text x="1060" y="553" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">3</text>
+  <text x="1140" y="553" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">60</text>
+  <text x="1270" y="553" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$604.40</text>
+  <text x="1384" y="553" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <line x1="296" y1="576" x2="1384" y2="576" stroke="#efe6da"/>
+  <text x="296" y="609" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">8042</text>
+  <text x="360" y="609" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Bookbeat</text>
+  <text x="660" y="609" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">679 Carson St.</text>
+  <text x="820" y="609" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Portland, OR 89076</text>
+  <text x="1060" y="609" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">4</text>
+  <text x="1140" y="609" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">80</text>
+  <text x="1270" y="609" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$1,232.00</text>
+  <text x="1384" y="609" fill="#5e8c4a" font-size="13" font-weight="600" text-anchor="end">5.0%</text>
+  <text x="296" y="654" fill="#8a7466" font-size="12">Discount = a store-specific row in pubs.discounts. Revenue = quantity × list price.</text>
+</svg>
+</section>
+<section class="screen" id="discounts" data-label="Discounts" hidden>
+<svg role="img" aria-label="Discounts screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Discounts (Admin)</title>
+  <defs>
+    <linearGradient id="discounts-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="discounts-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#discounts-panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="#home">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="#books">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="#authors">
+    <circle cx="48" cy="275" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#e2c9a6" font-size="15" font-weight="500">Authors</text>
+  </a>
+  <a href="#sales">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="#stores">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="#discounts">
+    <rect x="20" y="410" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="420" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="431" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#ffffff" font-size="15" font-weight="700">Discounts</text>
+  </a>
+  <a href="#employees">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="#publishers">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="#account">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="#login"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Discounts</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">3 discount types from pubs.discounts · admin only</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== Discounts table ===== -->
+  <rect x="272" y="128" width="1136" height="196" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">DISCOUNT TYPE</text>
+  <text x="560" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">STORE</text>
+  <text x="900" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">LOW QTY</text>
+  <text x="1040" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">HIGH QTY</text>
+  <text x="1384" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">DISCOUNT</text>
+  <line x1="296" y1="176" x2="1384" y2="176" stroke="#efe6da"/>
+  <text x="296" y="203" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Initial Customer</text>
+  <text x="560" y="203" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">All stores</text>
+  <text x="900" y="203" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <text x="1040" y="203" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <text x="1384" y="203" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">10.50%</text>
+  <line x1="296" y1="220" x2="1384" y2="220" stroke="#efe6da"/>
+  <text x="296" y="247" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Volume Discount</text>
+  <text x="560" y="247" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">All stores</text>
+  <text x="900" y="247" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">100</text>
+  <text x="1040" y="247" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">1000</text>
+  <text x="1384" y="247" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">6.70%</text>
+  <line x1="296" y1="264" x2="1384" y2="264" stroke="#efe6da"/>
+  <text x="296" y="291" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Customer Discount</text>
+  <text x="560" y="291" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Bookbeat</text>
+  <text x="900" y="291" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <text x="1040" y="291" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <text x="1384" y="291" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">5.00%</text>
+  <rect x="272" y="348" width="1136" height="82" rx="16" fill="#fdf1e4" stroke="#e9c9a3"/>
+  <text x="296" y="380" fill="#3b2418" font-size="14" font-weight="700">How discounts apply</text>
+  <text x="296" y="402" fill="#8a5a2b" font-size="13">Initial Customer applies to a store's first order. Volume Discount applies to orders of 100–1,000 copies.</text>
+  <text x="296" y="420" fill="#8a5a2b" font-size="13">Customer Discount is a fixed discount for Bookbeat.</text>
+</svg>
+</section>
+<section class="screen" id="employees" data-label="Employees" hidden>
+<svg role="img" aria-label="Employees screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Employees (Admin)</title>
+  <defs>
+    <linearGradient id="employees-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="employees-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#employees-panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="#home">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="#books">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="#authors">
+    <circle cx="48" cy="275" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#e2c9a6" font-size="15" font-weight="500">Authors</text>
+  </a>
+  <a href="#sales">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="#stores">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="#discounts">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="#employees">
+    <rect x="20" y="462" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="472" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="483" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#ffffff" font-size="15" font-weight="700">Employees</text>
+  </a>
+  <a href="#publishers">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="#account">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="#login"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Employees</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">43 employees from pubs.employee · admin only</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== Employees table ===== -->
+  <rect x="272" y="128" width="1136" height="688" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">ID</text>
+  <text x="420" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">NAME</text>
+  <text x="620" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">JOB</text>
+  <text x="900" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">LEVEL</text>
+  <text x="940" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">PUBLISHER</text>
+  <text x="1384" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">HIRED</text>
+  <line x1="296" y1="172" x2="1384" y2="172" stroke="#efe6da"/>
+  <text x="296" y="198" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">PMA42628M</text>
+  <text x="420" y="198" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Paolo Accorti</text>
+  <text x="620" y="198" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Sales Representative</text>
+  <text x="900" y="198" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">35</text>
+  <text x="940" y="198" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="198" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Aug 27, 1992</text>
+  <line x1="296" y1="214" x2="1384" y2="214" stroke="#efe6da"/>
+  <text x="296" y="240" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">PSA89086M</text>
+  <text x="420" y="240" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Pedro Afonso</text>
+  <text x="620" y="240" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Designer</text>
+  <text x="900" y="240" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">89</text>
+  <text x="940" y="240" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1384" y="240" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Dec 24, 1990</text>
+  <line x1="296" y1="256" x2="1384" y2="256" stroke="#efe6da"/>
+  <text x="296" y="282" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">VPA30890F</text>
+  <text x="420" y="282" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Victoria Ashworth</text>
+  <text x="620" y="282" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Managing Editor</text>
+  <text x="900" y="282" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">140</text>
+  <text x="940" y="282" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="282" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Sep 13, 1990</text>
+  <line x1="296" y1="298" x2="1384" y2="298" stroke="#efe6da"/>
+  <text x="296" y="324" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">H-B39728F</text>
+  <text x="420" y="324" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Helen Bennett</text>
+  <text x="620" y="324" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Editor</text>
+  <text x="900" y="324" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">35</text>
+  <text x="940" y="324" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="324" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Sep 21, 1989</text>
+  <line x1="296" y1="340" x2="1384" y2="340" stroke="#efe6da"/>
+  <text x="296" y="366" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">L-B31947F</text>
+  <text x="420" y="366" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Lesley Brown</text>
+  <text x="620" y="366" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Marketing Manager</text>
+  <text x="900" y="366" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">120</text>
+  <text x="940" y="366" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="366" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Feb 13, 1991</text>
+  <line x1="296" y1="382" x2="1384" y2="382" stroke="#efe6da"/>
+  <text x="296" y="408" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">F-C16315M</text>
+  <text x="420" y="408" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Francisco Chang</text>
+  <text x="620" y="408" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Chief Financial Officer</text>
+  <text x="900" y="408" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">227</text>
+  <text x="940" y="408" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Scootney Books</text>
+  <text x="1384" y="408" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Nov 3, 1990</text>
+  <line x1="296" y1="424" x2="1384" y2="424" stroke="#efe6da"/>
+  <text x="296" y="450" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">PTC11962M</text>
+  <text x="420" y="450" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Philip Cramer</text>
+  <text x="620" y="450" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Chief Executive Officer</text>
+  <text x="900" y="450" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">215</text>
+  <text x="940" y="450" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Scootney Books</text>
+  <text x="1384" y="450" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Nov 11, 1989</text>
+  <line x1="296" y1="466" x2="1384" y2="466" stroke="#efe6da"/>
+  <text x="296" y="492" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">A-C71970F</text>
+  <text x="420" y="492" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Aria Cruz</text>
+  <text x="620" y="492" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Productions Manager</text>
+  <text x="900" y="492" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">87</text>
+  <text x="940" y="492" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1384" y="492" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Oct 26, 1991</text>
+  <line x1="296" y1="508" x2="1384" y2="508" stroke="#efe6da"/>
+  <text x="296" y="534" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">AMD15433F</text>
+  <text x="420" y="534" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Ann Devon</text>
+  <text x="620" y="534" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Business Operations Manager</text>
+  <text x="900" y="534" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">200</text>
+  <text x="940" y="534" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Scootney Books</text>
+  <text x="1384" y="534" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Jul 16, 1991</text>
+  <line x1="296" y1="550" x2="1384" y2="550" stroke="#efe6da"/>
+  <text x="296" y="576" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">ARD36773F</text>
+  <text x="420" y="576" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Anabela Domingues</text>
+  <text x="620" y="576" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Public Relations Manager</text>
+  <text x="900" y="576" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">100</text>
+  <text x="940" y="576" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="576" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Jan 27, 1993</text>
+  <line x1="296" y1="592" x2="1384" y2="592" stroke="#efe6da"/>
+  <text x="296" y="618" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">PHF38899M</text>
+  <text x="420" y="618" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Peter Franken</text>
+  <text x="620" y="618" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Productions Manager</text>
+  <text x="900" y="618" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">75</text>
+  <text x="940" y="618" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="618" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">May 17, 1992</text>
+  <line x1="296" y1="634" x2="1384" y2="634" stroke="#efe6da"/>
+  <text x="296" y="660" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">PXH22250M</text>
+  <text x="420" y="660" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Paul Henriot</text>
+  <text x="620" y="660" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Publisher</text>
+  <text x="900" y="660" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">159</text>
+  <text x="940" y="660" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="660" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Aug 19, 1993</text>
+  <line x1="296" y1="676" x2="1384" y2="676" stroke="#efe6da"/>
+  <text x="296" y="702" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">CFH28514M</text>
+  <text x="420" y="702" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Carlos Hernadez</text>
+  <text x="620" y="702" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Publisher</text>
+  <text x="900" y="702" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">211</text>
+  <text x="940" y="702" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Lucerne Publishing</text>
+  <text x="1384" y="702" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Apr 21, 1989</text>
+  <line x1="296" y1="718" x2="1384" y2="718" stroke="#efe6da"/>
+  <text x="296" y="744" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">PDI47470M</text>
+  <text x="420" y="744" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Palle Ibsen</text>
+  <text x="620" y="744" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Marketing Manager</text>
+  <text x="900" y="744" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">195</text>
+  <text x="940" y="744" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1384" y="744" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">May 9, 1993</text>
+  <text x="296" y="782" fill="#8a7466" font-size="12">Showing 14 of 43 employees</text>
+</svg>
+</section>
+<section class="screen" id="publishers" data-label="Publishers" hidden>
+<svg role="img" aria-label="Publishers screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Publishers (Admin)</title>
+  <defs>
+    <linearGradient id="publishers-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="publishers-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#publishers-panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="#home">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="#books">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="#authors">
+    <circle cx="48" cy="275" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#e2c9a6" font-size="15" font-weight="500">Authors</text>
+  </a>
+  <a href="#sales">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="#stores">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="#discounts">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="#employees">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="#publishers">
+    <rect x="20" y="514" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="524" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="535" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#ffffff" font-size="15" font-weight="700">Publishers</text>
+  </a>
+  <a href="#account">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="#login"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Publishers</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">8 publishers from pubs.publishers · admin only</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== Publishers table ===== -->
+  <rect x="272" y="128" width="1136" height="460" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">ID</text>
+  <text x="380" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">NAME</text>
+  <text x="640" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">CITY</text>
+  <text x="800" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">STATE</text>
+  <text x="880" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">COUNTRY</text>
+  <text x="1100" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">BOOKS</text>
+  <text x="1220" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">SOLD</text>
+  <text x="1384" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">REVENUE</text>
+  <line x1="296" y1="176" x2="1384" y2="176" stroke="#efe6da"/>
+  <text x="296" y="205" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">0736</text>
+  <text x="380" y="205" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">New Moon Books</text>
+  <text x="640" y="205" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Boston</text>
+  <text x="800" y="205" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">MA</text>
+  <text x="880" y="205" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">USA</text>
+  <text x="1100" y="205" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">5</text>
+  <text x="1220" y="205" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">208</text>
+  <text x="1384" y="205" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$1,961.85</text>
+  <line x1="296" y1="224" x2="1384" y2="224" stroke="#efe6da"/>
+  <text x="296" y="253" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">0877</text>
+  <text x="380" y="253" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="640" y="253" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Washington</text>
+  <text x="800" y="253" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">DC</text>
+  <text x="880" y="253" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">USA</text>
+  <text x="1100" y="253" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">7</text>
+  <text x="1220" y="253" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">150</text>
+  <text x="1384" y="253" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$2,128.10</text>
+  <line x1="296" y1="272" x2="1384" y2="272" stroke="#efe6da"/>
+  <text x="296" y="301" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">1389</text>
+  <text x="380" y="301" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Algodata Infosystems</text>
+  <text x="640" y="301" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Berkeley</text>
+  <text x="800" y="301" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">CA</text>
+  <text x="880" y="301" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">USA</text>
+  <text x="1100" y="301" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">6</text>
+  <text x="1220" y="301" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">135</text>
+  <text x="1384" y="301" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$2,586.95</text>
+  <line x1="296" y1="320" x2="1384" y2="320" stroke="#efe6da"/>
+  <text x="296" y="349" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">1622</text>
+  <text x="380" y="349" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Five Lakes Publishing</text>
+  <text x="640" y="349" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Chicago</text>
+  <text x="800" y="349" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">IL</text>
+  <text x="880" y="349" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">USA</text>
+  <text x="1100" y="349" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">0</text>
+  <text x="1220" y="349" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">0</text>
+  <text x="1384" y="349" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <line x1="296" y1="368" x2="1384" y2="368" stroke="#efe6da"/>
+  <text x="296" y="397" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">1756</text>
+  <text x="380" y="397" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Ramona Publishers</text>
+  <text x="640" y="397" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Dallas</text>
+  <text x="800" y="397" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">TX</text>
+  <text x="880" y="397" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">USA</text>
+  <text x="1100" y="397" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">0</text>
+  <text x="1220" y="397" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">0</text>
+  <text x="1384" y="397" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <line x1="296" y1="416" x2="1384" y2="416" stroke="#efe6da"/>
+  <text x="296" y="445" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">9901</text>
+  <text x="380" y="445" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">GGG&amp;G</text>
+  <text x="640" y="445" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">München</text>
+  <text x="800" y="445" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">—</text>
+  <text x="880" y="445" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Germany</text>
+  <text x="1100" y="445" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">0</text>
+  <text x="1220" y="445" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">0</text>
+  <text x="1384" y="445" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <line x1="296" y1="464" x2="1384" y2="464" stroke="#efe6da"/>
+  <text x="296" y="493" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">9952</text>
+  <text x="380" y="493" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Scootney Books</text>
+  <text x="640" y="493" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">New York</text>
+  <text x="800" y="493" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">NY</text>
+  <text x="880" y="493" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">USA</text>
+  <text x="1100" y="493" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">0</text>
+  <text x="1220" y="493" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">0</text>
+  <text x="1384" y="493" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <line x1="296" y1="512" x2="1384" y2="512" stroke="#efe6da"/>
+  <text x="296" y="541" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">9999</text>
+  <text x="380" y="541" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Lucerne Publishing</text>
+  <text x="640" y="541" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Paris</text>
+  <text x="800" y="541" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">—</text>
+  <text x="880" y="541" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">France</text>
+  <text x="1100" y="541" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">0</text>
+  <text x="1220" y="541" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">0</text>
+  <text x="1384" y="541" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+</svg>
+</section>
+<section class="screen" id="account" data-label="My Account" hidden>
+<svg role="img" aria-label="My Account screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – My Account (Admin)</title>
+  <defs>
+    <linearGradient id="account-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="account-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#account-panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="#home">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="#books">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="#authors">
+    <circle cx="48" cy="275" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#e2c9a6" font-size="15" font-weight="500">Authors</text>
+  </a>
+  <a href="#sales">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="#stores">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="#discounts">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="#employees">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="#publishers">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="#account">
+    <rect x="20" y="566" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="576" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="587" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#ffffff" font-size="15" font-weight="700">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="#login"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">My Account</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">Your sign-in details and profile</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== Profile ===== -->
+  <rect x="272" y="128" width="740" height="368" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="164" fill="#3b2418" font-size="18" font-weight="700">Profile</text>
+  <text x="296" y="186" fill="#8a7466" font-size="13">The publisher account that runs BookNest</text>
+  <rect x="860" y="148" width="128" height="40" rx="10" fill="url(#account-btn)"/>
+  <text x="924" y="173" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">Save changes</text>
+  <circle cx="340" cy="264" r="44" fill="#5b3a29"/>
+  <text x="340" y="276" fill="#ffffff" font-size="32" font-weight="700" text-anchor="middle">N</text>
+  <text x="420" y="216" fill="#8a7466" font-size="13" font-weight="600">Display name</text>
+  <rect x="420" y="226" width="270" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="434" y="251" fill="#3b2418" font-size="14">New Moon Books</text>
+  <text x="710" y="216" fill="#8a7466" font-size="13" font-weight="600">Username</text>
+  <rect x="710" y="226" width="278" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="724" y="251" fill="#3b2418" font-size="14">@newmoon</text>
+  <text x="420" y="296" fill="#8a7466" font-size="13" font-weight="600">Email</text>
+  <rect x="420" y="306" width="270" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="434" y="331" fill="#3b2418" font-size="14">admin@newmoonbooks.com</text>
+  <text x="710" y="296" fill="#8a7466" font-size="13" font-weight="600">Location</text>
+  <rect x="710" y="306" width="278" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="724" y="331" fill="#3b2418" font-size="14">Boston, MA</text>
+  <line x1="296" y1="376" x2="988" y2="376" stroke="#efe6da"/>
+  <text x="296" y="412" fill="#3b2418" font-size="14" font-weight="600">Password</text>
+  <text x="296" y="432" fill="#8a7466" font-size="12">Last changed 3 months ago</text>
+  <rect x="836" y="396" width="152" height="40" rx="10" fill="#ffffff" stroke="#b5652b"/>
+  <text x="912" y="421" fill="#b5652b" font-size="13" font-weight="700" text-anchor="middle">Change password</text>
+
+  <!-- ===== Account type ===== -->
+  <rect x="1036" y="128" width="372" height="368" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="1060" y="164" fill="#3b2418" font-size="18" font-weight="700">Account type</text>
+  <rect x="1060" y="183" width="70" height="26" rx="13" fill="#5b3a29"/>
+  <text x="1095" y="201" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle">Admin</text>
+  <text x="1146" y="201" fill="#8a7466" font-size="13">Publisher · since Jan 2, 2026</text>
+  <text x="1060" y="252" fill="#3b2418" font-size="14" font-weight="600">What you can do</text>
+  <text x="1060" y="286" fill="#5e8c4a" font-size="14" font-weight="700">✓</text>
+  <text x="1082" y="286" fill="#3b2418" font-size="13">Create author accounts and logins</text>
+  <text x="1060" y="314" fill="#5e8c4a" font-size="14" font-weight="700">✓</text>
+  <text x="1082" y="314" fill="#3b2418" font-size="13">See and delete books</text>
+  <text x="1060" y="342" fill="#5e8c4a" font-size="14" font-weight="700">✓</text>
+  <text x="1082" y="342" fill="#3b2418" font-size="13">See sales and discounts</text>
+  <text x="1060" y="370" fill="#5e8c4a" font-size="14" font-weight="700">✓</text>
+  <text x="1082" y="370" fill="#3b2418" font-size="13">See employees and publishers</text>
+  <text x="1060" y="398" fill="#5e8c4a" font-size="14" font-weight="700">✓</text>
+  <text x="1082" y="398" fill="#3b2418" font-size="13">Edit or delete any account</text>
+  <text x="1060" y="460" fill="#8a7466" font-size="12">Authors only see My Books and My Account.</text>
+</svg>
+</section>
+</main>
+<p class="hint">Click the highlighted areas to move between screens, or use the menu and the ← → keys. Buttons that aren't highlighted are design only.</p>
+<script>
+  const screens = [...document.querySelectorAll('.screen')];
+  const ids = screens.map((s) => s.id);
+  const jump = document.getElementById('jump');
+  const hotspots = document.getElementById('hotspots');
+
+  function drawHotspots(section) {
+    document.querySelectorAll('.hotspot').forEach((h) => h.remove());
+    if (!hotspots.checked) return;
+    const svg = section.querySelector('svg');
+    section.querySelectorAll('a').forEach((a) => {
+      const b = a.getBBox();
+      const r = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      r.setAttribute('class', 'hotspot');
+      r.setAttribute('x', b.x - 4); r.setAttribute('y', b.y - 4);
+      r.setAttribute('width', b.width + 8); r.setAttribute('height', b.height + 8);
+      r.setAttribute('rx', 6);
+      svg.appendChild(r);
+    });
+  }
+
+  function show() {
+    const id = ids.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'login';
+    screens.forEach((s) => (s.hidden = s.id !== id));
+    const section = document.getElementById(id);
+    document.title = 'BookNest Admin Demo · ' + section.dataset.label;
+    jump.value = id;
+    document.getElementById('prev').disabled = id === ids[0];
+    document.getElementById('next').disabled = id === ids[ids.length - 1];
+    drawHotspots(section);
+    window.scrollTo(0, 0);
+  }
+
+  function go(step) {
+    const i = ids.indexOf(jump.value) + step;
+    if (i >= 0 && i < ids.length) location.hash = ids[i];
+  }
+
+  window.addEventListener('hashchange', show);
+  jump.addEventListener('change', () => (location.hash = jump.value));
+  document.getElementById('prev').addEventListener('click', () => go(-1));
+  document.getElementById('next').addEventListener('click', () => go(1));
+  hotspots.addEventListener('change', show);
+  document.addEventListener('keydown', (e) => {
+    if (e.target.closest('select')) return;
+    if (e.key === 'ArrowRight') go(1);
+    if (e.key === 'ArrowLeft') go(-1);
+  });
+  show();
+</script>
+</body>
+</html>

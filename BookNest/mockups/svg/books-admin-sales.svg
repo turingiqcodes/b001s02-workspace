@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="840" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Sales (Admin)</title>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="books-admin-home.svg">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="books-admin-books.svg">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="books-admin-users.svg">
+    <circle cx="48" cy="275" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#e2c9a6" font-size="15" font-weight="500">Authors</text>
+  </a>
+  <a href="books-admin-sales.svg">
+    <rect x="20" y="306" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="316" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="327" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#ffffff" font-size="15" font-weight="700">Sales</text>
+  </a>
+  <a href="books-admin-stores.svg">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="books-admin-discounts.svg">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="books-admin-employees.svg">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="books-admin-publishers.svg">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="books-account-admin.svg">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="books-login-admin.svg"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Sales</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">21 order lines from pubs.sales · admin only</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== Stat tiles ===== -->
+  <rect x="272" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ORDERS</text>
+  <text x="296" y="192" fill="#3b2418" font-size="26" font-weight="700">16</text>
+  <text x="296" y="212" fill="#8a7466" font-size="12">21 order lines</text>
+  <rect x="562" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="586" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">COPIES SOLD</text>
+  <text x="586" y="192" fill="#3b2418" font-size="26" font-weight="700">493</text>
+  <text x="586" y="212" fill="#8a7466" font-size="12">All titles</text>
+  <rect x="852" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="876" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">REVENUE</text>
+  <text x="876" y="192" fill="#3b2418" font-size="26" font-weight="700">$6,676.90</text>
+  <text x="876" y="212" fill="#8a7466" font-size="12">Quantity × list price</text>
+  <rect x="1142" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="1166" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">STORES</text>
+  <text x="1166" y="192" fill="#3b2418" font-size="26" font-weight="700">6</text>
+  <text x="1166" y="212" fill="#8a7466" font-size="12">With at least one order</text>
+
+  <!-- ===== Orders table ===== -->
+  <rect x="272" y="248" width="1136" height="568" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="278" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">ORDER</text>
+  <text x="400" y="278" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">DATE</text>
+  <text x="510" y="278" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">STORE</text>
+  <text x="790" y="278" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">BOOK</text>
+  <text x="1120" y="278" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">QTY</text>
+  <text x="1150" y="278" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">TERMS</text>
+  <text x="1384" y="278" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">AMOUNT</text>
+  <line x1="296" y1="290" x2="1384" y2="290" stroke="#efe6da"/>
+  <text x="296" y="312" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">N914014</text>
+  <text x="400" y="312" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 14, 1994</text>
+  <text x="510" y="312" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Doc-U-Mat: Quality Laundry and Bo…</text>
+  <text x="790" y="312" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">The Gourmet Microwave</text>
+  <text x="1120" y="312" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">25</text>
+  <text x="1150" y="312" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 30</text>
+  <text x="1384" y="312" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$74.75</text>
+  <line x1="296" y1="324" x2="1384" y2="324" stroke="#efe6da"/>
+  <text x="296" y="346" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">N914008</text>
+  <text x="400" y="346" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 14, 1994</text>
+  <text x="510" y="346" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Doc-U-Mat: Quality Laundry and Bo…</text>
+  <text x="790" y="346" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Is Anger the Enemy?</text>
+  <text x="1120" y="346" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">20</text>
+  <text x="1150" y="346" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 30</text>
+  <text x="1384" y="346" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$219.00</text>
+  <line x1="296" y1="358" x2="1384" y2="358" stroke="#efe6da"/>
+  <text x="296" y="380" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">D4482</text>
+  <text x="400" y="380" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 14, 1994</text>
+  <text x="510" y="380" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">News &amp; Brews</text>
+  <text x="790" y="380" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Is Anger the Enemy?</text>
+  <text x="1120" y="380" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">10</text>
+  <text x="1150" y="380" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="380" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$109.50</text>
+  <line x1="296" y1="392" x2="1384" y2="392" stroke="#efe6da"/>
+  <text x="296" y="414" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">6871</text>
+  <text x="400" y="414" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 14, 1994</text>
+  <text x="510" y="414" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Eric the Read Books</text>
+  <text x="790" y="414" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">The Busy Executive's Database Guide</text>
+  <text x="1120" y="414" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">5</text>
+  <text x="1150" y="414" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="414" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$99.95</text>
+  <line x1="296" y1="426" x2="1384" y2="426" stroke="#efe6da"/>
+  <text x="296" y="448" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">423LL930</text>
+  <text x="400" y="448" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 14, 1994</text>
+  <text x="510" y="448" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Bookbeat</text>
+  <text x="790" y="448" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">The Busy Executive's Database Guide</text>
+  <text x="1120" y="448" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">10</text>
+  <text x="1150" y="448" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">ON invoice</text>
+  <text x="1384" y="448" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$199.90</text>
+  <line x1="296" y1="460" x2="1384" y2="460" stroke="#efe6da"/>
+  <text x="296" y="482" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">423LL922</text>
+  <text x="400" y="482" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 14, 1994</text>
+  <text x="510" y="482" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Bookbeat</text>
+  <text x="790" y="482" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">The Gourmet Microwave</text>
+  <text x="1120" y="482" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">15</text>
+  <text x="1150" y="482" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">ON invoice</text>
+  <text x="1384" y="482" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$44.85</text>
+  <line x1="296" y1="494" x2="1384" y2="494" stroke="#efe6da"/>
+  <text x="296" y="516" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">QA7442.3</text>
+  <text x="400" y="516" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 13, 1994</text>
+  <text x="510" y="516" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Barnum's</text>
+  <text x="790" y="516" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Is Anger the Enemy?</text>
+  <text x="1120" y="516" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">75</text>
+  <text x="1150" y="516" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">ON invoice</text>
+  <text x="1384" y="516" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$821.25</text>
+  <line x1="296" y1="528" x2="1384" y2="528" stroke="#efe6da"/>
+  <text x="296" y="550" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">722a</text>
+  <text x="400" y="550" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Sep 13, 1994</text>
+  <text x="510" y="550" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Eric the Read Books</text>
+  <text x="790" y="550" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Is Anger the Enemy?</text>
+  <text x="1120" y="550" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">3</text>
+  <text x="1150" y="550" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="550" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$32.85</text>
+  <line x1="296" y1="562" x2="1384" y2="562" stroke="#efe6da"/>
+  <text x="296" y="584" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">TQ456</text>
+  <text x="400" y="584" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Dec 12, 1993</text>
+  <text x="510" y="584" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Fricative Bookshop</text>
+  <text x="790" y="584" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Silicon Valley Gastronomic Treats</text>
+  <text x="1120" y="584" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">10</text>
+  <text x="1150" y="584" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="584" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$199.90</text>
+  <line x1="296" y1="596" x2="1384" y2="596" stroke="#efe6da"/>
+  <text x="296" y="618" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">QQ2299</text>
+  <text x="400" y="618" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Oct 28, 1993</text>
+  <text x="510" y="618" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Fricative Bookshop</text>
+  <text x="790" y="618" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Straight Talk About Computers</text>
+  <text x="1120" y="618" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">15</text>
+  <text x="1150" y="618" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="618" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$299.85</text>
+  <line x1="296" y1="630" x2="1384" y2="630" stroke="#efe6da"/>
+  <text x="296" y="652" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">P3087a</text>
+  <text x="400" y="652" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">May 29, 1993</text>
+  <text x="510" y="652" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Doc-U-Mat: Quality Laundry and Bo…</text>
+  <text x="790" y="652" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Computer Phobic and Non-Phobic Indi…</text>
+  <text x="1120" y="652" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">20</text>
+  <text x="1150" y="652" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="652" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$431.80</text>
+  <line x1="296" y1="664" x2="1384" y2="664" stroke="#efe6da"/>
+  <text x="296" y="686" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">P3087a</text>
+  <text x="400" y="686" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">May 29, 1993</text>
+  <text x="510" y="686" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Doc-U-Mat: Quality Laundry and Bo…</text>
+  <text x="790" y="686" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Life Without Fear</text>
+  <text x="1120" y="686" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">25</text>
+  <text x="1150" y="686" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="686" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$175.00</text>
+  <line x1="296" y1="698" x2="1384" y2="698" stroke="#efe6da"/>
+  <text x="296" y="720" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">P3087a</text>
+  <text x="400" y="720" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">May 29, 1993</text>
+  <text x="510" y="720" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Doc-U-Mat: Quality Laundry and Bo…</text>
+  <text x="790" y="720" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Prolonged Data Deprivation</text>
+  <text x="1120" y="720" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">15</text>
+  <text x="1150" y="720" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="720" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$299.85</text>
+  <line x1="296" y1="732" x2="1384" y2="732" stroke="#efe6da"/>
+  <text x="296" y="754" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">P3087a</text>
+  <text x="400" y="754" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">May 29, 1993</text>
+  <text x="510" y="754" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Doc-U-Mat: Quality Laundry and Bo…</text>
+  <text x="790" y="754" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Emotional Security: A New Algorithm</text>
+  <text x="1120" y="754" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">25</text>
+  <text x="1150" y="754" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Net 60</text>
+  <text x="1384" y="754" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">$199.75</text>
+  <text x="296" y="788" fill="#8a7466" font-size="12">Showing the 14 newest of 21 order lines</text>
+</svg>

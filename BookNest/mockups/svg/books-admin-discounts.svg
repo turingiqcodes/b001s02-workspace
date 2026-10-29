@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="840" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Discounts (Admin)</title>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="books-admin-home.svg">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="books-admin-books.svg">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="books-admin-users.svg">
+    <circle cx="48" cy="275" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#e2c9a6" font-size="15" font-weight="500">Authors</text>
+  </a>
+  <a href="books-admin-sales.svg">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="books-admin-stores.svg">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="books-admin-discounts.svg">
+    <rect x="20" y="410" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="420" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="431" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#ffffff" font-size="15" font-weight="700">Discounts</text>
+  </a>
+  <a href="books-admin-employees.svg">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="books-admin-publishers.svg">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="books-account-admin.svg">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="books-login-admin.svg"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Discounts</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">3 discount types from pubs.discounts · admin only</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== Discounts table ===== -->
+  <rect x="272" y="128" width="1136" height="196" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">DISCOUNT TYPE</text>
+  <text x="560" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">STORE</text>
+  <text x="900" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">LOW QTY</text>
+  <text x="1040" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">HIGH QTY</text>
+  <text x="1384" y="164" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">DISCOUNT</text>
+  <line x1="296" y1="176" x2="1384" y2="176" stroke="#efe6da"/>
+  <text x="296" y="203" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Initial Customer</text>
+  <text x="560" y="203" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">All stores</text>
+  <text x="900" y="203" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <text x="1040" y="203" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <text x="1384" y="203" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">10.50%</text>
+  <line x1="296" y1="220" x2="1384" y2="220" stroke="#efe6da"/>
+  <text x="296" y="247" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Volume Discount</text>
+  <text x="560" y="247" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">All stores</text>
+  <text x="900" y="247" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">100</text>
+  <text x="1040" y="247" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">1000</text>
+  <text x="1384" y="247" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">6.70%</text>
+  <line x1="296" y1="264" x2="1384" y2="264" stroke="#efe6da"/>
+  <text x="296" y="291" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Customer Discount</text>
+  <text x="560" y="291" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Bookbeat</text>
+  <text x="900" y="291" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <text x="1040" y="291" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <text x="1384" y="291" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">5.00%</text>
+  <rect x="272" y="348" width="1136" height="82" rx="16" fill="#fdf1e4" stroke="#e9c9a3"/>
+  <text x="296" y="380" fill="#3b2418" font-size="14" font-weight="700">How discounts apply</text>
+  <text x="296" y="402" fill="#8a5a2b" font-size="13">Initial Customer applies to a store's first order. Volume Discount applies to orders of 100–1,000 copies.</text>
+  <text x="296" y="420" fill="#8a5a2b" font-size="13">Customer Discount is a fixed discount for Bookbeat.</text>
+</svg>

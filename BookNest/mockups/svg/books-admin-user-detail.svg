@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="840" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Johnson White (Admin view)</title>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="books-admin-home.svg">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="books-admin-books.svg">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="books-admin-users.svg">
+    <rect x="20" y="254" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="264" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="275" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#ffffff" font-size="15" font-weight="700">Authors</text>
+  </a>
+  <a href="books-admin-sales.svg">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="books-admin-stores.svg">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="books-admin-discounts.svg">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="books-admin-employees.svg">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="books-admin-publishers.svg">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="books-account-admin.svg">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="books-login-admin.svg"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <a href="books-admin-users.svg"><text x="272" y="40" fill="#b5652b" font-size="13" font-weight="600">← Authors</text></a>
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Johnson White</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">@jwhite · User (author) · joined Sep 12, 2026</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+  <rect x="272" y="120" width="1136" height="48" rx="16" fill="#fdf1e4" stroke="#e9c9a3"/>
+  <text x="296" y="152" fill="#3b2418" font-size="14" font-weight="700"></text>
+  <text x="296" y="150" fill="#8a5a2b" font-size="13"><tspan font-weight="700">Admin view · </tspan>You're viewing an author's account. Changes are saved to Johnson's account.</text>
+
+  <!-- ===== Profile and login ===== -->
+  <rect x="272" y="188" width="740" height="368" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="224" fill="#3b2418" font-size="18" font-weight="700">Profile and login details</text>
+  <text x="296" y="246" fill="#8a7466" font-size="13">Only the admin can change these</text>
+  <rect x="860" y="208" width="128" height="40" rx="10" fill="url(#btn)"/>
+  <text x="924" y="233" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">Save changes</text>
+  <circle cx="340" cy="324" r="44" fill="#6b8fb5"/>
+  <text x="340" y="336" fill="#ffffff" font-size="32" font-weight="700" text-anchor="middle">J</text>
+  <text x="420" y="276" fill="#8a7466" font-size="13" font-weight="600">Display name</text>
+  <rect x="420" y="286" width="270" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="434" y="311" fill="#3b2418" font-size="14">Johnson White</text>
+  <text x="710" y="276" fill="#8a7466" font-size="13" font-weight="600">Email</text>
+  <rect x="710" y="286" width="278" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="724" y="311" fill="#3b2418" font-size="14">johnson@booknest.app</text>
+  <text x="420" y="356" fill="#8a7466" font-size="13" font-weight="600">Username</text>
+  <rect x="420" y="366" width="270" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="434" y="391" fill="#3b2418" font-size="14">@jwhite</text>
+  <text x="710" y="356" fill="#8a7466" font-size="13" font-weight="600">Location</text>
+  <rect x="710" y="366" width="278" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="724" y="391" fill="#3b2418" font-size="14">Menlo Park, CA</text>
+  <line x1="296" y1="436" x2="988" y2="436" stroke="#efe6da"/>
+  <text x="296" y="472" fill="#3b2418" font-size="14" font-weight="600">Password</text>
+  <text x="296" y="492" fill="#8a7466" font-size="12">Set a new password, then give it to Johnson yourself</text>
+  <rect x="836" y="456" width="152" height="40" rx="10" fill="#ffffff" stroke="#b5652b"/>
+  <text x="912" y="481" fill="#b5652b" font-size="13" font-weight="700" text-anchor="middle">Set new password</text>
+
+  <!-- ===== Books ===== -->
+  <rect x="1036" y="188" width="372" height="368" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="1060" y="224" fill="#3b2418" font-size="18" font-weight="700">Books published</text>
+  <text x="1060" y="246" fill="#8a7466" font-size="13">1 book · 15 copies sold</text>
+  <text x="1060" y="296" fill="#3b2418" font-size="14" font-weight="600">Prolonged Data Deprivation</text>
+  <text x="1060" y="316" fill="#8a7466" font-size="12">PS3333 · New Moon Books · $19.99</text>
+  <text x="1384" y="296" fill="#3b2418" font-size="14" font-weight="700" text-anchor="end">15 sold</text>
+  <line x1="1060" y1="452" x2="1384" y2="452" stroke="#efe6da"/>
+  <text x="1060" y="484" fill="#8a7466" font-size="13">Account type</text>
+  <rect x="1320" y="467" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="1352" y="485" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1060" y="520" fill="#8a7466" font-size="13">Status</text>
+  <text x="1384" y="520" fill="#5e8c4a" font-size="13" font-weight="600" text-anchor="end">● Active</text>
+
+  <!-- ===== Danger zone ===== -->
+  <rect x="272" y="580" width="1136" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="616" fill="#3b2418" font-size="18" font-weight="700">Delete this author account</text>
+  <text x="296" y="644" fill="#8a7466" font-size="13">Removes Johnson's login. Their books stay in the catalog.</text>
+  <rect x="1236" y="608" width="148" height="40" rx="10" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1310" y="633" fill="#c0504d" font-size="13" font-weight="700" text-anchor="middle">Delete account</text>
+</svg>

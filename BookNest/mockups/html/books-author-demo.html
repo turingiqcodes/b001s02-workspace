@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BookNest Author Demo</title>
+<style>
+  :root { --bg: #e9e3da; --bar: #2f241d; --bar-ink: #f6efe4; --muted: #c9b8a6; --accent: #d4843f; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); font-family: "Segoe UI", Helvetica, Arial, sans-serif; }
+  header {
+    position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px;
+    padding: 10px 16px; background: var(--bar); color: var(--bar-ink); font-size: 14px;
+  }
+  header strong { font-size: 15px; }
+  header .role { color: var(--muted); }
+  header .spacer { flex: 1; }
+  select, button { font: inherit; border-radius: 6px; border: 1px solid #5b4a3e; background: #3f3128; color: var(--bar-ink); padding: 5px 10px; }
+  button { cursor: pointer; }
+  button:disabled { opacity: 0.4; cursor: default; }
+  label { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); cursor: pointer; }
+  label input { accent-color: var(--accent); }
+  main { max-width: 1440px; margin: 16px auto; padding: 0 16px; }
+  .screen svg { display: block; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgb(0 0 0 / 0.15); background: #f6efe4; }
+  .screen a { cursor: pointer; }
+  .show-links .screen a { outline: none; }
+  .hotspot { fill: rgb(212 132 63 / 0.16); stroke: #d4843f; stroke-width: 2; stroke-dasharray: 6 4; pointer-events: none; }
+  .hint { max-width: 1440px; margin: 0 auto 24px; padding: 0 16px; color: #6b5f57; font-size: 13px; }
+</style>
+</head>
+<body>
+<header>
+  <strong>BookNest</strong><span class="role">Author view · static demo, no database</span>
+  <span class="spacer"></span>
+  <label for="hotspots"><input type="checkbox" id="hotspots" checked> Show clickable areas</label>
+  <button id="prev" type="button" aria-label="Previous screen">←</button>
+  <select id="jump" aria-label="Go to screen">
+      <option value="login">Author login</option>
+      <option value="books">My Books</option>
+      <option value="account">My Account</option>
+  </select>
+  <button id="next" type="button" aria-label="Next screen">→</button>
+</header>
+<main>
+<section class="screen" id="login" data-label="Author login" hidden>
+<svg role="img" aria-label="Author login screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Author Login</title>
+  <defs>
+    <linearGradient id="login-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6efe4"/>
+      <stop offset="1" stop-color="#ead9c0"/>
+    </linearGradient>
+    <linearGradient id="login-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="login-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+    <filter id="login-shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#3b2418" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1200" height="760" fill="url(#login-bg)"/>
+  <circle cx="1120" cy="80" r="140" fill="#e2c9a6" opacity="0.5"/>
+  <circle cx="80" cy="700" r="110" fill="#e2c9a6" opacity="0.5"/>
+
+  <!-- Card -->
+  <g filter="url(#login-shadow)">
+    <rect x="120" y="90" width="960" height="580" rx="24" fill="#ffffff"/>
+  </g>
+
+  <!-- Left illustration panel -->
+  <clipPath id="login-leftClip">
+    <rect x="120" y="90" width="440" height="580" rx="24"/>
+  </clipPath>
+  <g clip-path="url(#login-leftClip)">
+    <rect x="120" y="90" width="460" height="580" fill="url(#login-panel)"/>
+
+    <!-- Bookshelf -->
+    <g transform="translate(180,300)">
+      <rect x="0" y="150" width="320" height="14" rx="3" fill="#a87447"/>
+      <rect x="10"  y="40"  width="34" height="110" rx="3" fill="#d4843f"/>
+      <rect x="10"  y="60"  width="34" height="6" fill="#f6efe4" opacity="0.7"/>
+      <rect x="48"  y="20"  width="28" height="130" rx="3" fill="#7fa58b"/>
+      <rect x="48"  y="40"  width="28" height="5" fill="#f6efe4" opacity="0.7"/>
+      <rect x="80"  y="55"  width="40" height="95" rx="3" fill="#e9c46a"/>
+      <rect x="80"  y="75"  width="40" height="6" fill="#5b3a29" opacity="0.4"/>
+      <rect x="124" y="30"  width="26" height="120" rx="3" fill="#c0504d"/>
+      <rect x="154" y="45"  width="32" height="105" rx="3" fill="#4f7ca8"/>
+      <rect x="154" y="65"  width="32" height="5" fill="#f6efe4" opacity="0.7"/>
+      <g transform="rotate(14 205 150)">
+        <rect x="192" y="40" width="30" height="110" rx="3" fill="#f2e3c9"/>
+      </g>
+      <rect x="240" y="60"  width="36" height="90" rx="3" fill="#9b6fb0"/>
+      <rect x="280" y="35"  width="30" height="115" rx="3" fill="#d4843f"/>
+      <rect x="280" y="55"  width="30" height="5" fill="#f6efe4" opacity="0.7"/>
+    </g>
+
+    <!-- Open book logo -->
+    <g transform="translate(340,190)" fill="none" stroke="#f6efe4" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+      <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+      <line x1="0" y1="10" x2="0" y2="60"/>
+    </g>
+
+    <text x="340" y="290" fill="#f6efe4" font-size="30" font-weight="700" text-anchor="middle">BookNest</text>
+    <text x="340" y="520" fill="#f6efe4" font-size="18" text-anchor="middle" opacity="0.9">“A reader lives a thousand lives</text>
+    <text x="340" y="546" fill="#f6efe4" font-size="18" text-anchor="middle" opacity="0.9">before he dies.”</text>
+    <text x="340" y="578" fill="#e2c9a6" font-size="14" text-anchor="middle">— George R.R. Martin</text>
+  </g>
+
+  <!-- Right form -->
+  <g transform="translate(640,170)">
+    <!-- Which login this is -->
+    <rect x="0" y="-46" width="138" height="24" rx="12" fill="#4a6b4f"/>
+    <text x="69" y="-29" fill="#ffffff" font-size="11" font-weight="700" letter-spacing="1" text-anchor="middle">AUTHOR SIGN IN</text>
+    <text x="0" y="20" fill="#3b2418" font-size="32" font-weight="700">Welcome back</text>
+    <text x="0" y="52" fill="#8a7466" font-size="16">Sign in to see your books</text>
+
+    <!-- Username -->
+    <text x="0" y="104" fill="#5b3a29" font-size="14" font-weight="600">Username</text>
+    <rect x="0" y="116" width="380" height="50" rx="10" fill="#faf6f0" stroke="#e0d2c0" stroke-width="1.5"/>
+    <g transform="translate(16,133)" fill="none" stroke="#a88d78" stroke-width="2">
+      <circle cx="11" cy="4" r="5"/>
+      <path d="M1 18 a10 8 0 0 1 20 0"/>
+    </g>
+    <text x="52" y="147" fill="#b3a194" font-size="15">Username from your admin</text>
+
+    <!-- Password -->
+    <text x="0" y="200" fill="#5b3a29" font-size="14" font-weight="600">Password</text>
+    <rect x="0" y="212" width="380" height="50" rx="10" fill="#ffffff" stroke="#b5652b" stroke-width="2"/>
+    <g transform="translate(18,226)" fill="none" stroke="#a88d78" stroke-width="2">
+      <rect x="0" y="9" width="18" height="14" rx="3"/>
+      <path d="M4 9 V5 a5 5 0 0 1 10 0 V9"/>
+    </g>
+    <text x="52" y="244" fill="#3b2418" font-size="20" letter-spacing="3">••••••••</text>
+    <g transform="translate(342,229)" fill="none" stroke="#a88d78" stroke-width="2">
+      <path d="M0 8 C5 0 17 0 22 8 C17 16 5 16 0 8 Z"/>
+      <circle cx="11" cy="8" r="3"/>
+    </g>
+
+    <!-- Remember / forgot -->
+    <rect x="0" y="284" width="18" height="18" rx="4" fill="#b5652b"/>
+    <path d="M4 293 L8 297 L14 289" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="28" y="298" fill="#5b3a29" font-size="14">Remember me</text>
+    <text x="380" y="298" fill="#8a7466" font-size="13" text-anchor="end">Forgot it? Ask your admin</text>
+
+    <!-- Sign in button -->
+    <a href="#books">
+      <rect x="0" y="326" width="380" height="52" rx="10" fill="url(#login-btn)"/>
+      <text x="190" y="358" fill="#ffffff" font-size="17" font-weight="700" text-anchor="middle">Sign in</text>
+    </a>
+
+    <!-- Who this login is for -->
+    <text x="190" y="416" fill="#8a7466" font-size="14" text-anchor="middle">Use the login details your admin gave you.</text>
+    <a href="../svg/books-login-admin.svg"><text x="190" y="448" fill="#b5652b" font-size="14" font-weight="600" text-anchor="middle">Admin? Use the admin login →</text></a>
+  </g>
+</svg>
+</section>
+<section class="screen" id="books" data-label="My Books" hidden>
+<svg role="img" aria-label="My Books screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – My Books</title>
+  <defs>
+    <linearGradient id="books-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="books-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#books-panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">AUTHOR</text>
+  <a href="#books">
+    <rect x="20" y="150" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="160" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="171" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#ffffff" font-size="15" font-weight="700">My Books</text>
+  </a>
+  <a href="#account">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="#login"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">My Books</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">The books you published · only you and the admin can see this page</text>
+  <circle cx="1386" cy="66" r="22" fill="#4a6b4f"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">G</text>
+
+  <!-- ===== Stat tiles ===== -->
+  <rect x="272" y="128" width="362" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">BOOKS PUBLISHED</text>
+  <text x="296" y="192" fill="#3b2418" font-size="26" font-weight="700">2</text>
+  <text x="296" y="212" fill="#8a7466" font-size="12">Under your name</text>
+  <rect x="658" y="128" width="362" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="682" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">COPIES SOLD</text>
+  <text x="682" y="192" fill="#3b2418" font-size="26" font-weight="700">50</text>
+  <text x="682" y="212" fill="#8a7466" font-size="12">Across all stores</text>
+  <rect x="1044" y="128" width="362" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="1068" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">SALES</text>
+  <text x="1068" y="192" fill="#3b2418" font-size="26" font-weight="700">$404.50</text>
+  <text x="1068" y="212" fill="#8a7466" font-size="12">Quantity × list price</text>
+
+  <!-- ===== My books ===== -->
+  <rect x="272" y="248" width="1136" height="204" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="284" fill="#3b2418" font-size="18" font-weight="700">Your books</text>
+  <text x="296" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">ID</text>
+  <text x="380" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">TITLE</text>
+  <text x="720" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">TYPE</text>
+  <text x="840" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">PUBLISHER</text>
+  <text x="1060" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">PUBLISHED</text>
+  <text x="1260" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">PRICE</text>
+  <text x="1384" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">SOLD</text>
+  <line x1="296" y1="324" x2="1384" y2="324" stroke="#efe6da"/>
+  <text x="296" y="361" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">BU1032</text>
+  <text x="380" y="361" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">The Busy Executive's Database Guide</text>
+  <text x="720" y="361" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">business</text>
+  <text x="840" y="361" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1060" y="361" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Jun 12, 1991</text>
+  <text x="1260" y="361" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$19.99</text>
+  <text x="1384" y="361" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">15</text>
+  <line x1="296" y1="388" x2="1384" y2="388" stroke="#efe6da"/>
+  <text x="296" y="425" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">BU2075</text>
+  <text x="380" y="425" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">You Can Combat Computer Stress!</text>
+  <text x="720" y="425" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">business</text>
+  <text x="840" y="425" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1060" y="425" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Jun 30, 1991</text>
+  <text x="1260" y="425" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$2.99</text>
+  <text x="1384" y="425" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">35</text>
+  <rect x="272" y="476" width="1136" height="82" rx="16" fill="#fdf1e4" stroke="#e9c9a3"/>
+  <text x="296" y="508" fill="#3b2418" font-size="14" font-weight="700">What you can see</text>
+  <text x="296" y="530" fill="#8a5a2b" font-size="13">You can see your own account and the books you published, with their copies sold.</text>
+  <text x="296" y="548" fill="#8a5a2b" font-size="13">Other books, authors and data are managed by your admin (publisher).</text>
+</svg>
+</section>
+<section class="screen" id="account" data-label="My Account" hidden>
+<svg role="img" aria-label="My Account screen" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – My Account</title>
+  <defs>
+    <linearGradient id="account-panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="account-btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#account-panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">AUTHOR</text>
+  <a href="#books">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">My Books</text>
+  </a>
+  <a href="#account">
+    <rect x="20" y="202" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="212" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="223" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#ffffff" font-size="15" font-weight="700">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="#login"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">My Account</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">Your profile and login details · set by your admin</text>
+  <circle cx="1386" cy="66" r="22" fill="#4a6b4f"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">G</text>
+
+  <!-- ===== Profile (read-only) ===== -->
+  <rect x="272" y="128" width="740" height="368" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="164" fill="#3b2418" font-size="18" font-weight="700">Profile and login details</text>
+  <text x="296" y="186" fill="#8a7466" font-size="13">Your admin created this account. Ask them to change anything.</text>
+  <circle cx="340" cy="264" r="44" fill="#4a6b4f"/>
+  <text x="340" y="276" fill="#ffffff" font-size="32" font-weight="700" text-anchor="middle">G</text>
+  <text x="420" y="216" fill="#8a7466" font-size="13" font-weight="600">Display name</text>
+  <rect x="420" y="226" width="270" height="40" rx="10" fill="#f3ede4" stroke="#e0d2c0"/>
+  <text x="434" y="251" fill="#5b3a29" font-size="14">Marjorie Green</text>
+  <g fill="none" stroke="#a88d78" stroke-width="1.6"><rect x="662" y="244" width="12" height="10" rx="2"/><path d="M665 244 V241 a3 3 0 0 1 6 0 V244"/></g>
+  <text x="710" y="216" fill="#8a7466" font-size="13" font-weight="600">Email</text>
+  <rect x="710" y="226" width="278" height="40" rx="10" fill="#f3ede4" stroke="#e0d2c0"/>
+  <text x="724" y="251" fill="#5b3a29" font-size="14">marjorie@booknest.app</text>
+  <g fill="none" stroke="#a88d78" stroke-width="1.6"><rect x="960" y="244" width="12" height="10" rx="2"/><path d="M963 244 V241 a3 3 0 0 1 6 0 V244"/></g>
+  <text x="420" y="296" fill="#8a7466" font-size="13" font-weight="600">Username</text>
+  <rect x="420" y="306" width="270" height="40" rx="10" fill="#f3ede4" stroke="#e0d2c0"/>
+  <text x="434" y="331" fill="#5b3a29" font-size="14">@mgreen</text>
+  <g fill="none" stroke="#a88d78" stroke-width="1.6"><rect x="662" y="324" width="12" height="10" rx="2"/><path d="M665 324 V321 a3 3 0 0 1 6 0 V324"/></g>
+  <text x="710" y="296" fill="#8a7466" font-size="13" font-weight="600">Location</text>
+  <rect x="710" y="306" width="278" height="40" rx="10" fill="#f3ede4" stroke="#e0d2c0"/>
+  <text x="724" y="331" fill="#5b3a29" font-size="14">Oakland, CA</text>
+  <g fill="none" stroke="#a88d78" stroke-width="1.6"><rect x="960" y="324" width="12" height="10" rx="2"/><path d="M963 324 V321 a3 3 0 0 1 6 0 V324"/></g>
+  <line x1="296" y1="376" x2="988" y2="376" stroke="#efe6da"/>
+  <text x="296" y="412" fill="#3b2418" font-size="14" font-weight="600">Password</text>
+  <text x="296" y="432" fill="#8a7466" font-size="12">Set by your admin · ask them for a new one if you forget it</text>
+  <text x="988" y="420" fill="#5b3a29" font-size="20" letter-spacing="3" text-anchor="end">••••••••</text>
+
+  <!-- ===== Account type ===== -->
+  <rect x="1036" y="128" width="372" height="368" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="1060" y="164" fill="#3b2418" font-size="18" font-weight="700">Account type</text>
+  <rect x="1060" y="183" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="1092" y="201" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1140" y="201" fill="#8a7466" font-size="13">Author · since Sep 3, 2026</text>
+  <text x="1060" y="252" fill="#3b2418" font-size="14" font-weight="600">What you can do</text>
+  <text x="1060" y="286" fill="#5e8c4a" font-size="14" font-weight="700">✓</text>
+  <text x="1082" y="286" fill="#3b2418" font-size="13">See your own account</text>
+  <text x="1060" y="314" fill="#5e8c4a" font-size="14" font-weight="700">✓</text>
+  <text x="1082" y="314" fill="#3b2418" font-size="13">See the books you published</text>
+  <text x="1060" y="342" fill="#c0504d" font-size="14" font-weight="700">✗</text>
+  <text x="1082" y="342" fill="#3b2418" font-size="13">Change your login details</text>
+  <text x="1060" y="370" fill="#c0504d" font-size="14" font-weight="700">✗</text>
+  <text x="1082" y="370" fill="#3b2418" font-size="13">See other authors or books</text>
+  <text x="1060" y="398" fill="#c0504d" font-size="14" font-weight="700">✗</text>
+  <text x="1082" y="398" fill="#3b2418" font-size="13">See sales, employees or other tabs</text>
+  <text x="1060" y="460" fill="#8a7466" font-size="12">Need a change? Contact your admin (publisher).</text>
+</svg>
+</section>
+</main>
+<p class="hint">Click the highlighted areas to move between screens, or use the menu and the ← → keys. Buttons that aren't highlighted are design only.</p>
+<script>
+  const screens = [...document.querySelectorAll('.screen')];
+  const ids = screens.map((s) => s.id);
+  const jump = document.getElementById('jump');
+  const hotspots = document.getElementById('hotspots');
+
+  function drawHotspots(section) {
+    document.querySelectorAll('.hotspot').forEach((h) => h.remove());
+    if (!hotspots.checked) return;
+    const svg = section.querySelector('svg');
+    section.querySelectorAll('a').forEach((a) => {
+      const b = a.getBBox();
+      const r = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      r.setAttribute('class', 'hotspot');
+      r.setAttribute('x', b.x - 4); r.setAttribute('y', b.y - 4);
+      r.setAttribute('width', b.width + 8); r.setAttribute('height', b.height + 8);
+      r.setAttribute('rx', 6);
+      svg.appendChild(r);
+    });
+  }
+
+  function show() {
+    const id = ids.includes(location.hash.slice(1)) ? location.hash.slice(1) : 'login';
+    screens.forEach((s) => (s.hidden = s.id !== id));
+    const section = document.getElementById(id);
+    document.title = 'BookNest Author Demo · ' + section.dataset.label;
+    jump.value = id;
+    document.getElementById('prev').disabled = id === ids[0];
+    document.getElementById('next').disabled = id === ids[ids.length - 1];
+    drawHotspots(section);
+    window.scrollTo(0, 0);
+  }
+
+  function go(step) {
+    const i = ids.indexOf(jump.value) + step;
+    if (i >= 0 && i < ids.length) location.hash = ids[i];
+  }
+
+  window.addEventListener('hashchange', show);
+  jump.addEventListener('change', () => (location.hash = jump.value));
+  document.getElementById('prev').addEventListener('click', () => go(-1));
+  document.getElementById('next').addEventListener('click', () => go(1));
+  hotspots.addEventListener('change', show);
+  document.addEventListener('keydown', (e) => {
+    if (e.target.closest('select')) return;
+    if (e.key === 'ArrowRight') go(1);
+    if (e.key === 'ArrowLeft') go(-1);
+  });
+  show();
+</script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="840" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Books (Admin)</title>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="books-admin-home.svg">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="books-admin-books.svg">
+    <rect x="20" y="202" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="212" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="223" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#ffffff" font-size="15" font-weight="700">Books</text>
+  </a>
+  <a href="books-admin-users.svg">
+    <circle cx="48" cy="275" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#e2c9a6" font-size="15" font-weight="500">Authors</text>
+  </a>
+  <a href="books-admin-sales.svg">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="books-admin-stores.svg">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="books-admin-discounts.svg">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="books-admin-employees.svg">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="books-admin-publishers.svg">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="books-account-admin.svg">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="books-login-admin.svg"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Books</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">18 titles · the admin can see and delete any book</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== Books table ===== -->
+  <rect x="272" y="128" width="1136" height="688" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">ID</text>
+  <text x="380" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">TITLE</text>
+  <text x="720" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">TYPE</text>
+  <text x="840" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">PUBLISHER</text>
+  <text x="1100" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">PRICE</text>
+  <text x="1180" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">SOLD</text>
+  <text x="1384" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end"></text>
+  <line x1="296" y1="172" x2="1384" y2="172" stroke="#efe6da"/>
+  <text x="296" y="194" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">BU1032</text>
+  <text x="380" y="194" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">The Busy Executive's Database Guide</text>
+  <text x="720" y="194" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">business</text>
+  <text x="840" y="194" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1100" y="194" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$19.99</text>
+  <text x="1180" y="194" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">15</text>
+  <rect x="1320" y="176" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="193" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="206" x2="1384" y2="206" stroke="#efe6da"/>
+  <text x="296" y="228" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">BU1111</text>
+  <text x="380" y="228" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Cooking with Computers</text>
+  <text x="720" y="228" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">business</text>
+  <text x="840" y="228" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1100" y="228" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$11.95</text>
+  <text x="1180" y="228" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">25</text>
+  <rect x="1320" y="210" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="227" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="240" x2="1384" y2="240" stroke="#efe6da"/>
+  <text x="296" y="262" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">BU2075</text>
+  <text x="380" y="262" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">You Can Combat Computer Stress!</text>
+  <text x="720" y="262" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">business</text>
+  <text x="840" y="262" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1100" y="262" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$2.99</text>
+  <text x="1180" y="262" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">35</text>
+  <rect x="1320" y="244" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="261" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="274" x2="1384" y2="274" stroke="#efe6da"/>
+  <text x="296" y="296" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">BU7832</text>
+  <text x="380" y="296" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Straight Talk About Computers</text>
+  <text x="720" y="296" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">business</text>
+  <text x="840" y="296" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1100" y="296" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$19.99</text>
+  <text x="1180" y="296" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">15</text>
+  <rect x="1320" y="278" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="295" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="308" x2="1384" y2="308" stroke="#efe6da"/>
+  <text x="296" y="330" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">MC2222</text>
+  <text x="380" y="330" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Silicon Valley Gastronomic Treats</text>
+  <text x="720" y="330" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">mod_cook</text>
+  <text x="840" y="330" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1100" y="330" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$19.99</text>
+  <text x="1180" y="330" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">10</text>
+  <rect x="1320" y="312" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="329" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="342" x2="1384" y2="342" stroke="#efe6da"/>
+  <text x="296" y="364" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">MC3021</text>
+  <text x="380" y="364" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">The Gourmet Microwave</text>
+  <text x="720" y="364" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">mod_cook</text>
+  <text x="840" y="364" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1100" y="364" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$2.99</text>
+  <text x="1180" y="364" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">40</text>
+  <rect x="1320" y="346" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="363" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="376" x2="1384" y2="376" stroke="#efe6da"/>
+  <text x="296" y="398" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">MC3026</text>
+  <text x="380" y="398" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">The Psychology of Computer Cooking</text>
+  <text x="720" y="398" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">UNDECIDED</text>
+  <text x="840" y="398" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1100" y="398" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <text x="1180" y="398" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">0</text>
+  <rect x="1320" y="380" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="397" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="410" x2="1384" y2="410" stroke="#efe6da"/>
+  <text x="296" y="432" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PC1035</text>
+  <text x="380" y="432" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">But Is It User Friendly?</text>
+  <text x="720" y="432" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">popular_comp</text>
+  <text x="840" y="432" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1100" y="432" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$22.95</text>
+  <text x="1180" y="432" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">30</text>
+  <rect x="1320" y="414" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="431" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="444" x2="1384" y2="444" stroke="#efe6da"/>
+  <text x="296" y="466" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PC8888</text>
+  <text x="380" y="466" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Secrets of Silicon Valley</text>
+  <text x="720" y="466" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">popular_comp</text>
+  <text x="840" y="466" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1100" y="466" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$20.00</text>
+  <text x="1180" y="466" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">50</text>
+  <rect x="1320" y="448" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="465" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="478" x2="1384" y2="478" stroke="#efe6da"/>
+  <text x="296" y="500" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PC9999</text>
+  <text x="380" y="500" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Net Etiquette</text>
+  <text x="720" y="500" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">popular_comp</text>
+  <text x="840" y="500" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1100" y="500" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">—</text>
+  <text x="1180" y="500" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">0</text>
+  <rect x="1320" y="482" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="499" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="512" x2="1384" y2="512" stroke="#efe6da"/>
+  <text x="296" y="534" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PS1372</text>
+  <text x="380" y="534" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Computer Phobic and Non-Phobic Individu…</text>
+  <text x="720" y="534" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">psychology</text>
+  <text x="840" y="534" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1100" y="534" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$21.59</text>
+  <text x="1180" y="534" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">20</text>
+  <rect x="1320" y="516" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="533" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="546" x2="1384" y2="546" stroke="#efe6da"/>
+  <text x="296" y="568" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PS2091</text>
+  <text x="380" y="568" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Is Anger the Enemy?</text>
+  <text x="720" y="568" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">psychology</text>
+  <text x="840" y="568" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1100" y="568" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$10.95</text>
+  <text x="1180" y="568" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">108</text>
+  <rect x="1320" y="550" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="567" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="580" x2="1384" y2="580" stroke="#efe6da"/>
+  <text x="296" y="602" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PS2106</text>
+  <text x="380" y="602" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Life Without Fear</text>
+  <text x="720" y="602" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">psychology</text>
+  <text x="840" y="602" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1100" y="602" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$7.00</text>
+  <text x="1180" y="602" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">25</text>
+  <rect x="1320" y="584" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="601" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="614" x2="1384" y2="614" stroke="#efe6da"/>
+  <text x="296" y="636" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PS3333</text>
+  <text x="380" y="636" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Prolonged Data Deprivation</text>
+  <text x="720" y="636" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">psychology</text>
+  <text x="840" y="636" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1100" y="636" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$19.99</text>
+  <text x="1180" y="636" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">15</text>
+  <rect x="1320" y="618" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="635" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="648" x2="1384" y2="648" stroke="#efe6da"/>
+  <text x="296" y="670" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">PS7777</text>
+  <text x="380" y="670" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Emotional Security: A New Algorithm</text>
+  <text x="720" y="670" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">psychology</text>
+  <text x="840" y="670" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1100" y="670" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$7.99</text>
+  <text x="1180" y="670" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">25</text>
+  <rect x="1320" y="652" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="669" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="682" x2="1384" y2="682" stroke="#efe6da"/>
+  <text x="296" y="704" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">TC3218</text>
+  <text x="380" y="704" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Onions, Leeks, and Garlic</text>
+  <text x="720" y="704" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">trad_cook</text>
+  <text x="840" y="704" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1100" y="704" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$20.95</text>
+  <text x="1180" y="704" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">40</text>
+  <rect x="1320" y="686" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="703" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="716" x2="1384" y2="716" stroke="#efe6da"/>
+  <text x="296" y="738" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">TC4203</text>
+  <text x="380" y="738" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Fifty Years in Buckingham Palace Kitche…</text>
+  <text x="720" y="738" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">trad_cook</text>
+  <text x="840" y="738" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1100" y="738" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$11.95</text>
+  <text x="1180" y="738" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">20</text>
+  <rect x="1320" y="720" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="737" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <line x1="296" y1="750" x2="1384" y2="750" stroke="#efe6da"/>
+  <text x="296" y="772" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">TC7777</text>
+  <text x="380" y="772" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Sushi, Anyone?</text>
+  <text x="720" y="772" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">trad_cook</text>
+  <text x="840" y="772" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1100" y="772" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$14.99</text>
+  <text x="1180" y="772" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">20</text>
+  <rect x="1320" y="754" width="64" height="26" rx="8" fill="#ffffff" stroke="#c0504d"/>
+  <text x="1352" y="771" fill="#c0504d" font-size="12" font-weight="700" text-anchor="middle">Delete</text>
+  <text x="296" y="808" fill="#8a7466" font-size="12">Deleting a book removes it from the catalog. Authors can't delete books.</text>
+</svg>

@@ -1,0 +1,79 @@
+#!/bin/bash
+# Rendered by Terraform templatefile(): dollar-brace placeholders are filled in
+# by Terraform; plain $VARS are left for bash.
+set -euxo pipefail
+exec > >(tee -a /var/log/airflow-bootstrap.log) 2>&1
+
+AIRFLOW_VERSION="2.10.5"
+PYTHON_VERSION="3.10"
+AIRFLOW_HOME="/home/ubuntu/airflow"
+VENV="/home/ubuntu/airflow-venv"
+
+export DEBIAN_FRONTEND=noninteractive
+apt-get update -y
+apt-get install -y python3-venv python3-pip libpq-dev postgresql-client
+
+# Small swap file so pip installs and Airflow don't run out of memory.
+if [ ! -f /swapfile ]; then
+  fallocate -l 2G /swapfile
+  chmod 600 /swapfile
+  mkswap /swapfile
+  swapon /swapfile
+  echo "/swapfile none swap sw 0 0" >> /etc/fstab
+fi
+
+# Airflow settings, shared by the systemd services and your SSH shell.
+cat > /etc/airflow.env <<ENV
+AIRFLOW_HOME=$AIRFLOW_HOME
+AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${db_user}:${db_password}@${db_host}:5432/${db_name}?sslmode=require
+AIRFLOW__CORE__EXECUTOR=LocalExecutor
+AIRFLOW__CORE__LOAD_EXAMPLES=True
+AIRFLOW__WEBSERVER__WEB_SERVER_PORT=8080
+ENV
+chown root:ubuntu /etc/airflow.env
+chmod 640 /etc/airflow.env
+grep -q airflow.env /home/ubuntu/.bashrc || \
+  echo 'set -a; . /etc/airflow.env; export PATH=/home/ubuntu/airflow-venv/bin:$PATH; set +a' >> /home/ubuntu/.bashrc
+
+# Install Airflow in a virtualenv, pinned with the official constraints file.
+sudo -u ubuntu python3 -m venv "$VENV"
+sudo -u ubuntu "$VENV/bin/pip" install --upgrade pip
+sudo -u ubuntu "$VENV/bin/pip" install "apache-airflow[postgres]==$AIRFLOW_VERSION" \
+  --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-$AIRFLOW_VERSION/constraints-$PYTHON_VERSION.txt"
+sudo -u ubuntu mkdir -p "$AIRFLOW_HOME/dags"
+
+# Wait for RDS to accept connections.
+for i in $(seq 1 60); do
+  pg_isready -h "${db_host}" -p 5432 && break
+  sleep 10
+done
+
+# Create Airflow's tables in Postgres and the admin login.
+sudo -u ubuntu bash -c "set -a; . /etc/airflow.env; set +a; \
+  $VENV/bin/airflow db migrate && \
+  ($VENV/bin/airflow users create --username admin --password '${admin_password}' \
+     --firstname Admin --lastname User --role Admin --email admin@example.com || true)"
+
+# systemd services: restart on failure and start again after a stop/start.
+for svc in webserver scheduler; do
+cat > /etc/systemd/system/airflow-$svc.service <<UNIT
+[Unit]
+Description=Airflow $svc
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ubuntu
+EnvironmentFile=/etc/airflow.env
+ExecStart=$VENV/bin/airflow $svc
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+UNIT
+done
+
+systemctl daemon-reload
+systemctl enable --now airflow-webserver airflow-scheduler
+echo "AIRFLOW BOOTSTRAP COMPLETE"
