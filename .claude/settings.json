@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -I -c '\n# After Claude creates/edits a file under BookNest/booknest/: record it for review and run the static checks.\nimport json, os, subprocess, sys\nproject = os.environ.get(\"CLAUDE_PROJECT_DIR\") or os.getcwd()\napp = os.path.realpath(os.path.join(project, \"BookNest\", \"booknest\"))\ntry:\n    event = json.load(sys.stdin)\nexcept ValueError:\n    sys.exit(0)\npath = (event.get(\"tool_input\") or {}).get(\"file_path\") or (event.get(\"tool_response\") or {}).get(\"filePath\") or \"\"\nif not path:\n    sys.exit(0)\npath = os.path.realpath(path if os.path.isabs(path) else os.path.join(event.get(\"cwd\") or project, path))\nif not path.startswith(app + os.sep) or \"/.venv/\" in path or \"/__pycache__/\" in path:\n    sys.exit(0)\npending = os.path.join(os.environ.get(\"TMPDIR\", \"/tmp\"), \"booknest-review-pending-\" + event.get(\"session_id\", \"default\"))\nwith open(pending, \"a\") as f:\n    f.write(path + \"\\n\")\nchecks = os.path.join(project, \".claude\", \"skills\", \"booknest-review\", \"scripts\", \"static_checks.sh\")\nrun = subprocess.run([\"bash\", checks, app], capture_output=True, text=True, timeout=90)\nreport = (run.stdout + run.stderr).strip()\nbroken = \"== Python compiles\\nok\" not in report\nif len(report) > 6000:\n    report = report[:6000] + \"\\n... (truncated)\"\nrel = os.path.relpath(path, project)\nhead = \"booknest-review static checks after editing \" + rel + (\" - PYTHON DOES NOT COMPILE, fix this first.\" if broken else \" (candidates only; confirm any hit by reading the code).\")\nprint(json.dumps({\n    \"systemMessage\": \"booknest-review checks ran for \" + rel + (\" - compile error!\" if broken else \"\"),\n    \"hookSpecificOutput\": {\"hookEventName\": \"PostToolUse\", \"additionalContext\": head + \"\\n\\n\" + report},\n}))\n'",
+            "timeout": 120,
+            "statusMessage": "Running booknest-review checks..."
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -I -c '\n# When Claude is about to finish: if BookNest files changed this turn, keep going once and run the booknest-review skill.\n# stop_hook_active is true on the follow-up stop, so a review that edits code cannot loop forever.\nimport json, os, sys\nproject = os.environ.get(\"CLAUDE_PROJECT_DIR\") or os.getcwd()\ntry:\n    event = json.load(sys.stdin)\nexcept ValueError:\n    sys.exit(0)\npending = os.path.join(os.environ.get(\"TMPDIR\", \"/tmp\"), \"booknest-review-pending-\" + event.get(\"session_id\", \"default\"))\ntry:\n    with open(pending) as f:\n        paths = sorted({line.strip() for line in f if line.strip()})\n    os.remove(pending)\nexcept FileNotFoundError:\n    sys.exit(0)\nif not paths or event.get(\"stop_hook_active\"):\n    sys.exit(0)\nrel = [os.path.relpath(p, project) for p in paths]\nprint(json.dumps({\n    \"systemMessage\": \"booknest-review requested for \" + str(len(rel)) + \" changed file(s)\",\n    \"decision\": \"block\",\n    \"reason\": \"BookNest files were created or changed this turn:\\n\"\n              + \"\\n\".join(\"- \" + p for p in rel)\n              + \"\\n\\nInvoke the booknest-review skill (Skill tool, skill \\\"booknest-review\\\") scoped to these files\"\n              + \" (args: \" + \" \".join(rel) + \") and report the findings before finishing.\",\n}))\n'",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

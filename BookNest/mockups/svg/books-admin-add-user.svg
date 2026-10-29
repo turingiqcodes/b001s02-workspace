@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="840" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Add Author (Admin)</title>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="books-admin-home.svg">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="books-admin-books.svg">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="books-admin-users.svg">
+    <rect x="20" y="254" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="264" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="275" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#ffffff" font-size="15" font-weight="700">Authors</text>
+  </a>
+  <a href="books-admin-sales.svg">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="books-admin-stores.svg">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="books-admin-discounts.svg">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="books-admin-employees.svg">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="books-admin-publishers.svg">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="books-account-admin.svg">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="books-login-admin.svg"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <a href="books-admin-users.svg"><text x="272" y="40" fill="#b5652b" font-size="13" font-weight="600">← Authors</text></a>
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Add author</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">Create an author account · only the admin can do this</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== New author form ===== -->
+  <rect x="272" y="128" width="740" height="600" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="164" fill="#3b2418" font-size="18" font-weight="700">Author details</text>
+  <text x="296" y="186" fill="#8a7466" font-size="13">Give these login details to the author. They can't sign up or change them.</text>
+  <text x="296" y="224" fill="#8a7466" font-size="13" font-weight="600">Display name</text>
+  <rect x="296" y="234" width="334" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="310" y="259" fill="#3b2418" font-size="14">Heather McBadden</text>
+  <text x="654" y="224" fill="#8a7466" font-size="13" font-weight="600">Email</text>
+  <rect x="654" y="234" width="334" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="668" y="259" fill="#3b2418" font-size="14">heather@booknest.app</text>
+  <text x="296" y="304" fill="#8a7466" font-size="13" font-weight="600">Location (optional)</text>
+  <rect x="296" y="314" width="334" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="310" y="339" fill="#3b2418" font-size="14">Vacaville, CA</text>
+  <text x="654" y="304" fill="#8a7466" font-size="13" font-weight="600">Account type</text>
+  <rect x="654" y="314" width="334" height="40" rx="10" fill="#f3ede4" stroke="#e0d2c0"/>
+  <rect x="668" y="321" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="700" y="339" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="744" y="339" fill="#5b3a29" font-size="13">Author · 2 tabs only</text>
+  <line x1="296" y1="384" x2="988" y2="384" stroke="#efe6da"/>
+  <text x="296" y="418" fill="#3b2418" font-size="16" font-weight="700">Login details</text>
+  <text x="296" y="440" fill="#8a7466" font-size="13">The author signs in only with this username and password.</text>
+  <text x="296" y="472" fill="#8a7466" font-size="13" font-weight="600">Username</text>
+  <rect x="296" y="482" width="334" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="310" y="507" fill="#3b2418" font-size="14">@hmcbadden</text>
+  <text x="654" y="472" fill="#8a7466" font-size="13" font-weight="600">Password</text>
+  <rect x="654" y="482" width="334" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="668" y="507" fill="#3b2418" font-size="14">Hm#4821-books</text>
+  <text x="654" y="544" fill="#b5652b" font-size="12" font-weight="600">↻ Generate a new password</text>
+  <line x1="296" y1="576" x2="988" y2="576" stroke="#efe6da"/>
+  <a href="books-admin-users.svg">
+  <rect x="712" y="664" width="110" height="40" rx="10" fill="#ffffff" stroke="#b5652b"/>
+  <text x="767" y="689" fill="#b5652b" font-size="13" font-weight="700" text-anchor="middle">Cancel</text>
+  </a>
+  <rect x="834" y="664" width="154" height="40" rx="10" fill="url(#btn)"/>
+  <text x="911" y="689" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">Create account</text>
+  <text x="296" y="612" fill="#8a7466" font-size="12">Share the username and password with the author yourself, e.g. in person or by phone.</text>
+
+  <!-- ===== What happens next ===== -->
+  <rect x="1036" y="128" width="372" height="300" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="1060" y="164" fill="#3b2418" font-size="18" font-weight="700">What happens next</text>
+  <circle cx="1074" cy="204" r="14" fill="#efe6da"/>
+  <text x="1074" y="209" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">1</text>
+  <text x="1100" y="204" fill="#3b2418" font-size="14" font-weight="600">Account is created</text>
+  <text x="1100" y="224" fill="#8a7466" font-size="12">Heather appears under Authors</text>
+  <circle cx="1074" cy="276" r="14" fill="#efe6da"/>
+  <text x="1074" y="281" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">2</text>
+  <text x="1100" y="276" fill="#3b2418" font-size="14" font-weight="600">You share the login details</text>
+  <text x="1100" y="296" fill="#8a7466" font-size="12">Username and password from this form</text>
+  <circle cx="1074" cy="348" r="14" fill="#efe6da"/>
+  <text x="1074" y="353" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">3</text>
+  <text x="1100" y="348" fill="#3b2418" font-size="14" font-weight="600">Heather signs in</text>
+  <text x="1100" y="368" fill="#8a7466" font-size="12">Sees only My Books and My Account</text>
+  <rect x="1036" y="452" width="372" height="100" rx="16" fill="#fdf1e4" stroke="#e9c9a3"/>
+  <text x="1060" y="484" fill="#3b2418" font-size="14" font-weight="700">Admin only</text>
+  <text x="1060" y="506" fill="#8a5a2b" font-size="13">Authors never see this page,</text>
+  <text x="1060" y="524" fill="#8a5a2b" font-size="13">the Authors tab or + Add author.</text>
+</svg>

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="840" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – My Account</title>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">AUTHOR</text>
+  <a href="books-author-books.svg">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">My Books</text>
+  </a>
+  <a href="books-account.svg">
+    <rect x="20" y="202" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="212" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="223" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#ffffff" font-size="15" font-weight="700">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="books-login-author.svg"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">My Account</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">Your profile and login details · set by your admin</text>
+  <circle cx="1386" cy="66" r="22" fill="#4a6b4f"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">G</text>
+
+  <!-- ===== Profile (read-only) ===== -->
+  <rect x="272" y="128" width="740" height="368" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="164" fill="#3b2418" font-size="18" font-weight="700">Profile and login details</text>
+  <text x="296" y="186" fill="#8a7466" font-size="13">Your admin created this account. Ask them to change anything.</text>
+  <circle cx="340" cy="264" r="44" fill="#4a6b4f"/>
+  <text x="340" y="276" fill="#ffffff" font-size="32" font-weight="700" text-anchor="middle">G</text>
+  <text x="420" y="216" fill="#8a7466" font-size="13" font-weight="600">Display name</text>
+  <rect x="420" y="226" width="270" height="40" rx="10" fill="#f3ede4" stroke="#e0d2c0"/>
+  <text x="434" y="251" fill="#5b3a29" font-size="14">Marjorie Green</text>
+  <g fill="none" stroke="#a88d78" stroke-width="1.6"><rect x="662" y="244" width="12" height="10" rx="2"/><path d="M665 244 V241 a3 3 0 0 1 6 0 V244"/></g>
+  <text x="710" y="216" fill="#8a7466" font-size="13" font-weight="600">Email</text>
+  <rect x="710" y="226" width="278" height="40" rx="10" fill="#f3ede4" stroke="#e0d2c0"/>
+  <text x="724" y="251" fill="#5b3a29" font-size="14">marjorie@booknest.app</text>
+  <g fill="none" stroke="#a88d78" stroke-width="1.6"><rect x="960" y="244" width="12" height="10" rx="2"/><path d="M963 244 V241 a3 3 0 0 1 6 0 V244"/></g>
+  <text x="420" y="296" fill="#8a7466" font-size="13" font-weight="600">Username</text>
+  <rect x="420" y="306" width="270" height="40" rx="10" fill="#f3ede4" stroke="#e0d2c0"/>
+  <text x="434" y="331" fill="#5b3a29" font-size="14">@mgreen</text>
+  <g fill="none" stroke="#a88d78" stroke-width="1.6"><rect x="662" y="324" width="12" height="10" rx="2"/><path d="M665 324 V321 a3 3 0 0 1 6 0 V324"/></g>
+  <text x="710" y="296" fill="#8a7466" font-size="13" font-weight="600">Location</text>
+  <rect x="710" y="306" width="278" height="40" rx="10" fill="#f3ede4" stroke="#e0d2c0"/>
+  <text x="724" y="331" fill="#5b3a29" font-size="14">Oakland, CA</text>
+  <g fill="none" stroke="#a88d78" stroke-width="1.6"><rect x="960" y="324" width="12" height="10" rx="2"/><path d="M963 324 V321 a3 3 0 0 1 6 0 V324"/></g>
+  <line x1="296" y1="376" x2="988" y2="376" stroke="#efe6da"/>
+  <text x="296" y="412" fill="#3b2418" font-size="14" font-weight="600">Password</text>
+  <text x="296" y="432" fill="#8a7466" font-size="12">Set by your admin · ask them for a new one if you forget it</text>
+  <text x="988" y="420" fill="#5b3a29" font-size="20" letter-spacing="3" text-anchor="end">••••••••</text>
+
+  <!-- ===== Account type ===== -->
+  <rect x="1036" y="128" width="372" height="368" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="1060" y="164" fill="#3b2418" font-size="18" font-weight="700">Account type</text>
+  <rect x="1060" y="183" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="1092" y="201" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1140" y="201" fill="#8a7466" font-size="13">Author · since Sep 3, 2026</text>
+  <text x="1060" y="252" fill="#3b2418" font-size="14" font-weight="600">What you can do</text>
+  <text x="1060" y="286" fill="#5e8c4a" font-size="14" font-weight="700">✓</text>
+  <text x="1082" y="286" fill="#3b2418" font-size="13">See your own account</text>
+  <text x="1060" y="314" fill="#5e8c4a" font-size="14" font-weight="700">✓</text>
+  <text x="1082" y="314" fill="#3b2418" font-size="13">See the books you published</text>
+  <text x="1060" y="342" fill="#c0504d" font-size="14" font-weight="700">✗</text>
+  <text x="1082" y="342" fill="#3b2418" font-size="13">Change your login details</text>
+  <text x="1060" y="370" fill="#c0504d" font-size="14" font-weight="700">✗</text>
+  <text x="1082" y="370" fill="#3b2418" font-size="13">See other authors or books</text>
+  <text x="1060" y="398" fill="#c0504d" font-size="14" font-weight="700">✗</text>
+  <text x="1082" y="398" fill="#3b2418" font-size="13">See sales, employees or other tabs</text>
+  <text x="1060" y="460" fill="#8a7466" font-size="12">Need a change? Contact your admin (publisher).</text>
+</svg>

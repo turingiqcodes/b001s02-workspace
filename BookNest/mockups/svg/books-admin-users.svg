@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="840" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Authors (Admin)</title>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="books-admin-home.svg">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="books-admin-books.svg">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="books-admin-users.svg">
+    <rect x="20" y="254" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="264" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="275" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#ffffff" font-size="15" font-weight="700">Authors</text>
+  </a>
+  <a href="books-admin-sales.svg">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="books-admin-stores.svg">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="books-admin-discounts.svg">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="books-admin-employees.svg">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="books-admin-publishers.svg">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="books-account-admin.svg">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="books-login-admin.svg"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Authors</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">7 accounts · 1 admin (publisher), 6 authors · only the admin can create accounts</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+  <a href="books-admin-add-user.svg">
+  <rect x="1236" y="120" width="172" height="40" rx="10" fill="url(#btn)"/>
+  <text x="1322" y="145" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">+ Add author</text>
+  </a>
+
+  <!-- ===== Accounts table ===== -->
+  <rect x="272" y="176" width="1136" height="496" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="208" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">NAME</text>
+  <text x="560" y="208" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">USERNAME</text>
+  <text x="720" y="208" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">EMAIL</text>
+  <text x="960" y="208" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">ROLE</text>
+  <text x="1090" y="208" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">BOOKS</text>
+  <text x="1130" y="208" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">JOINED</text>
+  <text x="1384" y="208" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end"></text>
+  <line x1="296" y1="220" x2="1384" y2="220" stroke="#efe6da"/>
+  <circle cx="314" cy="250" r="17" fill="#5b3a29"/>
+  <text x="314" y="255" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">N</text>
+  <text x="342" y="255" fill="#3b2418" font-size="14" font-weight="600">New Moon Books<tspan fill="#8a7466" font-weight="400"> (you)</tspan></text>
+  <text x="560" y="255" fill="#5b3a29" font-size="13">@newmoon</text>
+  <text x="720" y="255" fill="#5b3a29" font-size="13">admin@newmoonbooks.com</text>
+  <rect x="960" y="237" width="70" height="26" rx="13" fill="#5b3a29"/>
+  <text x="995" y="255" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle">Admin</text>
+  <text x="1090" y="255" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">—</text>
+  <text x="1130" y="255" fill="#8a7466" font-size="13">Jan 2, 2026</text>
+  <a href="books-account-admin.svg"><text x="1384" y="255" fill="#b5652b" font-size="13" font-weight="700" text-anchor="end">View →</text></a>
+  <line x1="296" y1="280" x2="1384" y2="280" stroke="#efe6da"/>
+  <circle cx="314" cy="310" r="17" fill="#4a6b4f"/>
+  <text x="314" y="315" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">G</text>
+  <text x="342" y="315" fill="#3b2418" font-size="14" font-weight="600">Marjorie Green</text>
+  <text x="560" y="315" fill="#5b3a29" font-size="13">@mgreen</text>
+  <text x="720" y="315" fill="#5b3a29" font-size="13">marjorie@booknest.app</text>
+  <rect x="960" y="297" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="992" y="315" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1090" y="315" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">2</text>
+  <text x="1130" y="315" fill="#8a7466" font-size="13">Sep 3, 2026</text>
+  <text x="1384" y="315" fill="#b5652b" font-size="13" font-weight="700" text-anchor="end">View →</text>
+  <line x1="296" y1="340" x2="1384" y2="340" stroke="#efe6da"/>
+  <circle cx="314" cy="370" r="17" fill="#6b8fb5"/>
+  <text x="314" y="375" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">J</text>
+  <text x="342" y="375" fill="#3b2418" font-size="14" font-weight="600">Johnson White</text>
+  <text x="560" y="375" fill="#5b3a29" font-size="13">@jwhite</text>
+  <text x="720" y="375" fill="#5b3a29" font-size="13">johnson@booknest.app</text>
+  <rect x="960" y="357" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="992" y="375" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1090" y="375" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">1</text>
+  <text x="1130" y="375" fill="#8a7466" font-size="13">Sep 12, 2026</text>
+  <a href="books-admin-user-detail.svg"><text x="1384" y="375" fill="#b5652b" font-size="13" font-weight="700" text-anchor="end">View →</text></a>
+  <line x1="296" y1="400" x2="1384" y2="400" stroke="#efe6da"/>
+  <circle cx="314" cy="430" r="17" fill="#b5736b"/>
+  <text x="314" y="435" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">C</text>
+  <text x="342" y="435" fill="#3b2418" font-size="14" font-weight="600">Cheryl Carson</text>
+  <text x="560" y="435" fill="#5b3a29" font-size="13">@ccarson</text>
+  <text x="720" y="435" fill="#5b3a29" font-size="13">cheryl@booknest.app</text>
+  <rect x="960" y="417" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="992" y="435" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1090" y="435" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">1</text>
+  <text x="1130" y="435" fill="#8a7466" font-size="13">Sep 14, 2026</text>
+  <text x="1384" y="435" fill="#b5652b" font-size="13" font-weight="700" text-anchor="end">View →</text>
+  <line x1="296" y1="460" x2="1384" y2="460" stroke="#efe6da"/>
+  <circle cx="314" cy="490" r="17" fill="#d4843f"/>
+  <text x="314" y="495" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">M</text>
+  <text x="342" y="495" fill="#3b2418" font-size="14" font-weight="600">Michael O'Leary</text>
+  <text x="560" y="495" fill="#5b3a29" font-size="13">@moleary</text>
+  <text x="720" y="495" fill="#5b3a29" font-size="13">michael@booknest.app</text>
+  <rect x="960" y="477" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="992" y="495" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1090" y="495" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">2</text>
+  <text x="1130" y="495" fill="#8a7466" font-size="13">Sep 18, 2026</text>
+  <text x="1384" y="495" fill="#b5652b" font-size="13" font-weight="700" text-anchor="end">View →</text>
+  <line x1="296" y1="520" x2="1384" y2="520" stroke="#efe6da"/>
+  <circle cx="314" cy="550" r="17" fill="#7a9e7e"/>
+  <text x="314" y="555" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">C</text>
+  <text x="342" y="555" fill="#3b2418" font-size="14" font-weight="600">Charlene Locksley</text>
+  <text x="560" y="555" fill="#5b3a29" font-size="13">@clocksley</text>
+  <text x="720" y="555" fill="#5b3a29" font-size="13">charlene@booknest.app</text>
+  <rect x="960" y="537" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="992" y="555" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1090" y="555" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">2</text>
+  <text x="1130" y="555" fill="#8a7466" font-size="13">Sep 20, 2026</text>
+  <text x="1384" y="555" fill="#b5652b" font-size="13" font-weight="700" text-anchor="end">View →</text>
+  <line x1="296" y1="580" x2="1384" y2="580" stroke="#efe6da"/>
+  <circle cx="314" cy="610" r="17" fill="#8f7aa8"/>
+  <text x="314" y="615" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">A</text>
+  <text x="342" y="615" fill="#3b2418" font-size="14" font-weight="600">Albert Ringer</text>
+  <text x="560" y="615" fill="#5b3a29" font-size="13">@aringer</text>
+  <text x="720" y="615" fill="#5b3a29" font-size="13">albert@booknest.app</text>
+  <rect x="960" y="597" width="64" height="26" rx="13" fill="#efe6da"/>
+  <text x="992" y="615" fill="#5b3a29" font-size="13" font-weight="700" text-anchor="middle">User</text>
+  <text x="1090" y="615" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">2</text>
+  <text x="1130" y="615" fill="#8a7466" font-size="13">Sep 25, 2026</text>
+  <text x="1384" y="615" fill="#b5652b" font-size="13" font-weight="700" text-anchor="end">View →</text>
+  <rect x="272" y="696" width="1136" height="82" rx="16" fill="#fdf1e4" stroke="#e9c9a3"/>
+  <text x="296" y="728" fill="#3b2418" font-size="14" font-weight="700">Admin only</text>
+  <text x="296" y="750" fill="#8a5a2b" font-size="13">Authors can't sign up. The admin creates each author account and gives the author their login details.</text>
+  <text x="296" y="768" fill="#8a5a2b" font-size="13">Authors only see My Books (the books they published) and My Account.</text>
+</svg>

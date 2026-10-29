@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="840" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – My Account (Admin)</title>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="books-admin-home.svg">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="books-admin-books.svg">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="books-admin-users.svg">
+    <circle cx="48" cy="275" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#e2c9a6" font-size="15" font-weight="500">Authors</text>
+  </a>
+  <a href="books-admin-sales.svg">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="books-admin-stores.svg">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="books-admin-discounts.svg">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="books-admin-employees.svg">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="books-admin-publishers.svg">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="books-account-admin.svg">
+    <rect x="20" y="566" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="576" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="587" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#ffffff" font-size="15" font-weight="700">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="books-login-admin.svg"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">My Account</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">Your sign-in details and profile</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== Profile ===== -->
+  <rect x="272" y="128" width="740" height="368" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="164" fill="#3b2418" font-size="18" font-weight="700">Profile</text>
+  <text x="296" y="186" fill="#8a7466" font-size="13">The publisher account that runs BookNest</text>
+  <rect x="860" y="148" width="128" height="40" rx="10" fill="url(#btn)"/>
+  <text x="924" y="173" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">Save changes</text>
+  <circle cx="340" cy="264" r="44" fill="#5b3a29"/>
+  <text x="340" y="276" fill="#ffffff" font-size="32" font-weight="700" text-anchor="middle">N</text>
+  <text x="420" y="216" fill="#8a7466" font-size="13" font-weight="600">Display name</text>
+  <rect x="420" y="226" width="270" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="434" y="251" fill="#3b2418" font-size="14">New Moon Books</text>
+  <text x="710" y="216" fill="#8a7466" font-size="13" font-weight="600">Username</text>
+  <rect x="710" y="226" width="278" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="724" y="251" fill="#3b2418" font-size="14">@newmoon</text>
+  <text x="420" y="296" fill="#8a7466" font-size="13" font-weight="600">Email</text>
+  <rect x="420" y="306" width="270" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="434" y="331" fill="#3b2418" font-size="14">admin@newmoonbooks.com</text>
+  <text x="710" y="296" fill="#8a7466" font-size="13" font-weight="600">Location</text>
+  <rect x="710" y="306" width="278" height="40" rx="10" fill="#fbf7f1" stroke="#e0d2c0"/>
+  <text x="724" y="331" fill="#3b2418" font-size="14">Boston, MA</text>
+  <line x1="296" y1="376" x2="988" y2="376" stroke="#efe6da"/>
+  <text x="296" y="412" fill="#3b2418" font-size="14" font-weight="600">Password</text>
+  <text x="296" y="432" fill="#8a7466" font-size="12">Last changed 3 months ago</text>
+  <rect x="836" y="396" width="152" height="40" rx="10" fill="#ffffff" stroke="#b5652b"/>
+  <text x="912" y="421" fill="#b5652b" font-size="13" font-weight="700" text-anchor="middle">Change password</text>
+
+  <!-- ===== Account type ===== -->
+  <rect x="1036" y="128" width="372" height="368" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="1060" y="164" fill="#3b2418" font-size="18" font-weight="700">Account type</text>
+  <rect x="1060" y="183" width="70" height="26" rx="13" fill="#5b3a29"/>
+  <text x="1095" y="201" fill="#ffffff" font-size="13" font-weight="700" text-anchor="middle">Admin</text>
+  <text x="1146" y="201" fill="#8a7466" font-size="13">Publisher · since Jan 2, 2026</text>
+  <text x="1060" y="252" fill="#3b2418" font-size="14" font-weight="600">What you can do</text>
+  <text x="1060" y="286" fill="#5e8c4a" font-size="14" font-weight="700">✓</text>
+  <text x="1082" y="286" fill="#3b2418" font-size="13">Create author accounts and logins</text>
+  <text x="1060" y="314" fill="#5e8c4a" font-size="14" font-weight="700">✓</text>
+  <text x="1082" y="314" fill="#3b2418" font-size="13">See and delete books</text>
+  <text x="1060" y="342" fill="#5e8c4a" font-size="14" font-weight="700">✓</text>
+  <text x="1082" y="342" fill="#3b2418" font-size="13">See sales and discounts</text>
+  <text x="1060" y="370" fill="#5e8c4a" font-size="14" font-weight="700">✓</text>
+  <text x="1082" y="370" fill="#3b2418" font-size="13">See employees and publishers</text>
+  <text x="1060" y="398" fill="#5e8c4a" font-size="14" font-weight="700">✓</text>
+  <text x="1082" y="398" fill="#3b2418" font-size="13">Edit or delete any account</text>
+  <text x="1060" y="460" fill="#8a7466" font-size="12">Authors only see My Books and My Account.</text>
+</svg>

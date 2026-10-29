@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="840" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Employees (Admin)</title>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="books-admin-home.svg">
+    <circle cx="48" cy="171" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#e2c9a6" font-size="15" font-weight="500">Home</text>
+  </a>
+  <a href="books-admin-books.svg">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="books-admin-users.svg">
+    <circle cx="48" cy="275" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#e2c9a6" font-size="15" font-weight="500">Authors</text>
+  </a>
+  <a href="books-admin-sales.svg">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="books-admin-stores.svg">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="books-admin-discounts.svg">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="books-admin-employees.svg">
+    <rect x="20" y="462" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="472" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="483" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#ffffff" font-size="15" font-weight="700">Employees</text>
+  </a>
+  <a href="books-admin-publishers.svg">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="books-account-admin.svg">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="books-login-admin.svg"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Employees</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">43 employees from pubs.employee · admin only</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== Employees table ===== -->
+  <rect x="272" y="128" width="1136" height="688" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">ID</text>
+  <text x="420" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">NAME</text>
+  <text x="620" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">JOB</text>
+  <text x="900" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">LEVEL</text>
+  <text x="940" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">PUBLISHER</text>
+  <text x="1384" y="160" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">HIRED</text>
+  <line x1="296" y1="172" x2="1384" y2="172" stroke="#efe6da"/>
+  <text x="296" y="198" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">PMA42628M</text>
+  <text x="420" y="198" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Paolo Accorti</text>
+  <text x="620" y="198" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Sales Representative</text>
+  <text x="900" y="198" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">35</text>
+  <text x="940" y="198" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="198" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Aug 27, 1992</text>
+  <line x1="296" y1="214" x2="1384" y2="214" stroke="#efe6da"/>
+  <text x="296" y="240" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">PSA89086M</text>
+  <text x="420" y="240" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Pedro Afonso</text>
+  <text x="620" y="240" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Designer</text>
+  <text x="900" y="240" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">89</text>
+  <text x="940" y="240" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1384" y="240" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Dec 24, 1990</text>
+  <line x1="296" y1="256" x2="1384" y2="256" stroke="#efe6da"/>
+  <text x="296" y="282" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">VPA30890F</text>
+  <text x="420" y="282" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Victoria Ashworth</text>
+  <text x="620" y="282" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Managing Editor</text>
+  <text x="900" y="282" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">140</text>
+  <text x="940" y="282" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="282" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Sep 13, 1990</text>
+  <line x1="296" y1="298" x2="1384" y2="298" stroke="#efe6da"/>
+  <text x="296" y="324" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">H-B39728F</text>
+  <text x="420" y="324" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Helen Bennett</text>
+  <text x="620" y="324" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Editor</text>
+  <text x="900" y="324" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">35</text>
+  <text x="940" y="324" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="324" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Sep 21, 1989</text>
+  <line x1="296" y1="340" x2="1384" y2="340" stroke="#efe6da"/>
+  <text x="296" y="366" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">L-B31947F</text>
+  <text x="420" y="366" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Lesley Brown</text>
+  <text x="620" y="366" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Marketing Manager</text>
+  <text x="900" y="366" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">120</text>
+  <text x="940" y="366" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="366" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Feb 13, 1991</text>
+  <line x1="296" y1="382" x2="1384" y2="382" stroke="#efe6da"/>
+  <text x="296" y="408" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">F-C16315M</text>
+  <text x="420" y="408" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Francisco Chang</text>
+  <text x="620" y="408" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Chief Financial Officer</text>
+  <text x="900" y="408" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">227</text>
+  <text x="940" y="408" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Scootney Books</text>
+  <text x="1384" y="408" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Nov 3, 1990</text>
+  <line x1="296" y1="424" x2="1384" y2="424" stroke="#efe6da"/>
+  <text x="296" y="450" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">PTC11962M</text>
+  <text x="420" y="450" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Philip Cramer</text>
+  <text x="620" y="450" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Chief Executive Officer</text>
+  <text x="900" y="450" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">215</text>
+  <text x="940" y="450" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Scootney Books</text>
+  <text x="1384" y="450" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Nov 11, 1989</text>
+  <line x1="296" y1="466" x2="1384" y2="466" stroke="#efe6da"/>
+  <text x="296" y="492" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">A-C71970F</text>
+  <text x="420" y="492" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Aria Cruz</text>
+  <text x="620" y="492" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Productions Manager</text>
+  <text x="900" y="492" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">87</text>
+  <text x="940" y="492" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1384" y="492" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Oct 26, 1991</text>
+  <line x1="296" y1="508" x2="1384" y2="508" stroke="#efe6da"/>
+  <text x="296" y="534" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">AMD15433F</text>
+  <text x="420" y="534" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Ann Devon</text>
+  <text x="620" y="534" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Business Operations Manager</text>
+  <text x="900" y="534" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">200</text>
+  <text x="940" y="534" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Scootney Books</text>
+  <text x="1384" y="534" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Jul 16, 1991</text>
+  <line x1="296" y1="550" x2="1384" y2="550" stroke="#efe6da"/>
+  <text x="296" y="576" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">ARD36773F</text>
+  <text x="420" y="576" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Anabela Domingues</text>
+  <text x="620" y="576" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Public Relations Manager</text>
+  <text x="900" y="576" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">100</text>
+  <text x="940" y="576" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="576" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Jan 27, 1993</text>
+  <line x1="296" y1="592" x2="1384" y2="592" stroke="#efe6da"/>
+  <text x="296" y="618" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">PHF38899M</text>
+  <text x="420" y="618" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Peter Franken</text>
+  <text x="620" y="618" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Productions Manager</text>
+  <text x="900" y="618" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">75</text>
+  <text x="940" y="618" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="618" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">May 17, 1992</text>
+  <line x1="296" y1="634" x2="1384" y2="634" stroke="#efe6da"/>
+  <text x="296" y="660" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">PXH22250M</text>
+  <text x="420" y="660" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Paul Henriot</text>
+  <text x="620" y="660" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Publisher</text>
+  <text x="900" y="660" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">159</text>
+  <text x="940" y="660" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="660" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Aug 19, 1993</text>
+  <line x1="296" y1="676" x2="1384" y2="676" stroke="#efe6da"/>
+  <text x="296" y="702" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">CFH28514M</text>
+  <text x="420" y="702" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Carlos Hernadez</text>
+  <text x="620" y="702" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Publisher</text>
+  <text x="900" y="702" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">211</text>
+  <text x="940" y="702" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Lucerne Publishing</text>
+  <text x="1384" y="702" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">Apr 21, 1989</text>
+  <line x1="296" y1="718" x2="1384" y2="718" stroke="#efe6da"/>
+  <text x="296" y="744" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">PDI47470M</text>
+  <text x="420" y="744" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Palle Ibsen</text>
+  <text x="620" y="744" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Marketing Manager</text>
+  <text x="900" y="744" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">195</text>
+  <text x="940" y="744" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1384" y="744" fill="#8a7466" font-size="13" font-weight="400" text-anchor="end">May 9, 1993</text>
+  <text x="296" y="782" fill="#8a7466" font-size="12">Showing 14 of 43 employees</text>
+</svg>

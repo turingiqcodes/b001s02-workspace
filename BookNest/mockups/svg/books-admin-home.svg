@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="840" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – Home (Admin)</title>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">ADMIN · PUBLISHER</text>
+  <a href="books-admin-home.svg">
+    <rect x="20" y="150" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="160" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="171" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#ffffff" font-size="15" font-weight="700">Home</text>
+  </a>
+  <a href="books-admin-books.svg">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">Books</text>
+  </a>
+  <a href="books-admin-users.svg">
+    <circle cx="48" cy="275" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="280" fill="#e2c9a6" font-size="15" font-weight="500">Authors</text>
+  </a>
+  <a href="books-admin-sales.svg">
+    <circle cx="48" cy="327" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="332" fill="#e2c9a6" font-size="15" font-weight="500">Sales</text>
+  </a>
+  <a href="books-admin-stores.svg">
+    <circle cx="48" cy="379" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="384" fill="#e2c9a6" font-size="15" font-weight="500">Stores</text>
+  </a>
+  <a href="books-admin-discounts.svg">
+    <circle cx="48" cy="431" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="436" fill="#e2c9a6" font-size="15" font-weight="500">Discounts</text>
+  </a>
+  <a href="books-admin-employees.svg">
+    <circle cx="48" cy="483" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="488" fill="#e2c9a6" font-size="15" font-weight="500">Employees</text>
+  </a>
+  <a href="books-admin-publishers.svg">
+    <circle cx="48" cy="535" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="540" fill="#e2c9a6" font-size="15" font-weight="500">Publishers</text>
+  </a>
+  <a href="books-account-admin.svg">
+    <circle cx="48" cy="587" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="592" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="books-login-admin.svg"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">Good evening, New Moon Books</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">Admin overview · everything below is visible to the admin only</text>
+  <circle cx="1386" cy="66" r="22" fill="#5b3a29"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">N</text>
+
+  <!-- ===== Stat tiles ===== -->
+  <rect x="272" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">BOOKS</text>
+  <text x="296" y="192" fill="#3b2418" font-size="26" font-weight="700">18</text>
+  <text x="296" y="212" fill="#8a7466" font-size="12">Titles in the catalog</text>
+  <rect x="562" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="586" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">AUTHORS</text>
+  <text x="586" y="192" fill="#3b2418" font-size="26" font-weight="700">23</text>
+  <text x="586" y="212" fill="#8a7466" font-size="12">6 with BookNest accounts</text>
+  <rect x="852" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="876" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">COPIES SOLD</text>
+  <text x="876" y="192" fill="#3b2418" font-size="26" font-weight="700">493</text>
+  <text x="876" y="212" fill="#8a7466" font-size="12">16 orders · 6 stores</text>
+  <rect x="1142" y="128" width="266" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="1166" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">REVENUE</text>
+  <text x="1166" y="192" fill="#3b2418" font-size="26" font-weight="700">$6,676.90</text>
+  <text x="1166" y="212" fill="#8a7466" font-size="12">Quantity × list price</text>
+
+  <!-- ===== Copies sold by publisher ===== -->
+  <rect x="272" y="248" width="556" height="296" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="284" fill="#3b2418" font-size="18" font-weight="700">Copies sold by publisher</text>
+  <text x="296" y="327" fill="#3b2418" font-size="13">New Moon Books</text>
+  <path d="M488 316 H724 a4 4 0 0 1 4 4 V326 a4 4 0 0 1 -4 4 H488 Z" fill="#b5652b"><title>New Moon Books: 208 copies · $1,961.85</title></path>
+  <text x="736" y="327" fill="#5b3a29" font-size="12" font-weight="600">208</text>
+  <text x="296" y="367" fill="#3b2418" font-size="13">Binnet &amp; Hardley</text>
+  <path d="M488 356 H657 a4 4 0 0 1 4 4 V366 a4 4 0 0 1 -4 4 H488 Z" fill="#b5652b"><title>Binnet &amp; Hardley: 150 copies · $2,128.10</title></path>
+  <text x="669" y="367" fill="#5b3a29" font-size="12" font-weight="600">150</text>
+  <text x="296" y="407" fill="#3b2418" font-size="13">Algodata Infosystems</text>
+  <path d="M488 396 H640 a4 4 0 0 1 4 4 V406 a4 4 0 0 1 -4 4 H488 Z" fill="#b5652b"><title>Algodata Infosystems: 135 copies · $2,586.95</title></path>
+  <text x="652" y="407" fill="#5b3a29" font-size="12" font-weight="600">135</text>
+  <text x="296" y="452" fill="#a88d78" font-size="12">Other publishers have no sales yet</text>
+
+  <!-- ===== Top titles ===== -->
+  <rect x="852" y="248" width="556" height="296" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="876" y="284" fill="#3b2418" font-size="18" font-weight="700">Top books by copies sold</text>
+  <text x="876" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">BOOK</text>
+  <text x="1180" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">PUBLISHER</text>
+  <text x="1384" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">SOLD</text>
+  <line x1="876" y1="324" x2="1384" y2="324" stroke="#efe6da"/>
+  <text x="876" y="350" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Is Anger the Enemy?</text>
+  <text x="1180" y="350" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1384" y="350" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">108</text>
+  <line x1="876" y1="366" x2="1384" y2="366" stroke="#efe6da"/>
+  <text x="876" y="392" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Secrets of Silicon Valley</text>
+  <text x="1180" y="392" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1384" y="392" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">50</text>
+  <line x1="876" y1="408" x2="1384" y2="408" stroke="#efe6da"/>
+  <text x="876" y="434" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">The Gourmet Microwave</text>
+  <text x="1180" y="434" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="434" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">40</text>
+  <line x1="876" y1="450" x2="1384" y2="450" stroke="#efe6da"/>
+  <text x="876" y="476" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">Onions, Leeks, and Garlic</text>
+  <text x="1180" y="476" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Binnet &amp; Hardley</text>
+  <text x="1384" y="476" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">40</text>
+  <line x1="876" y1="492" x2="1384" y2="492" stroke="#efe6da"/>
+  <text x="876" y="518" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">You Can Combat Computer Stress!</text>
+  <text x="1180" y="518" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1384" y="518" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">35</text>
+
+  <!-- ===== Admin shortcuts ===== -->
+  <rect x="272" y="568" width="1136" height="248" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="604" fill="#3b2418" font-size="18" font-weight="700">Admin tools</text>
+  <text x="296" y="626" fill="#8a7466" font-size="13">Only the admin sees these tabs. Authors only see My Books and My Account.</text>
+  <a href="books-admin-books.svg">
+    <rect x="296" y="660" width="144" height="120" rx="12" fill="#fbf7f1" stroke="#e0d2c0"/>
+    <text x="312" y="700" fill="#3b2418" font-size="16" font-weight="700">Books</text>
+    <text x="312" y="722" fill="#8a7466" font-size="12">See and delete</text>
+    <text x="312" y="760" fill="#b5652b" font-size="13" font-weight="700">Open →</text>
+  </a>
+  <a href="books-admin-users.svg">
+    <rect x="452" y="660" width="144" height="120" rx="12" fill="#fbf7f1" stroke="#e0d2c0"/>
+    <text x="468" y="700" fill="#3b2418" font-size="16" font-weight="700">Authors</text>
+    <text x="468" y="722" fill="#8a7466" font-size="12">Create accounts</text>
+    <text x="468" y="760" fill="#b5652b" font-size="13" font-weight="700">Open →</text>
+  </a>
+  <a href="books-admin-sales.svg">
+    <rect x="608" y="660" width="144" height="120" rx="12" fill="#fbf7f1" stroke="#e0d2c0"/>
+    <text x="624" y="700" fill="#3b2418" font-size="16" font-weight="700">Sales</text>
+    <text x="624" y="722" fill="#8a7466" font-size="12">21 order lines</text>
+    <text x="624" y="760" fill="#b5652b" font-size="13" font-weight="700">Open →</text>
+  </a>
+  <a href="books-admin-stores.svg">
+    <rect x="764" y="660" width="144" height="120" rx="12" fill="#fbf7f1" stroke="#e0d2c0"/>
+    <text x="780" y="700" fill="#3b2418" font-size="16" font-weight="700">Stores</text>
+    <text x="780" y="722" fill="#8a7466" font-size="12">6 stores</text>
+    <text x="780" y="760" fill="#b5652b" font-size="13" font-weight="700">Open →</text>
+  </a>
+  <a href="books-admin-discounts.svg">
+    <rect x="920" y="660" width="144" height="120" rx="12" fill="#fbf7f1" stroke="#e0d2c0"/>
+    <text x="936" y="700" fill="#3b2418" font-size="16" font-weight="700">Discounts</text>
+    <text x="936" y="722" fill="#8a7466" font-size="12">3 discount types</text>
+    <text x="936" y="760" fill="#b5652b" font-size="13" font-weight="700">Open →</text>
+  </a>
+  <a href="books-admin-employees.svg">
+    <rect x="1076" y="660" width="144" height="120" rx="12" fill="#fbf7f1" stroke="#e0d2c0"/>
+    <text x="1092" y="700" fill="#3b2418" font-size="16" font-weight="700">Employees</text>
+    <text x="1092" y="722" fill="#8a7466" font-size="12">43 employees</text>
+    <text x="1092" y="760" fill="#b5652b" font-size="13" font-weight="700">Open →</text>
+  </a>
+  <a href="books-admin-publishers.svg">
+    <rect x="1232" y="660" width="144" height="120" rx="12" fill="#fbf7f1" stroke="#e0d2c0"/>
+    <text x="1248" y="700" fill="#3b2418" font-size="16" font-weight="700">Publishers</text>
+    <text x="1248" y="722" fill="#8a7466" font-size="12">8 publishers</text>
+    <text x="1248" y="760" fill="#b5652b" font-size="13" font-weight="700">Open →</text>
+  </a>
+</svg>

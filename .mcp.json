@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "github": {
+      "type": "stdio",
+      "command": "/home/training/workspace/github-mcp-server/.venv/bin/github-mcp-server",
+      "args": ["--toolsets", "repos,pulls,actions,issues,search"],
+      "env": {}
+    }
+  }
+}

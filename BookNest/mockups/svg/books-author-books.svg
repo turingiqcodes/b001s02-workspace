@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="840" viewBox="0 0 1440 840" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <title>BookNest – My Books</title>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5b3a29"/>
+      <stop offset="1" stop-color="#3b2418"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b5652b"/>
+      <stop offset="1" stop-color="#d4843f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1440" height="840" fill="#f6efe4"/>
+
+  <!-- ===== Sidebar ===== -->
+  <rect x="0" y="0" width="240" height="840" fill="url(#panel)"/>
+  <g transform="translate(52,62) scale(0.45)" fill="none" stroke="#f6efe4" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 10 C-20 -2 -48 -2 -64 6 L-64 56 C-48 48 -20 48 0 60 Z"/>
+    <path d="M0 10 C20 -2 48 -2 64 6 L64 56 C48 48 20 48 0 60 Z"/>
+    <line x1="0" y1="10" x2="0" y2="60"/>
+  </g>
+  <text x="90" y="86" fill="#f6efe4" font-size="22" font-weight="700">BookNest</text>
+  <text x="40" y="132" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">AUTHOR</text>
+  <a href="books-author-books.svg">
+    <rect x="20" y="150" width="200" height="42" rx="10" fill="#f6efe4" opacity="0.14"/>
+    <rect x="20" y="160" width="4" height="22" rx="2" fill="#d4843f"/>
+    <circle cx="48" cy="171" r="6" fill="#d4843f" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="176" fill="#ffffff" font-size="15" font-weight="700">My Books</text>
+  </a>
+  <a href="books-account.svg">
+    <circle cx="48" cy="223" r="6" fill="none" stroke="#e2c9a6" stroke-width="2"/>
+    <text x="68" y="228" fill="#e2c9a6" font-size="15" font-weight="500">My Account</text>
+  </a>
+  <line x1="24" y1="740" x2="216" y2="740" stroke="#e2c9a6" stroke-opacity="0.25"/>
+  <a href="books-login-author.svg"><text x="40" y="784" fill="#e2c9a6" font-size="15">Log out</text></a>
+
+  <!-- ===== Top bar ===== -->
+  <text x="272" y="72" fill="#3b2418" font-size="28" font-weight="700">My Books</text>
+  <text x="272" y="100" fill="#8a7466" font-size="15">The books you published · only you and the admin can see this page</text>
+  <circle cx="1386" cy="66" r="22" fill="#4a6b4f"/>
+  <text x="1386" y="72" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">G</text>
+
+  <!-- ===== Stat tiles ===== -->
+  <rect x="272" y="128" width="362" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">BOOKS PUBLISHED</text>
+  <text x="296" y="192" fill="#3b2418" font-size="26" font-weight="700">2</text>
+  <text x="296" y="212" fill="#8a7466" font-size="12">Under your name</text>
+  <rect x="658" y="128" width="362" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="682" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">COPIES SOLD</text>
+  <text x="682" y="192" fill="#3b2418" font-size="26" font-weight="700">50</text>
+  <text x="682" y="212" fill="#8a7466" font-size="12">Across all stores</text>
+  <rect x="1044" y="128" width="362" height="96" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="1068" y="158" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1">SALES</text>
+  <text x="1068" y="192" fill="#3b2418" font-size="26" font-weight="700">$404.50</text>
+  <text x="1068" y="212" fill="#8a7466" font-size="12">Quantity × list price</text>
+
+  <!-- ===== My books ===== -->
+  <rect x="272" y="248" width="1136" height="204" rx="16" fill="#ffffff" stroke="#efe6da"/>
+  <text x="296" y="284" fill="#3b2418" font-size="18" font-weight="700">Your books</text>
+  <text x="296" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">ID</text>
+  <text x="380" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">TITLE</text>
+  <text x="720" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">TYPE</text>
+  <text x="840" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">PUBLISHER</text>
+  <text x="1060" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="start">PUBLISHED</text>
+  <text x="1260" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">PRICE</text>
+  <text x="1384" y="312" fill="#a88d78" font-size="11" font-weight="700" letter-spacing="1" text-anchor="end">SOLD</text>
+  <line x1="296" y1="324" x2="1384" y2="324" stroke="#efe6da"/>
+  <text x="296" y="361" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">BU1032</text>
+  <text x="380" y="361" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">The Busy Executive's Database Guide</text>
+  <text x="720" y="361" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">business</text>
+  <text x="840" y="361" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">Algodata Infosystems</text>
+  <text x="1060" y="361" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Jun 12, 1991</text>
+  <text x="1260" y="361" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$19.99</text>
+  <text x="1384" y="361" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">15</text>
+  <line x1="296" y1="388" x2="1384" y2="388" stroke="#efe6da"/>
+  <text x="296" y="425" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">BU2075</text>
+  <text x="380" y="425" fill="#3b2418" font-size="13" font-weight="600" text-anchor="start">You Can Combat Computer Stress!</text>
+  <text x="720" y="425" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">business</text>
+  <text x="840" y="425" fill="#3b2418" font-size="13" font-weight="400" text-anchor="start">New Moon Books</text>
+  <text x="1060" y="425" fill="#8a7466" font-size="13" font-weight="400" text-anchor="start">Jun 30, 1991</text>
+  <text x="1260" y="425" fill="#3b2418" font-size="13" font-weight="400" text-anchor="end">$2.99</text>
+  <text x="1384" y="425" fill="#3b2418" font-size="13" font-weight="600" text-anchor="end">35</text>
+  <rect x="272" y="476" width="1136" height="82" rx="16" fill="#fdf1e4" stroke="#e9c9a3"/>
+  <text x="296" y="508" fill="#3b2418" font-size="14" font-weight="700">What you can see</text>
+  <text x="296" y="530" fill="#8a5a2b" font-size="13">You can see your own account and the books you published, with their copies sold.</text>
+  <text x="296" y="548" fill="#8a5a2b" font-size="13">Other books, authors and data are managed by your admin (publisher).</text>
+</svg>
