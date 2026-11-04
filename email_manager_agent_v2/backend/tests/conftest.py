@@ -116,6 +116,7 @@ class FakeBridge:
     def op_get_profile(self, a): return self.profile
     def op_get_latest_emails(self, a): return [e for e in self.emails.values() if "TRASH" not in e["labels"]][: a["max_results"]]
     def op_search_emails(self, a): return list(self.emails.values())[: a["max_results"]]
+    def op_count_emails(self, a): return {"conversations": len(self.emails), "capped": False}
     def op_read_email(self, a): return self._get(self.emails, a["message_id"], "Email")
     def op_read_thread(self, a):
         msgs = [e for e in self.emails.values() if e["thread_id"] == a["thread_id"]]

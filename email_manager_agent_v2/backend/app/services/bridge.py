@@ -22,6 +22,7 @@ ALLOWED_OPERATIONS = frozenset(
         # Gmail
         "get_latest_emails",
         "search_emails",
+        "count_emails",
         "read_email",
         "read_thread",
         "list_drafts",

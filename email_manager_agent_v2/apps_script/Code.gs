@@ -21,6 +21,7 @@
 
 var MAX_ATTACHMENT_BYTES = 25 * 1024 * 1024; // FR-31
 var MAX_BODY_CHARS = 20000; // backend truncates further (NFR-10)
+var MAX_COUNT = 5000; // count_emails stops paging here
 var DEFAULT_FOLDER = 'Email Attachments';
 // Gmail system labels this app can add/remove (anything else is a user label).
 var SYSTEM_LABELS = ['INBOX', 'UNREAD', 'STARRED', 'IMPORTANT'];
@@ -421,6 +422,17 @@ var OPERATIONS = {
   search_emails: function (args) {
     var threads = GmailApp.search(reqString_(args, 'query', 1000), 0, optInt_(args, 'max_results', 10, 1, 50));
     return latestOfThreads_(threads);
+  },
+  count_emails: function (args) {
+    // GmailApp.search returns at most 500 threads per call, so page through.
+    var query = reqString_(args, 'query', 1000);
+    var total = 0;
+    var page;
+    do {
+      page = GmailApp.search(query, total, 500).length;
+      total += page;
+    } while (page === 500 && total < MAX_COUNT);
+    return { conversations: total, capped: page === 500 && total >= MAX_COUNT };
   },
   read_email: function (args) {
     return formatMessage_(getMessage_(reqString_(args, 'message_id', 200)));
