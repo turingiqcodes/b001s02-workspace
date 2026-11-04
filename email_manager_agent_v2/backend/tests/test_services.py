@@ -307,3 +307,19 @@ def test_date_filters_accept_date_or_datetime(value):
 def test_bad_date_still_rejected():
     with pytest.raises(ValidationError):
         gmail.SearchEmailsArgs(after="next tuesday")
+
+
+def test_count_emails_uses_bridge_count(ctx, bridge):
+    out = run(gmail.count_emails(ctx, gmail.CountEmailsArgs(query="in:inbox", is_unread=True)))
+    assert out == {"query": "in:inbox is:unread", "conversations": len(bridge.emails), "capped": False}
+    assert bridge.calls[-1] == ("count_emails", {"query": "in:inbox is:unread"})
+
+
+def test_count_emails_needs_a_filter():
+    with pytest.raises(ValidationError):
+        gmail.CountEmailsArgs()
+
+
+def test_full_search_page_suggests_counting(ctx, bridge):
+    out = run(gmail.search_emails(ctx, gmail.SearchEmailsArgs(is_unread=True, max_results=1)))
+    assert "count_emails" in out["note"]

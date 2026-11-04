@@ -132,3 +132,23 @@ test('list_gmail_labels includes system and user labels', () => {
   const names = env.call('list_gmail_labels').result.map((l) => `${l.type}:${l.name}`);
   assert.deepEqual(names, ['system:INBOX', 'system:UNREAD', 'system:STARRED', 'system:IMPORTANT', 'user:Work']);
 });
+
+test('count_emails counts every matching conversation', () => {
+  const env = createEnv();
+  const res = env.call('count_emails', { query: 'in:inbox is:unread' });
+  assert.equal(res.ok, true);
+  assert.equal(res.result.capped, false);
+  assert.ok(res.result.conversations > 0);
+  assert.deepEqual(env.calls[0], { name: 'GmailApp.search', args: ['in:inbox is:unread', 0, 500] });
+});
+
+test('count_emails pages past 500 and stops at the cap', () => {
+  const env = createEnv();
+  const pages = [];
+  const fakeSearch = (total) => (q, start, max) => (pages.push(start), new Array(Math.max(0, Math.min(max, total - start))).fill({}));
+  env.context.GmailApp.search = fakeSearch(1234);
+  assert.deepEqual(env.call('count_emails', { query: 'is:unread' }).result, { conversations: 1234, capped: false });
+  assert.deepEqual(pages, [0, 500, 1000]);
+  env.context.GmailApp.search = fakeSearch(99999);
+  assert.deepEqual(env.call('count_emails', { query: 'is:unread' }).result, { conversations: 5000, capped: true });
+});

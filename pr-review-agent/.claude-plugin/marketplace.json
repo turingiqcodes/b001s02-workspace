@@ -1,0 +1,14 @@
+{
+  "name": "pr-review-local",
+  "owner": {
+    "name": "B001S02",
+    "email": "engineering@turingiq.ai"
+  },
+  "plugins": [
+    {
+      "name": "pr-review-agent",
+      "source": "./",
+      "description": "PR review agent with skills and hooks"
+    }
+  ]
+}

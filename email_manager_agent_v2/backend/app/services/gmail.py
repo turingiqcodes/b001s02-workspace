@@ -34,7 +34,7 @@ class GetLatestEmailsArgs(_Args):
     max_results: int = Field(5, ge=1, le=50, description="How many recent emails to return.")
 
 
-class SearchEmailsArgs(_Args):
+class _SearchFilters(_Args):
     query: str | None = Field(None, max_length=500, description="Free text or Gmail search syntax, e.g. 'invoice is:unread'.")
     sender: str | None = Field(None, max_length=200, description="Sender name or address (from:).")
     recipient: str | None = Field(None, max_length=200, description="Recipient name or address (to:).")
@@ -45,7 +45,6 @@ class SearchEmailsArgs(_Args):
     is_unread: bool | None = None
     label: str | None = Field(None, max_length=100, description="Gmail label name.")
     include_trash: bool = Field(False, description="Also search Trash (needed to find emails to restore).")
-    max_results: int = Field(10, ge=1, le=50)
 
     @field_validator("after", "before", mode="before")
     @classmethod
@@ -53,7 +52,7 @@ class SearchEmailsArgs(_Args):
         return coerce_date(v)
 
     @model_validator(mode="after")
-    def _at_least_one(self) -> "SearchEmailsArgs":
+    def _at_least_one(self) -> "_SearchFilters":
         if not any([self.query, self.sender, self.recipient, self.subject, self.after, self.before,
                     self.has_attachment, self.is_unread, self.label, self.include_trash]):
             raise ValueError("give at least one search filter")
@@ -88,6 +87,14 @@ class SearchEmailsArgs(_Args):
         if self.include_trash:
             parts.append("in:anywhere")
         return " ".join(parts)
+
+
+class SearchEmailsArgs(_SearchFilters):
+    max_results: int = Field(10, ge=1, le=50)
+
+
+class CountEmailsArgs(_SearchFilters):
+    """Same filters as search_emails; returns a count instead of messages."""
 
 
 class MessageIdArgs(_Args):
@@ -223,7 +230,21 @@ async def get_latest_emails(ctx: ToolContext, args: GetLatestEmailsArgs) -> Any:
 async def search_emails(ctx: ToolContext, args: SearchEmailsArgs) -> Any:
     query = args.gmail_query()
     raw = await ctx.bridge.call("search_emails", {"query": query, "max_results": args.max_results})
-    return {"query": query, "emails": [parse_email(e, ctx.settings.list_body_limit) for e in raw or []]}
+    emails = [parse_email(e, ctx.settings.list_body_limit) for e in raw or []]
+    result: dict[str, Any] = {"query": query, "emails": emails}
+    if len(emails) >= args.max_results:
+        result["note"] = "More matches may exist. Use count_emails to get the total."
+    return result
+
+
+async def count_emails(ctx: ToolContext, args: CountEmailsArgs) -> Any:
+    query = args.gmail_query()
+    raw = await ctx.bridge.call("count_emails", {"query": query}) or {}
+    return {
+        "query": query,
+        "conversations": int(raw.get("conversations") or 0),
+        "capped": bool(raw.get("capped")),
+    }
 
 
 async def read_email(ctx: ToolContext, args: MessageIdArgs) -> Any:

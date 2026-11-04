@@ -36,6 +36,7 @@ TOOLS: list[ToolSpec] = [
     # ----- Gmail: read -----
     ToolSpec("get_latest_emails", "Get the most recent emails in the inbox.", gmail.GetLatestEmailsArgs, "read", gmail.get_latest_emails),
     ToolSpec("search_emails", "Search Gmail by keywords, sender, recipient, subject, dates, label, unread or attachment filters.", gmail.SearchEmailsArgs, "read", gmail.search_emails),
+    ToolSpec("count_emails", "Count matching email conversations (same filters as search_emails, e.g. is_unread=true with query 'in:inbox'). Use this for 'how many' questions.", gmail.CountEmailsArgs, "read", gmail.count_emails),
     ToolSpec("read_email", "Read one email in full, including its attachment list.", gmail.MessageIdArgs, "read", gmail.read_email),
     ToolSpec("read_thread", "Read every message in an email conversation (use for summaries).", gmail.ReadThreadArgs, "read", gmail.read_thread),
     ToolSpec("list_drafts", "List existing Gmail drafts.", gmail.ListDraftsArgs, "read", gmail.list_drafts),
