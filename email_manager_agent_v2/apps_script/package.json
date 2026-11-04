@@ -1,0 +1,11 @@
+{
+  "name": "email-manager-bridge",
+  "private": true,
+  "description": "Google Apps Script bridge for Email Manager Agent (tests run on plain Node)",
+  "scripts": {
+    "test": "node --test tests/"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
