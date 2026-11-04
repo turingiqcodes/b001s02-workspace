@@ -1,0 +1,10 @@
+{
+  "name": "pr-review-agent",
+  "version": "1.0.0",
+  "description": "PR review agent: multi-dimension review skills, a read-only reviewer subagent, and guard/validation hooks.",
+  "author": {
+    "name": "B001S02",
+    "email": "engineering@turingiq.ai"
+  },
+  "keywords": ["code-review", "pull-request", "github", "hooks", "skills"]
+}
