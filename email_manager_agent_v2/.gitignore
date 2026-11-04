@@ -8,3 +8,4 @@ __pycache__/
 # node
 node_modules/
 frontend/dist/
+backend/backend.log
