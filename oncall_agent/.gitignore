@@ -1,0 +1,10 @@
+.env
+data/
+*.db
+*.db-journal
+*.lock
+__pycache__/
+*.egg-info/
+.pytest_cache/
+config/dag_repos.json
+config/owners.json
