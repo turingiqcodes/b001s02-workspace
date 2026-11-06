@@ -1,0 +1,14 @@
+{
+  "developers": {
+    "developer1": {
+      "github_username": "developer1",
+      "linear_user_id": "linear-user-id-1"
+    },
+    "developer2": {
+      "github_username": "developer2",
+      "linear_user_id": "linear-user-id-2"
+    }
+  },
+  "default_owner": "linear-user-id-default",
+  "approvers": ["linear-user-id-1"]
+}

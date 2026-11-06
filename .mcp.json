@@ -5,6 +5,27 @@
       "command": "/home/training/workspace/github-mcp-server/.venv/bin/github-mcp-server",
       "args": ["--toolsets", "repos,pulls,actions,issues,search"],
       "env": {}
+    },
+    "oncall-airflow": {
+      "type": "stdio",
+      "command": "/opt/turingiq-venv/bin/oncall-airflow-mcp",
+      "args": [],
+      "env": {
+        "ONCALL_DATABASE_PATH": "/home/training/workspace/oncall_agent/data/oncall_agent.db",
+        "ONCALL_DAG_REPOS_PATH": "/home/training/workspace/oncall_agent/config/dag_repos.json",
+        "ONCALL_OWNERS_PATH": "/home/training/workspace/oncall_agent/config/owners.json",
+        "ONCALL_MCP_ALLOW_AIRFLOW_WRITES": "false"
+      }
+    },
+    "oncall-linear": {
+      "type": "stdio",
+      "command": "/opt/turingiq-venv/bin/oncall-linear-mcp",
+      "args": [],
+      "env": {
+        "ONCALL_DATABASE_PATH": "/home/training/workspace/oncall_agent/data/oncall_agent.db",
+        "ONCALL_DAG_REPOS_PATH": "/home/training/workspace/oncall_agent/config/dag_repos.json",
+        "ONCALL_OWNERS_PATH": "/home/training/workspace/oncall_agent/config/owners.json"
+      }
     }
   }
 }

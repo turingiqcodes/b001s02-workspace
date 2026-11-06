@@ -1,0 +1,19 @@
+{
+  "no_retry_dags": ["production_payment_dag", "critical_finance_dag"],
+  "dags": {
+    "sales_etl_dag": {
+      "repo": "example-org/data-pipelines",
+      "dag_file_path": "dags/sales_etl_dag.py",
+      "extra_paths": ["dags/sql/sales/", "plugins/common/db.py"],
+      "owner": "developer1",
+      "no_retry": false
+    },
+    "production_payment_dag": {
+      "repo": "example-org/payments",
+      "dag_file_path": "dags/production_payment_dag.py",
+      "extra_paths": [],
+      "owner": "developer2",
+      "no_retry": true
+    }
+  }
+}
