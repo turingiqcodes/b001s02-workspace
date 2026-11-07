@@ -70,8 +70,9 @@ def admin() -> AirflowAdmin:
 
 @pytest.fixture
 def services(tmp_path):
+    # monitor_all_dags: the it_* DAGs are not in config/dag_repos.json, and this Airflow is throwaway.
     settings = Settings(force_mocks=False, database_path=str(tmp_path / "it.db"), initial_lookback_hours=1,
-                        detection_overlap_minutes=10)
+                        detection_overlap_minutes=10, monitor_all_dags=True)
     return build(SCRIPT, settings=settings, store=Store(settings.database_path),
                  airflow=RestAirflowClient(URL, USER, PASSWORD))
 

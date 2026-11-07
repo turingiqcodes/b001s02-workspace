@@ -40,3 +40,12 @@ def test_normalization_removes_volatile_values():
 def test_empty_error_is_handled():
     assert normalize_error_line("") == ""
     assert len(fingerprint("d", "t", "")[0]) == 64
+
+
+def test_numbers_with_units_are_normalized():
+    # dagrun_timeout messages carry the run duration, which differs on every run.
+    a = "DAG run failed: dagrun_timeout exceeded (task states: skipped=1); duration 21s; dagrun_timeout 20s"
+    b = "DAG run failed: dagrun_timeout exceeded (task states: skipped=1); duration 3660s; dagrun_timeout 3600s"
+    assert fingerprint("d", None, a) == fingerprint("d", None, b)
+    assert normalize_error_line("Timeout after 30.5ms") == "Timeout after <N>ms"
+    assert normalize_error_line("md5 mismatch on v2") == "md5 mismatch on v2"

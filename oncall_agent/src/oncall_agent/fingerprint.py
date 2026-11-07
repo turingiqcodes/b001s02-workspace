@@ -30,7 +30,9 @@ _SUBSTITUTIONS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"\b(?:[0-9a-f]{1,4}:){4,7}[0-9a-f]{1,4}\b", re.I), "<IP>"),
     (re.compile(r"\b0x[0-9a-f]+\b", re.I), "<HEX>"),
     (re.compile(r"\b[0-9a-f]{12,}\b", re.I), "<HEX>"),
-    (re.compile(r"\b\d+(?:\.\d+)?\b"), "<N>"),
+    # Numbers, including ones with a unit suffix ("21s", "30.5ms", "512MB" -> "<N>s", "<N>ms", "<N>MB").
+    # The leading \b keeps identifiers such as "md5" or "v2" intact.
+    (re.compile(r"\b\d+(?:\.\d+)?(?=[A-Za-z%]*\b)"), "<N>"),
 ]
 
 
