@@ -9,6 +9,7 @@ set task state, but cannot manage users or connections.
 """
 from __future__ import annotations
 
+import json
 from datetime import datetime
 from typing import Any, Optional
 from urllib.parse import quote
@@ -50,6 +51,39 @@ def _run(d: dict[str, Any]) -> DagRunInfo:
 
 def _q(value: str) -> str:
     return quote(value, safe="")
+
+
+def _render_error_detail(detail: Any) -> str:
+    """Render an Airflow 3 structured-log ``error_detail`` as a Python-style traceback.
+
+    Airflow 3 keeps the exception out of the log message ("Task failed with exception") and puts
+    it in ``error_detail``: a list of exceptions, outermost first, each followed by its cause
+    (``is_cause``) or the exception it was raised while handling. Like Python, the raised
+    exception is printed last, so it is the line the fingerprint and the analysis pick up.
+    """
+    if isinstance(detail, str):
+        try:
+            detail = json.loads(detail)
+        except ValueError:
+            return detail
+    if not isinstance(detail, list):
+        return str(detail)
+    chain = [e for e in detail if isinstance(e, dict)]
+    blocks: list[str] = []
+    for i in range(len(chain) - 1, -1, -1):  # causes first, the raised (outermost) exception last
+        exc = chain[i]
+        frames = [f for f in exc.get("frames") or [] if isinstance(f, dict)]
+        lines = ["Traceback (most recent call last):"] if frames else []
+        lines += [f'  File "{f.get("filename", "?")}", line {f.get("lineno", "?")}, in {f.get("name", "?")}'
+                  for f in frames]
+        exc_type, exc_value = exc.get("exc_type") or "Exception", exc.get("exc_value")
+        lines.append(f"{exc_type}: {exc_value}" if exc_value not in (None, "") else str(exc_type))
+        blocks.append("\n".join(lines))
+        if i > 0:
+            blocks.append("\nThe above exception was the direct cause of the following exception:\n"
+                          if exc.get("is_cause") else
+                          "\nDuring handling of the above exception, another exception occurred:\n")
+    return "\n".join(blocks)
 
 
 class RestAirflowClient(AirflowClient):
@@ -152,6 +186,8 @@ class RestAirflowClient(AirflowClient):
                     ts = item.get("timestamp", "")
                     lvl = item.get("level", "")
                     lines.append(" ".join(str(p) for p in (ts, lvl, item.get("event", "")) if p))
+                    if item.get("error_detail"):
+                        lines.append(_render_error_detail(item["error_detail"]))
                 else:
                     lines.append(str(item))
             return "\n".join(lines)

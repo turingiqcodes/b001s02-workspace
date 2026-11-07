@@ -9,6 +9,7 @@ import pytest
 
 from oncall_agent.integrations import (AirflowUnavailable, ClaudeUnavailable, IntegrationError, LinearUnavailable,
                                       LLMUnavailable)
+from oncall_agent.fingerprint import fingerprint, normalize_error_line
 from oncall_agent.integrations.airflow import RestAirflowClient
 from oncall_agent.integrations.claude import AnthropicClaudeClient
 from oncall_agent.integrations.github import RestGitHubClient
@@ -98,6 +99,45 @@ def test_airflow_structured_logs_are_flattened():
                                                       "event": "Boom: connection timed out"}]})
 
     assert "Boom: connection timed out" in airflow_client(handler).get_task_log("d", "r", "t", 1)
+
+
+def _error_detail_client(error_detail):
+    # Shape taken from a real Airflow 3.1 task log: the exception is only in error_detail.
+    def handler(req):
+        if req.url.path == "/auth/token":
+            return httpx.Response(201, json={"access_token": "x"})
+        return httpx.Response(200, json={"content": [
+            {"timestamp": "2026-11-07T06:10:10.195326Z", "level": "info", "event": "Filling up the DagBag"},
+            {"timestamp": "2026-11-07T06:10:10.305601Z", "level": "error", "event": "Task failed with exception",
+             "error_detail": error_detail}]})
+    return airflow_client(handler)
+
+
+def test_airflow3_error_detail_exception_is_kept_and_fingerprinted():
+    frame = {"filename": "/dags/it_fail_task_dag.py", "lineno": 16, "name": "transform"}
+    key_error = [{"exc_type": "KeyError", "exc_value": "'region_code'", "exc_notes": [], "syntax_error": None,
+                  "is_cause": False, "is_group": False, "exceptions": [], "frames": [frame]}]
+    log = _error_detail_client(key_error).get_task_log("d", "r", "t", 1)
+    assert 'File "/dags/it_fail_task_dag.py", line 16, in transform' in log
+    assert normalize_error_line(log) == "KeyError: 'region_code'"
+
+    timeout = [{**key_error[0], "exc_type": "TimeoutError", "exc_value": "Connection timed out"}]
+    other = _error_detail_client(timeout).get_task_log("d", "r", "t", 1)
+    # Different errors in the same task must not share a fingerprint.
+    assert fingerprint("d", "t", log)[0] != fingerprint("d", "t", other)[0]
+
+
+def test_airflow3_error_detail_chain_ends_with_raised_exception():
+    # Outermost exception first, then its cause, as Airflow / structlog list them.
+    chain = [{"exc_type": "RuntimeError", "exc_value": "load failed", "is_cause": False, "frames": []},
+             {"exc_type": "ConnectionError", "exc_value": "refused", "is_cause": True, "frames": []}]
+    log = _error_detail_client(chain).get_task_log("d", "r", "t", 1)
+    assert log.index("ConnectionError: refused") < log.index("direct cause") < log.index("RuntimeError: load failed")
+    assert normalize_error_line(log) == "RuntimeError: load failed"
+    # error_detail serialised as a JSON string is handled the same way.
+    as_text = _error_detail_client(json.dumps(chain)).get_task_log("d", "r", "t", 1)
+    assert as_text == log
+
 
 
 # ---- GitHub -----------------------------------------------------------------------------
