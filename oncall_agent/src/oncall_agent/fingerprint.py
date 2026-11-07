@@ -14,9 +14,13 @@ _ERROR_LINE_HINTS = re.compile(
     r"does not exist|undefined|invalid|cannot|can't|unable|killed|sigterm|sigkill|oom)",
     re.IGNORECASE,
 )
+# Timestamp, optional {file.py:12} source, optional log level. Levels are upper case in Airflow 2
+# ("INFO - ...") and lower case in Airflow 3 structured logs ("... info ..."). Mixed case is not
+# matched, so a message that starts with a word like "Error connecting ..." keeps that word.
 _LOG_PREFIX = re.compile(
     r"^\s*\[?\d{4}-\d{2}-\d{2}[ T][\d:.,]+(?:Z|[+-]\d{2}:?\d{2})?\]?\s*"
-    r"(?:\{[^}]*\}\s*)?(?:(?:DEBUG|INFO|WARNING|ERROR|CRITICAL)\s*-?\s*)?"
+    r"(?:\{[^}]*\}\s*)?"
+    r"(?:(?:DEBUG|INFO|WARN(?:ING)?|ERROR|CRITICAL|debug|info|warn(?:ing)?|error|critical)\b\s*-?\s*)?"
 )
 
 _SUBSTITUTIONS: list[tuple[re.Pattern[str], str]] = [
