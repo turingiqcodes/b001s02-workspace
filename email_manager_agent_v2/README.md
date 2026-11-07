@@ -94,8 +94,8 @@ Open <http://127.0.0.1:5173>. The status bar should show the AI model, Bridge an
 ## Running the tests
 
 ```bash
-cd backend && pytest                 # 105 tests: API, approvals, services, security, Groq request shape
-cd apps_script && npm test           # 32 tests: Code.gs run against in-memory GmailApp/CalendarApp/DriveApp fakes
+cd backend && pytest                 # 118 tests: API, approvals, services, security, Groq request shape
+cd apps_script && npm test           # 34 tests: Code.gs run against in-memory GmailApp/CalendarApp/DriveApp fakes
 ```
 
 Both suites use fakes (NFR-19): an in-memory bridge, a scripted LLM, and mocked Apps Script services.
