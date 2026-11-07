@@ -49,3 +49,18 @@ def test_numbers_with_units_are_normalized():
     assert fingerprint("d", None, a) == fingerprint("d", None, b)
     assert normalize_error_line("Timeout after 30.5ms") == "Timeout after <N>ms"
     assert normalize_error_line("md5 mismatch on v2") == "md5 mismatch on v2"
+
+
+def test_lowercase_airflow3_log_level_is_stripped():
+    # Airflow 3 structured logs are rendered as "<timestamp> <level> <event>" with a lower-case level.
+    log = ("2026-11-06T07:03:58.820126Z info QC authour_stage_to_public: diff=20 -> FAIL\n"
+           "2026-11-06T07:03:58.888600Z info Failure caused by QC failed: ['authour_stage_to_public']")
+    assert pick_error_line(log) == "Failure caused by QC failed: ['authour_stage_to_public']"
+    # The level no longer hides an exception line from the exception-first preference.
+    log = ("2026-11-06T07:03:58.1Z error ValueError: bad input\n"
+           "2026-11-06T07:03:58.2Z info Task failed with exception")
+    assert pick_error_line(log) == "ValueError: bad input"
+    # Airflow 2 upper-case format still works; mixed-case message words are kept.
+    assert pick_error_line("[2026-11-06 07:03:58,820] {x.py:12} ERROR - boom failed") == "boom failed"
+    assert pick_error_line("2026-11-06T07:03:58Z Error connecting to db") == "Error connecting to db"
+    assert pick_error_line("2026-11-06T07:03:58Z information unavailable") == "information unavailable"
